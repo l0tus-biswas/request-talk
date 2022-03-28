@@ -11,7 +11,8 @@ UPCOMING GOALS
     -  Delete
     -  Copy
 4. Start Availability
-  - Creating New Schedule (On click, save the Schedule Name, and set the deafult timezone as in prfile, and set default timings of Monday-Friday as 9AM - 5PM and Saturday & Sunday Unavailable)
+  - Creating New Schedule 
+    (On click, save the Schedule Name, and set the deafult timezone as in prfile, and set default timings of Monday-Friday as 9AM - 5PM and Saturday & Sunday Unavailable)
   - Edit
   - Delete 
  
