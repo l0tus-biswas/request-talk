@@ -1,5 +1,5 @@
 
-UPCOMING GOALS
+#h2 UPCOMING GOALS
 
 1. Verify the lifecycle of the application.
 2. Update the database design from the recent UI changes made.
