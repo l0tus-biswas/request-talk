@@ -1,10 +1,10 @@
 
 # UPCOMING GOALS
 
-1. Verify the lifecycle of the application.
-2. Update the database design from the recent UI changes made.
+1. **Verify the lifecycle of the application.**
+2. **Update the database design from the recent UI changes made.**
 3. Start connecting the backend with Angular
-  - Begin with Settings module.
+  - **Begin with Settings module.**
   - Start with Event Types
     -  Creating New Event Type data.
     -  Edit 
