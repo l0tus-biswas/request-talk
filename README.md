@@ -1,5 +1,4 @@
 # Appointly.com
-![] (https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png)
 ![alt text](https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png)
 #### Scheduling infrastructure for absolutely everyone. 
 <p>
