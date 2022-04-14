@@ -3,6 +3,7 @@
  
   <img width="460" height="300" src="https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png">
 </p>
+
 #### Scheduling infrastructure for absolutely everyone. 
 <p>
 Appointly.com is a calendar scheduling tool that is both powerful and simple to use. Easily configure your availability settings, then email or embed the link with your client or team member. The event is automatically added to your calendar after they pick a time. </p>
