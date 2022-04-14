@@ -1,6 +1,6 @@
-
+ # Appointly.com
 <p align="center">
-  # Appointly.com
+ 
   <img width="460" height="300" src="https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png">
 </p>
 #### Scheduling infrastructure for absolutely everyone. 
