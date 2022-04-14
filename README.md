@@ -1,7 +1,7 @@
 
-<p align="center">
-  <h1> Appointly.com</h1>
-</p>
+
+  <h1 align="center"> Appointly.com</h1>
+
 
 #### Scheduling infrastructure for absolutely everyone. 
 <p>
