@@ -1,0 +1,36 @@
+<app-common-navbar></app-common-navbar>
+<div class="container">
+  <div class="p-4 p-md-5 mb-4 text-dark rounded home-first-intro shadow bg-body rounded">
+    <div class="col-md-6 col-sm-12 px-0 ">
+      <h1 class="display-6 fst-italic">Scheduling infrastructure for absolutely everyone.</h1>
+      <p class="lead my-3">This is your gateway for professionally and effectively organising meetings, removing the stress of back-and-forth emails so you can get back to business.</p>
+     <a href="event-types" class="btn btn-dark lead mb-0  btn-lg">Get Started Now</a>
+    </div>
+  </div>
+  <div class="row align-items-md-stretch ">
+
+    <!-- <div class="col-md-6">
+      <div class="h-100 p-5 bg-light border rounded-3  ">
+        <h2>Intregration App Store</h2>
+        <p>Connecting people, technology and the workplace.</p>
+        <button class="btn btn-outline-secondary" type="button"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+      </div>
+    </div> -->
+    <div class="col-md-6 ">
+      <div class="h-100 p-5 text-white bg-dark rounded-3 apps-addon" >
+          <img src="../../../assets/images/googleCalendar.svg" alt="" class="mb-4">
+          <h2 >Google Calendar</h2>
+
+        <p>Google Calendar is a time management and scheduling service developed by Google. Allows users to create and edit events, with options available for type and time. Available to anyone that has a Gmail account on both mobile and web versions.</p>
+        
+        <button class="btn btn-outline-light" type="button" *ngIf="isSignedIn" (click)="handleSignoutClick()"><i class="fa fa-check-circle" aria-hidden="true"></i> Unlink</button>
+        <button class="btn btn-outline-light" type="button" *ngIf="!isSignedIn" (click)="handleAuthClick()"><i class="fa fa-plus-square" aria-hidden="true"></i> Link</button>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="pt-3 pb-5 mt-5 text-muted border-top">
+    © Copyright 2022 Lotus Biswas 🙏
+  </footer>
+</div>

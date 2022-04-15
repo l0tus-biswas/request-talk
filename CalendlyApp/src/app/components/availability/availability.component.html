@@ -1,0 +1,118 @@
+<app-common-navbar></app-common-navbar>
+<div class="container bg-light">
+    <div class="row p-2 p-md-3 mt-2 text-light rounded bg-dark">
+      <div class="col-md-12">
+        <h1 class="">Availability</h1>
+      </div>
+    </div>
+    <div class="row p-2 p-md-3">
+      <div class="col-md-12">
+        <p class="lead fst-italic">Configure times when you are available for bookings.</p>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-4 d-flex ">
+          <div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <i class="fa fa-plus" aria-hidden="true"></i> New Schedule
+            </button>
+  
+            <!-- Modal -->
+            <div class="modal fade text-dark " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+  
+                  <div class="modal-body">
+                    <h5 id="exampleModalLabel">
+                        Add a new schedule</h5>
+  
+                        Create a new event type for people to book times with.
+                    <form  #addnewSchedule="ngForm" (ngSubmit)="addNewAvailFunc(addnewSchedule)" class="ng-untouched ng-pristine ng-invalid">
+                      <div class="form-group">
+                        <div class="mb-3">
+                          <label for="availabilityName" class="col-form-label">Schedule Name</label>
+                          <input type="text"  placeholder="Meeting Hours" name="availabilityName" #availabilityNameRef="ngModel" class="form-control " ngModel required>
+                        </div>
+                        <div *ngIf="availabilityNameRef.errors && (availabilityNameRef.dirty || availabilityNameRef.touched)" style="text-align:left; color:red;">
+                          <div [hidden]="!availabilityNameRef.errors">
+                            <p>&nbsp;Schedule Name is mandatory</p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="mb-3">
+                        <label for="timezone" class="col-form-label">Timezone</label>
+                      
+                        <select class="form-select" id="timezone" required="" >
+                          <option *ngFor="let opt of this.timeZoneArr" [value]="opt.value" [selected]="opt.status == 'true'">
+                            {{opt.label}}</option>
+                          
+                        </select>
+                        </div>
+                      </div>
+
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success " [disabled]="!addnewSchedule.form.valid">
+                          Add Schedule</button>
+                      </div>
+
+  
+                    </form>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+  
+  
+          </div>
+        </div>
+      </div>
+  
+  
+    </div>
+  
+    <!-- <div class="row mx-2">
+          <div class="py-5 text-center text-dark rounded bg-light border border-2  ">
+              <div class="col-md-12 ">
+                  <div class="icon-white-circle d-block mx-auto mb-4 "><i class="fa fa-calendar-o" aria-hidden="true"></i></div>
+                  <h3 class="pt-100 mb-2">Create an availability schedule</h3>
+                  <p class=" ">Creating availability schedules allows you to manage availability across event types. They can be applied to one or more event types.</p>
+              </div>
+          </div>
+          
+      </div> -->
+
+      
+  <div class="row mx-1">
+    <div class="col-md-12 mb-2 text-dark rounded bg-white border border-1 shadow-sm bg-body"  *ngFor="let avl of tempavaibility">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-3  ">
+        <div>
+          <p>{{avl.availabilityName}}</p>
+          <p>Timezone : <span class="fst-italic">{{avl.timezone}}</span></p>
+        </div>
+        <div>
+          <div class="btn-toolbar mt-2 mb-2 mb-md-0">
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-danger " data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="edit-availability/{{avl.availabilityId}}" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item"  (click)="deleteSchedule(avl.availabilityId)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+      </div>

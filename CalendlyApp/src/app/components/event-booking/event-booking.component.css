@@ -1,0 +1,8 @@
+.profile-image img{
+width: 150px;
+height: 150px;
+}
+.profile-desc p{
+    font-size: 1rem;
+   text-align: center;
+}
