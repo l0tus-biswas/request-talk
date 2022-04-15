@@ -11,7 +11,11 @@ Appointly.com is a calendar scheduling tool that is both powerful and simple to 
 This is your gateway for professionally and effectively organising meetings, removing the stress of back-and-forth emails so you can get back to business.
 </p>
 
-### Meeting is simple now
+#### Meeting is simple now
 
-<p>Share the link to your Cal page and let people pick a time that works for them. </p>
+<p>Share the link to your Appointly.com page and let people pick a time that works for them. </p>
 <p>Who has time to track and then send their availability to everyone for every meeting?</p>
+
+<ul>
+<li>Connect your calendars <br/> Cal reads your availability from all your existing calendars ensuring you never get double booked!<li>
+<ul>
