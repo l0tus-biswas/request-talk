@@ -16,6 +16,6 @@ This is your gateway for professionally and effectively organising meetings, rem
 <p>Share the link to your Appointly.com page and let people pick a time that works for them. </p>
 <p>Who has time to track and then send their availability to everyone for every meeting?</p>
 
-
-<li>Connect your calendars <br/> Cal reads your availability from all your existing calendars ensuring you never get double booked!<li>
+* Connect your calendars
+              * Appointly.com reads your availability from all your existing calendars ensuring you never get double booked!
 
