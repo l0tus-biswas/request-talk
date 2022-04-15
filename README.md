@@ -17,5 +17,5 @@ This is your gateway for professionally and effectively organising meetings, rem
 <p>Who has time to track and then send their availability to everyone for every meeting?</p>
 
 * Connect your calendars
-              * Appointly.com reads your availability from all your existing calendars ensuring you never get double booked!
+  * Appointly.com reads your availability from all your existing calendars ensuring you never get double booked!
 
