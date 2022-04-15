@@ -14,8 +14,8 @@ This is your gateway for professionally and effectively organising meetings, rem
 
 ## Meeting is simple now
 
-<p>Share the link to your Appointly.com page and let people pick a time that works for them. </p>
-<p>Who has time to track and then send their availability to everyone for every meeting?</p>
+_Who has time to track and then send their availability to everyone for every meeting? Share the link to your Appointly.com page and let people pick a time that works for them._
+
 
 1. __Connect your calendars__
   * Appointly.com reads your availability from all your existing calendars ensuring you never get double booked!
