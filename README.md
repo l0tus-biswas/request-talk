@@ -11,6 +11,8 @@ Appointly.com is a calendar scheduling tool that is both powerful and simple to 
 This is your gateway for professionally and effectively organising meetings, removing the stress of back-and-forth emails so you can get back to business.
 </p>
 
+- - - -
+
 #### Meeting is simple now
 
 <p>Share the link to your Appointly.com page and let people pick a time that works for them. </p>
