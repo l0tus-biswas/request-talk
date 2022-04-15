@@ -3,7 +3,7 @@
   <h1 align="center"> Appointly.com</h1>
 
 
-#### Scheduling infrastructure for absolutely everyone. 
+## Scheduling infrastructure for absolutely everyone. 
 <p>
 Appointly.com is a calendar scheduling tool that is both powerful and simple to use. Easily configure your availability settings, then email or embed the link with your client or team member. The event is automatically added to your calendar after they pick a time. </p>
   
@@ -13,7 +13,7 @@ This is your gateway for professionally and effectively organising meetings, rem
 
 - - - -
 
-#### Meeting is simple now
+## Meeting is simple now
 
 <p>Share the link to your Appointly.com page and let people pick a time that works for them. </p>
 <p>Who has time to track and then send their availability to everyone for every meeting?</p>
