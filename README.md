@@ -18,15 +18,15 @@ This is your gateway for professionally and effectively organising meetings, rem
 <p>Share the link to your Appointly.com page and let people pick a time that works for them. </p>
 <p>Who has time to track and then send their availability to everyone for every meeting?</p>
 
-* Connect your calendars
+1. __Connect your calendars__
   * Appointly.com reads your availability from all your existing calendars ensuring you never get double booked!
 
-* Set your availability
+2. __Set your availability__
   * Set repeating schedules for the times of the day and week that you want people to be able to book you.
 
-* Create event types templates
+3. __Create event types templates__
   * Create templates for regularly scheduled events with availability, locations and control how and when you get booked.
 
-* Share your Appointly.com link!
+4. __Share your Appointly.com link!__
   * Share your short Appointly.com personal link and make it incredibly easyy for people to book a meeting at a time that works for both of you!
 
