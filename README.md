@@ -1,6 +1,6 @@
 
 
-  <h1 align="center"> Appointly.com</h1>
+  <h1 align="center"> Appointly.com -- Calendly Alternative</h1>
 
 
 #### Scheduling infrastructure for absolutely everyone. 
