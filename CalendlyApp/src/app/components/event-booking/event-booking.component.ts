@@ -671,8 +671,15 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
   getAllBookings() {
     this._bookingServices.getAllBookings(this.availUserNameParams).subscribe(
       res => {
-      this.preBookedData = res;
-      // console.log(this.preBookedData);
+
+        for(var i=0;i<res.length;i++)
+        {
+          if(res[i].bookingStatus !="Cancelled" && res[i].bookingStatus !="Rescheduled")
+          {
+            this.preBookedData.push(res[i]);
+          }
+        }
+       console.log(this.preBookedData);
 
       for(var i =0;i<this.preBookedData.length;i++)
       {
