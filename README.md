@@ -21,3 +21,12 @@ This is your gateway for professionally and effectively organising meetings, rem
 * Connect your calendars
   * Appointly.com reads your availability from all your existing calendars ensuring you never get double booked!
 
+* Set your availability
+  * Set repeating schedules for the times of the day and week that you want people to be able to book you.
+
+* Create event types templates
+  * Create templates for regularly scheduled events with availability, locations and control how and when you get booked.
+
+* Share your Appointly.com link!
+  * Share your short Appointly.com personal link and make it incredibly easyy for people to book a meeting at a time that works for both of you!
+
