@@ -1,6 +1,5 @@
 
-
-<img src="https://imgur.com/a/vwehCMK" />
+<a href="https://ibb.co/TLjD2K7"><img src="https://i.ibb.co/Wt8N5DM/Appointly-com.png" alt="Appointly-com" border="0"></a>
 
 ## Scheduling infrastructure for absolutely everyone. 
 
