@@ -1,7 +1,6 @@
 
 
-  <h1 align="center"> Appointly.com</h1>
-
+<img src="https://imgur.com/a/vwehCMK" />
 
 ## Scheduling infrastructure for absolutely everyone. 
 
