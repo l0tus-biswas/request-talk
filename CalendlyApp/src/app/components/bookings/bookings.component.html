@@ -70,14 +70,34 @@
                     <div class="col-md-12 mb-2 text-dark rounded bg-white border border-1 shadow-sm bg-body rounded" *ngFor="let bk of upcomingBookings;index as indexOfelement;">
                       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-4  ">
                         <div>
-                          <p>{{bk.bookedEventName}} <span class="fst-italic">between {{fullNameCurrentUser}} & {{bk.appointmentBookedUsername}}</span></p>
-                          <p>{{bk.additionalNotes}}</p>
+                         <strong><p>{{bk.bookedEventName}} <span class="fst-italic">between {{fullNameCurrentUser}} & {{bk.appointmentBookedUsername}}</span></p></strong> 
                           <div >
                             <span ><i class="fa fa-clock-o" aria-hidden="true"></i> {{upcomingTimingsData[indexOfelement][0].userstartTime}} - {{upcomingTimingsData[indexOfelement][0].userEndTime}} </span><br/>
                             <span><i class="fa fa-calendar-o" aria-hidden="true"></i> {{upcomingTimingsData[indexOfelement][0].userbookedDate}}</span>
                           </div>
                         </div>
                         <div>
+                          <div class="btn-toolbar mt-2 mb-2 mb-md-0">
+                            <div class="btn-group me-2 ">
+                                <button type="button" class="btn btn-sm btn-danger" style="margin-right: 4px;" (click)="updateOnCancel(bk.bookingId)"><i class="fa fa-window-close" aria-hidden="true"></i>Cancel</button>
+                              
+                              <button type="button"  class="btn btn-outline-dark" style="margin-right: 4px;"  data-bs-toggle="collapse" [attr.href]="'#collapseExample' + indexOfelement" role="button" aria-expanded="false"  [attr.aria-controls]="'#collapseExample' + indexOfelement" ><i class="fa fa-arrow-down" aria-hidden="true"></i>View Deatils</button>
+                            </div>
+                          
+                          </div>
+                          
+                        </div>
+                      </div>
+                      <div class="collapse mb-4" id="collapseExample{{indexOfelement}}">
+                        <div class="card card-body">
+                          <p></p>
+                         <p  class="fst-italic"><i class="fa fa-commenting" aria-hidden="true"></i> {{bk.additionalNotes}}</p>
+
+                      
+                         <p ><i class="fa fa-envelope" aria-hidden="true"></i>  <a href = "mailto: {{bk.appointmentBookedEmail}}">{{bk.appointmentBookedEmail}}</a> <span *ngIf="bk.appointmentGuestEmail !=null" > , <a href = "mailto: {{bk.appointmentGuestEmail}}"> {{bk.appointmentGuestEmail}}</a> (Guest)</span> </p>
+
+                          <p ><i class="fa fa-phone-square" aria-hidden="true"></i> {{bk.appointmentBookedPhoneNumber}}</p>
+
                           <div class="btn-toolbar mt-2 mb-2 mb-md-0">
                             <div class="btn-group me-2 ">
                               <button type="button" class="btn btn-sm btn-warning" style="margin-right: 4px;" (click)="addToCalendar(bk.bookedEventId, indexOfelement,bk.bookingId)"  *ngIf="bk.sendConfirmationMail =='Not Sent' else elseBlock"><i class="fa fa-envelope" aria-hidden="true"></i> Send Schedule Mail</button>
@@ -88,8 +108,7 @@
                               </ng-template>
                               <button type="button" class="btn btn-sm btn-success" style="margin-right: 4px;" (click)="updateOnComplete(bk.bookingId)"><i class="fa fa-check-circle" ></i>Completed</button>
                               <button type="button" class="btn btn-sm btn-warning" style="margin-right: 4px;" (click)="updateOnReschedule(bk.bookingId)"><i class="fa fa-repeat" aria-hidden="true" ></i>Reschedule</button>
-                              <button type="button" class="btn btn-sm btn-danger" style="margin-right: 4px;" (click)="updateOnCancel(bk.bookingId)"><i class="fa fa-window-close" aria-hidden="true"></i>Cancel</button>
-                            </div>
+                             </div>
                           
                           </div>
                         </div>
