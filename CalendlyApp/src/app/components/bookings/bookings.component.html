@@ -222,12 +222,12 @@
                         <div>
                           <span class="badge rounded-pill bg-success mb-2">Completed</span>
                           <p>{{bk.bookedEventName}} <span class="fst-italic">between {{fullNameCurrentUser}} & {{bk.appointmentBookedUsername}}</span></p>
-                          <p>{{bk.additionalNotes}}</p>
                           <div >
-                            <span ><i class="fa fa-clock-o" aria-hidden="true"></i> {{completedTimingsData[indexOfelement][0].userstartTime}} - {{completedTimingsData[indexOfelement][0].userEndTime}} </span><br/>
+                            <span ><i class="fa fa-clock-o" aria-hidden="true"></i> {{completedTimingsData[indexOfelement][0].userstartTime}} - {{completedTimingsData[indexOfelement][0].userEndTime}} ({{completedTimingsData[indexOfelement][0].userTimezone}}) </span><br/>
                             <span><i class="fa fa-calendar-o" aria-hidden="true"></i> {{completedTimingsData[indexOfelement][0].userbookedDate}}</span>
                           </div>
                         </div>
+                        
                         <div>
                           <!-- <div class="btn-toolbar mt-2 mb-2 mb-md-0">
                             <div class="btn-group me-2 ">
@@ -235,6 +235,28 @@
                               <button type="button" class="btn btn-sm btn-danger" style="margin-right: 4px;"><i class="fa fa-window-close" aria-hidden="true"></i>Cancel</button>
                         </div>
                           </div> -->
+                        </div>
+                        <div>
+                          <div class="btn-toolbar mt-2 mb-2 mb-md-0">
+                         <div class="btn-group me-2 ">
+                             
+                           <button type="button"  class="btn btn-outline-dark" style="margin-right: 4px;"  data-bs-toggle="collapse" [attr.href]="'#collapseExample' + indexOfelement" role="button" aria-expanded="false"  [attr.aria-controls]="'#collapseExample' + indexOfelement" ><i class="fa fa-arrow-down" aria-hidden="true"></i>View Deatils</button>
+                         </div>
+                       
+                       </div>
+                         </div>
+                      </div>
+
+                      <div class="collapse mb-4" id="collapseExample{{indexOfelement}}">
+                        <div class="card card-body">
+                          <p class="fw-bold badge bg-primary text-wrap" style="width: 10rem;">Attendee Information</p>
+                         <p  class="fst-italic"><i class="fa fa-commenting" aria-hidden="true"></i> {{bk.additionalNotes}}</p>
+
+                      
+                         <p ><i class="fa fa-envelope" aria-hidden="true"></i>  <a href = "mailto: {{bk.appointmentBookedEmail}}">{{bk.appointmentBookedEmail}}</a> <span *ngIf="bk.appointmentGuestEmail !=null" > , <a href = "mailto: {{bk.appointmentGuestEmail}}"> {{bk.appointmentGuestEmail}}</a> (Guest)</span> </p>
+
+                          <p ><i class="fa fa-phone-square" aria-hidden="true"></i> {{bk.appointmentBookedPhoneNumber}}</p>
+
                         </div>
                       </div>
                     </div>
