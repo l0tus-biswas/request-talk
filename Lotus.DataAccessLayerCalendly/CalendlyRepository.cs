@@ -182,6 +182,33 @@ namespace Lotus.DataAccessLayerCalendly
 
             return status;
         }
+        public bool editProfilePicture(int userId, string userToken, string userImageLink)
+        {
+            bool status = false;
+            try
+            {
+                var user = context.User.First(u => u.UserId == userId && u.UserToken == userToken);
+
+                if (user != null)
+                {
+                    user.ProfilePicture = userImageLink;
+                    context.User.Update(user);
+                    context.SaveChanges();
+                    status = true;
+                }
+                else
+                {
+                    status = false;
+                }
+            }
+            catch (Exception)
+            {
+                status = false;
+            }
+
+            return status;
+        }
+
         public bool addNewEvent(int userId, string userToken, string title, string url, int length, int availabilityId, string description, string location)
         {
             bool status = false;

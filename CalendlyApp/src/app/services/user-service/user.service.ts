@@ -50,6 +50,16 @@ export class UserService {
     }).pipe(catchError(this.errorHandler));
 }
 
+updateUserProfilePicture( userId: number, userToken: string, userProfilePicture: string): Observable<boolean>  {
+
+  console.log(userId,userToken,userProfilePicture);
+  return this.http.put<boolean>("https://localhost:44305/api/Calendly/EditProfilePicture", {
+    userId: userId,
+    userToken: userToken,
+    profilePicture:userProfilePicture
+  }).pipe(catchError(this.errorHandler));
+}
+
   errorHandler(error: HttpErrorResponse){
     console.error(error);
     return throwError(error.message || "Server Error");

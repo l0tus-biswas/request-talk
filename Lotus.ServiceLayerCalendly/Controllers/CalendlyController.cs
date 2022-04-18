@@ -267,6 +267,22 @@ namespace Lotus.ServiceLayerCalendly.Controllers
             return status;
         }
 
+        [HttpPut]
+        public bool EditProfilePicture(User user)
+        {
+            bool status = false;
+            try
+            {
+                status = repository.editProfilePicture(user.UserId, user.UserToken, user.ProfilePicture);
+            }
+            catch (Exception)
+            {
+                status = false;
+            }
+
+            return status;
+        }
+
         [HttpPost]
         public bool AddNewEvent(Event evt)
         {

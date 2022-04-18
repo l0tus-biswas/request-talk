@@ -112,6 +112,7 @@ export class SettingsComponent implements OnInit {
 
     this.userId = Number(sessionStorage.getItem('userID'));
     this.userToken = sessionStorage.getItem('userToken');;
+    this.ans = "http://www.mountainheavensella.com/wp-content/uploads/2018/12/default-user.png"
   }
 
   ngOnInit(): void {

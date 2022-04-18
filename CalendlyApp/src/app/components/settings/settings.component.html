@@ -43,12 +43,17 @@
             <div class="mt-4 py-2">
               <h4>Edit Your information</h4>
             </div>
-            <!-- <input type="file" (input)="onInput($event)"> -->
-            <input type="file" (input)="onInput($event)" />
+            <div class="col-sm-6 upload-img py-2 mb-3">
+              
+              <img src="{{this.ans}}" class="img-thumbnail rounded float-start" alt="" class="pb-2">
+              <br/>
+              <input type="file"  (input)="onInput($event)"  accept=".png, .jpg, .jpeg"/>
            
+            </div>
+          
             <form  #updateForm="ngForm" (ngSubmit)="updateUserData(updateForm)" class="needs-validation" novalidate="">
               <div class="row g-3">
-                <div class="col-6">
+                <div class="col-sm-6">
                   <label for="username" class="form-label">Username</label>
                   <div class="input-group has-validation">
                     <span class="input-group-text">https://cal.com/</span>
