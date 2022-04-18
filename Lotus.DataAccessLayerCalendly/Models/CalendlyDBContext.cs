@@ -158,15 +158,15 @@ namespace Lotus.DataAccessLayerCalendly.Models
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasIndex(e => e.EmailAdderss)
-                    .HasName("UQ__tmp_ms_x__53A50C9C80709C76")
+                    .HasName("UQ__User__53A50C9C4FFAED7E")
                     .IsUnique();
 
                 entity.HasIndex(e => e.UserToken)
-                    .HasName("UQ__User__FD9E0823ECDBBE16")
+                    .HasName("UQ__User__FD9E08231C698025")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Username)
-                    .HasName("UQ__tmp_ms_x__536C85E4B7ABD656")
+                    .HasName("UQ__User__536C85E4C7E3EC87")
                     .IsUnique();
 
                 entity.Property(e => e.About).IsUnicode(false);
@@ -190,7 +190,9 @@ namespace Lotus.DataAccessLayerCalendly.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ProfilePicture).IsUnicode(false);
+                entity.Property(e => e.ProfilePicture)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('http://www.mountainheavensella.com/wp-content/uploads/2018/12/default-user.png')");
 
                 entity.Property(e => e.Timezone).IsUnicode(false);
 
