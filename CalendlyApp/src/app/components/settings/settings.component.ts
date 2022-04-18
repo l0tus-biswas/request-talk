@@ -18,7 +18,7 @@ export class SettingsComponent implements OnInit {
   userId: number | null;
   userToken: string | null;
   errMsg!: string;
-   ans! : string;
+  userProfilePicture! : string;
     languageArr = [
     { id: 1, label: "English", status: "false" },
     { id: 2, label: "Hindi", status: "false" }
@@ -112,7 +112,7 @@ export class SettingsComponent implements OnInit {
 
     this.userId = Number(sessionStorage.getItem('userID'));
     this.userToken = sessionStorage.getItem('userToken');;
-    this.ans = "http://www.mountainheavensella.com/wp-content/uploads/2018/12/default-user.png"
+   
   }
 
   ngOnInit(): void {
@@ -123,10 +123,43 @@ export class SettingsComponent implements OnInit {
     this.ImgbbService
       .upload(file.target.files[0])
       .subscribe((res:any) => {
-        this.ans = res['data']['url']
-        console.log(this.ans);
+        this.userProfilePicture = res['data']['url']
+        console.log(this.userProfilePicture);
+        this._userService.updateUserProfilePicture(Number(this.userId), String(this.userToken), this.userProfilePicture).subscribe(
+          res => {
+           
+            this.status = res;
+            console.log(this.status);
+            if (this.status == true) {
+              this._toast.success({ detail: "UPDATE SUCCESS", summary: 'Your profile picture have been updated', position: '' });
+              setTimeout(function () {
+                window.location.reload();
+              }, 2000);
+    
+            }
+            else {
+              this._toast.warning({ detail: "UPDATE FAILED", summary: 'Unable to update your profile picture', position: '' });
+              setTimeout(function () {
+                window.location.reload();
+              }, 2000);
+            }
+    
+          }, err => {
+           this.errMsg = err;
+            console.log(this.errMsg);
+            this._toast.warning({ detail: "FAILED", summary: 'Please try after sometime', position: '' });
+            setTimeout(function () {
+              window.location.reload();
+            }, 2000);
+
+          }, () => console.log(" Update User Profile Picture method excuted successfully")
+        )
       }, err => {
-       
+        this._toast.warning({ detail: "FAILED", summary: 'Please try after sometime', position: '' });
+        setTimeout(function () {
+          window.location.reload();
+        }, 2000);
+
       }, () => console.log("Imgbb method excuted successfully"))
   }
   getUserData() {
@@ -134,7 +167,8 @@ export class SettingsComponent implements OnInit {
       res => {
         this.user = res;
         console.log(this.user);
-
+        this.userProfilePicture = this.user[0].profilePicture;
+        console.log(this.userProfilePicture);
         for (var i = 0; i < this.languageArr.length; i++) {
           if (this.languageArr[i].label == this.user[0].language) {
             this.languageArr[i].status = "true";

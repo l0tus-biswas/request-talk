@@ -258,7 +258,7 @@ export class EventBookingComponent implements OnInit {
   preBookedData: any = [];
 
   deleteBookedTime: any=[];
-
+  userProfilePicture : string = "";
   constructor(private _bookingServices: BookingService, private _toast: NgToastService,private route: ActivatedRoute) { 
     
     const routeParams = this.route.snapshot.paramMap;
@@ -360,6 +360,7 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
       // console.log(this.user);
       this.userName = this.user[0].fullName;
       this.userId = this.user[0].userId;
+      this.userProfilePicture =this.user[0].profilePicture;
 
       if(this.user[0].username == this.availUserNameParams)
       {

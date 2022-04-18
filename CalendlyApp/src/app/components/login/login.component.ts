@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
               sessionStorage.setItem("userToken", String(this.userDetails[0].userToken));
               sessionStorage.setItem("fullName", String(this.userDetails[0].fullName));
               sessionStorage.setItem("emailAddress", String(this.userDetails[0].emailAdderss));
+              sessionStorage.setItem("profilePicture", String(this.userDetails[0].profilePicture));
 
               this._toast.success({ detail: "LOGIN SUCCESS", summary: 'Redirecting to home page', position: '' });
 

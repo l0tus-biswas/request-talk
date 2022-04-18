@@ -19,6 +19,7 @@ export class ProfileBookingComponent implements OnInit {
   userName: string = "";
   profilePicture: string = "";
   about: string = "";
+  userProfilePicture: string = "";
   hideEventType: string = "";
   strEvent: any = [];
   constructor(private _bookingServices: BookingService, private _evtServices: EventService, private _toast: NgToastService,private route: ActivatedRoute) { 
@@ -38,7 +39,7 @@ export class ProfileBookingComponent implements OnInit {
       this.userName =  this.user[0].fullName;
       this.profilePicture=  this.user[0].profilePicture;
       this.about =  this.user[0].about;
-
+      this.userProfilePicture =this.user[0].profilePicture;
       if(res.length!=null)
       {
           this._evtServices.getAllEvents(this.user[0].userId, this.user[0].userToken).subscribe(

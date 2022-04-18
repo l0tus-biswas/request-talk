@@ -44,8 +44,13 @@
               <h4>Edit Your information</h4>
             </div>
             <div class="col-sm-6 upload-img py-2 mb-3">
-              
-              <img src="{{this.ans}}" class="img-thumbnail rounded float-start" alt="" class="pb-2">
+              <div *ngIf="user[0].profilePicture !=null; else elseBlock">
+                <img src="{{userProfilePicture}}" class="img-thumbnail rounded float-start" alt="" class="pb-2">
+              </div>
+              <ng-template #elseBlock>
+                <img src="../../../assets/images/default-user.png" class="img-thumbnail rounded float-start" alt="" class="pb-2">
+            
+              </ng-template>
               <br/>
               <input type="file"  (input)="onInput($event)"  accept=".png, .jpg, .jpeg"/>
            
