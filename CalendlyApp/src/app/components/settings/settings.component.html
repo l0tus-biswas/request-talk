@@ -43,6 +43,9 @@
             <div class="mt-4 py-2">
               <h4>Edit Your information</h4>
             </div>
+            <!-- <input type="file" (input)="onInput($event)"> -->
+            <input type="file" (input)="onInput($event)" />
+           
             <form  #updateForm="ngForm" (ngSubmit)="updateUserData(updateForm)" class="needs-validation" novalidate="">
               <div class="row g-3">
                 <div class="col-6">

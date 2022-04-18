@@ -5000,11 +5000,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj",
+      "projectUniqueName": "D:\\Projects\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj",
       "projectName": "Lotus.DataAccessLayerCalendly",
-      "projectPath": "D:\\GitHub\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj",
+      "projectPath": "D:\\Projects\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj",
       "packagesPath": "C:\\Users\\lotus\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\Appointly.com\\Lotus.DataAccessLayerCalendly\\obj\\",
+      "outputPath": "D:\\Projects\\Appointly.com\\Lotus.DataAccessLayerCalendly\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lotus\\AppData\\Roaming\\NuGet\\NuGet.Config",

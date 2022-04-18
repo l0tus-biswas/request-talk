@@ -4948,11 +4948,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\Appointly.com\\Lotus.Calendly.ConsoleUI\\Lotus.Calendly.ConsoleUI.csproj",
+      "projectUniqueName": "D:\\Projects\\Appointly.com\\Lotus.Calendly.ConsoleUI\\Lotus.Calendly.ConsoleUI.csproj",
       "projectName": "Lotus.Calendly.ConsoleUI",
-      "projectPath": "D:\\GitHub\\Appointly.com\\Lotus.Calendly.ConsoleUI\\Lotus.Calendly.ConsoleUI.csproj",
+      "projectPath": "D:\\Projects\\Appointly.com\\Lotus.Calendly.ConsoleUI\\Lotus.Calendly.ConsoleUI.csproj",
       "packagesPath": "C:\\Users\\lotus\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\Appointly.com\\Lotus.Calendly.ConsoleUI\\obj\\",
+      "outputPath": "D:\\Projects\\Appointly.com\\Lotus.Calendly.ConsoleUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lotus\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4969,8 +4969,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\GitHub\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj": {
-              "projectPath": "D:\\GitHub\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj"
+            "D:\\Projects\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj": {
+              "projectPath": "D:\\Projects\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj"
             }
           }
         }
@@ -5002,21 +5002,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU3037",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Reflection.Emit.Lightweight 4.3.0' from source 'C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\': The repository primary signature validity period has expired.",
-      "libraryId": "System.Reflection.Emit.Lightweight"
-    },
-    {
-      "code": "NU3037",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.NETCore.Targets 1.1.0' from source 'C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\': The repository primary signature validity period has expired.",
-      "libraryId": "Microsoft.NETCore.Targets"
-    }
-  ]
+  }
 }

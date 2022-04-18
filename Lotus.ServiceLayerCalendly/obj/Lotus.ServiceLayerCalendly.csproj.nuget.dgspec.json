@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\Appointly.com\\Lotus.ServiceLayerCalendly\\Lotus.ServiceLayerCalendly.csproj": {}
+    "D:\\Projects\\Appointly.com\\Lotus.ServiceLayerCalendly\\Lotus.ServiceLayerCalendly.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj": {
+    "D:\\Projects\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj",
+        "projectUniqueName": "D:\\Projects\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj",
         "projectName": "Lotus.DataAccessLayerCalendly",
-        "projectPath": "D:\\GitHub\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj",
+        "projectPath": "D:\\Projects\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj",
         "packagesPath": "C:\\Users\\lotus\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\Appointly.com\\Lotus.DataAccessLayerCalendly\\obj\\",
+        "outputPath": "D:\\Projects\\Appointly.com\\Lotus.DataAccessLayerCalendly\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lotus\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -70,14 +70,14 @@
         }
       }
     },
-    "D:\\GitHub\\Appointly.com\\Lotus.ServiceLayerCalendly\\Lotus.ServiceLayerCalendly.csproj": {
+    "D:\\Projects\\Appointly.com\\Lotus.ServiceLayerCalendly\\Lotus.ServiceLayerCalendly.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\Appointly.com\\Lotus.ServiceLayerCalendly\\Lotus.ServiceLayerCalendly.csproj",
+        "projectUniqueName": "D:\\Projects\\Appointly.com\\Lotus.ServiceLayerCalendly\\Lotus.ServiceLayerCalendly.csproj",
         "projectName": "Lotus.ServiceLayerCalendly",
-        "projectPath": "D:\\GitHub\\Appointly.com\\Lotus.ServiceLayerCalendly\\Lotus.ServiceLayerCalendly.csproj",
+        "projectPath": "D:\\Projects\\Appointly.com\\Lotus.ServiceLayerCalendly\\Lotus.ServiceLayerCalendly.csproj",
         "packagesPath": "C:\\Users\\lotus\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\Appointly.com\\Lotus.ServiceLayerCalendly\\obj\\",
+        "outputPath": "D:\\Projects\\Appointly.com\\Lotus.ServiceLayerCalendly\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lotus\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -94,8 +94,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\GitHub\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj": {
-                "projectPath": "D:\\GitHub\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj"
+              "D:\\Projects\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj": {
+                "projectPath": "D:\\Projects\\Appointly.com\\Lotus.DataAccessLayerCalendly\\Lotus.DataAccessLayerCalendly.csproj"
               }
             }
           }

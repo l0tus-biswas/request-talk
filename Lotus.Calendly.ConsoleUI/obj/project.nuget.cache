@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PL3/MhXDT4bfbrAKLived9+DO1Nev6gEqf88Fmye2wIdxHRjakK3JgV5MDpvBrYa1XOBiMNPWY2uxptaAApw+Q==",
+  "dgSpecHash": "WYiwPfQ7lbY2TlUwMxw+xSr6ZEdALf+88fAXPg5HEgbI5R1Y8jg2H0rQdCLXPCoxSdL4UA59FlX+RFRH/X0law==",
   "success": true,
-  "projectFilePath": "D:\\GitHub\\Appointly.com\\Lotus.Calendly.ConsoleUI\\Lotus.Calendly.ConsoleUI.csproj",
+  "projectFilePath": "D:\\Projects\\Appointly.com\\Lotus.Calendly.ConsoleUI\\Lotus.Calendly.ConsoleUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lotus\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\lotus\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
@@ -91,20 +91,5 @@
     "C:\\Users\\lotus\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\lotus\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU3037",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Reflection.Emit.Lightweight 4.3.0' from source 'C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\': The repository primary signature validity period has expired.",
-      "libraryId": "System.Reflection.Emit.Lightweight"
-    },
-    {
-      "code": "NU3037",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.NETCore.Targets 1.1.0' from source 'C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\': The repository primary signature validity period has expired.",
-      "libraryId": "Microsoft.NETCore.Targets"
-    }
-  ]
+  "logs": []
 }
