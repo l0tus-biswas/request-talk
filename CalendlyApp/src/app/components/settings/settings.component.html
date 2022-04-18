@@ -45,10 +45,10 @@
             </div>
             <div class="col-sm-6 upload-img py-2 mb-3">
               <div *ngIf="user[0].profilePicture !=null; else elseBlock">
-                <img src="{{userProfilePicture}}" class="img-thumbnail rounded float-start" alt="" class="pb-2">
+                <img src="{{userProfilePicture}}" class="img-thumbnail rounded-circle" alt="" class="pb-2">
               </div>
               <ng-template #elseBlock>
-                <img src="../../../assets/images/default-user.png" class="img-thumbnail rounded float-start" alt="" class="pb-2">
+                <img src="../../../assets/images/default-user.png" class="img-thumbnail rounded float-start rounded-circle" alt="" class="pb-2">
             
               </ng-template>
               <br/>
