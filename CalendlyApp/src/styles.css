@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400&display=swap');
 *{
-    font-family: 'Spectral', serif;
+    font-family: 'Spectral', serif;   
+  
 }
-
 
 input.ng-touched {
     border-left: 5px solid red
