@@ -9,6 +9,7 @@ import { EventTypesComponent } from './components/event-types/event-types.compon
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileBookingComponent } from './components/profile-booking/profile-booking.component';
+import { SendResetPasswordMailComponent } from './components/send-reset-password-mail/send-reset-password-mail.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SuccessBookingComponent } from './components/success-booking/success-booking.component';
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path: 'edit-availability/:id', component: EditAvailabilityComponent, canActivate: [AuthGuardService]},
   {path: 'user/:username', component: ProfileBookingComponent},
   {path: 'user/:username/:event_id', component: EventBookingComponent},
-  {path: 'success', component: SuccessBookingComponent}
+  {path: 'success', component: SuccessBookingComponent},
+  {path: 'reset-mail', component: SendResetPasswordMailComponent}
 ];
 
 @NgModule({

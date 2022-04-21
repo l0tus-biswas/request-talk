@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotus.Calendly.ConsoleUI", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotus.DataAccessLayerCalendly", "Lotus.DataAccessLayerCalendly\Lotus.DataAccessLayerCalendly.csproj", "{CB7F4913-1F82-43FC-A01B-39B7630E3A7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotus.ServiceLayerCalendly", "Lotus.ServiceLayerCalendly\Lotus.ServiceLayerCalendly.csproj", "{A8C50943-5F9E-47E9-A7C2-646A36A28437}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotus.ServiceLayerCalendly", "Lotus.ServiceLayerCalendly\Lotus.ServiceLayerCalendly.csproj", "{A8C50943-5F9E-47E9-A7C2-646A36A28437}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDMApplication", "EDMApplication\EDMApplication.csproj", "{E9C892FB-897F-4669-B00B-B49F39F11AAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{A8C50943-5F9E-47E9-A7C2-646A36A28437}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8C50943-5F9E-47E9-A7C2-646A36A28437}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8C50943-5F9E-47E9-A7C2-646A36A28437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9C892FB-897F-4669-B00B-B49F39F11AAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9C892FB-897F-4669-B00B-B49F39F11AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9C892FB-897F-4669-B00B-B49F39F11AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9C892FB-897F-4669-B00B-B49F39F11AAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

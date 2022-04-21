@@ -20,6 +20,7 @@ import { ProfileBookingComponent } from './components/profile-booking/profile-bo
 import { EventBookingComponent } from './components/event-booking/event-booking.component';
 import { SuccessBookingComponent } from './components/success-booking/success-booking.component';
 import { ImgurApiService } from './components/settings/imgur-api.service';
+import { SendResetPasswordMailComponent } from './components/send-reset-password-mail/send-reset-password-mail.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ImgurApiService } from './components/settings/imgur-api.service';
     ProfileBookingComponent,
     EventBookingComponent,
     SuccessBookingComponent,
+    SendResetPasswordMailComponent,
    
   ],
   imports: [
