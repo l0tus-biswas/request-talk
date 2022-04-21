@@ -14,6 +14,16 @@ export class UserService {
     return this.http.get<boolean>("https://localhost:44305/api/Calendly/ValidateUser?username=" + username + "&password=" + password).pipe(catchError(this.errorHandler));
   }
   
+  validateUserEmail( emailAdderss: string): Observable<boolean> {
+    console.log(emailAdderss);
+    return this.http.get<boolean>("https://localhost:44305/api/Calendly/ValidateUserEmail?email=" + emailAdderss).pipe(catchError(this.errorHandler));
+  }
+
+  resetMail( emailAdderss: string, password: string): Observable<any> {
+  
+    return this.http.get<any>("http://localhost:3000/resetMail?emailAddress=" + emailAdderss + "&password=" +password ).pipe(catchError(this.errorHandler));
+  }
+  
   registerUser( userToken: string,  fullName: string, username: string, emailAdderss: string, password: string,timezone: string): Observable<boolean> {
     console.log(userToken,fullName,username,emailAdderss, password, timezone);
     return this.http.post<boolean>("https://localhost:44305/api/Calendly/RegisterUser", {
