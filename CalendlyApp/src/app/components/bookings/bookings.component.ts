@@ -175,7 +175,7 @@ completedTimingsData : any =[ ];
     this.isSignedIn = isSignedIn;
     if (isSignedIn) {
       // this.addUpcomingEvents();
-      this._toast.success({detail:"SUCCESS",summary:'Integrated Google Calendar ', position: ''});
+      this._toast.success({detail:"SUCCESS",summary:'Integrated Google Calendar ', position: 'br'});
     }
   }
   
@@ -445,13 +445,13 @@ completedTimingsData : any =[ ];
         this.status = res;
         if(this.status == true)
         {
-          this._toast.success({detail:"MAIL HAS BEEN SENT",summary:'Mail has been sent to the attendes', position: ''});
+          this._toast.success({detail:"MAIL HAS BEEN SENT",summary:'Mail has been sent to the attendes', position: 'br'});
           // setTimeout(function () {
           //   window.location.reload();
           // }, 2000);
         }
         else{
-          this._toast.warning({detail:"MAIL NOT SENT",summary:'Unable to send mail', position: ''});
+          this._toast.warning({detail:"MAIL NOT SENT",summary:'Unable to send mail', position: 'br'});
           // setTimeout(function () {
           //   window.location.reload();
           // }, 2000);
@@ -460,7 +460,7 @@ completedTimingsData : any =[ ];
     },
     err =>{
       this.errMsg = err;
-      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: ''});
+      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
     //  setTimeout(function () {
     //     window.location.reload();
@@ -476,13 +476,13 @@ completedTimingsData : any =[ ];
         this.status = res;
         if(this.status == true)
         {
-          this._toast.success({detail:"BOOKING IS CONFIRMED",summary:'The meeting has been confirmed', position: ''});
+          this._toast.success({detail:"BOOKING IS CONFIRMED",summary:'The meeting has been confirmed', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
         else{
-          this._toast.warning({detail:"UNABLE TO CONFIRM",summary:'Unable to confirm the meeting', position: ''});
+          this._toast.warning({detail:"UNABLE TO CONFIRM",summary:'Unable to confirm the meeting', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
@@ -491,7 +491,7 @@ completedTimingsData : any =[ ];
     },
     err =>{
       this.errMsg = err;
-      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: ''});
+      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
      setTimeout(function () {
         window.location.reload();
@@ -507,13 +507,13 @@ completedTimingsData : any =[ ];
         this.status = res;
         if(this.status == true)
         {
-          this._toast.success({detail:"BOOKING IS REJECTED",summary:'The meeting has been rejected', position: ''});
+          this._toast.success({detail:"BOOKING IS REJECTED",summary:'The meeting has been rejected', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
         else{
-          this._toast.warning({detail:"UNABLE TO REJECT",summary:'Unable to reject the meeting', position: ''});
+          this._toast.warning({detail:"UNABLE TO REJECT",summary:'Unable to reject the meeting', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
@@ -522,7 +522,7 @@ completedTimingsData : any =[ ];
     },
     err =>{
       this.errMsg = err;
-      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: ''});
+      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
      setTimeout(function () {
         window.location.reload();
@@ -538,13 +538,13 @@ completedTimingsData : any =[ ];
         this.status = res;
         if(this.status == true)
         {
-          this._toast.success({detail:"BOOKING IS RESCHEDULED",summary:'Reschedule mail has been sent', position: ''});
+          this._toast.success({detail:"BOOKING IS RESCHEDULED",summary:'Reschedule mail has been sent', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
         else{
-          this._toast.warning({detail:"UNABLE TO RESCHEDULE",summary:'Unable to send mail', position: ''});
+          this._toast.warning({detail:"UNABLE TO RESCHEDULE",summary:'Unable to send mail', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
@@ -553,7 +553,7 @@ completedTimingsData : any =[ ];
     },
     err =>{
       this.errMsg = err;
-      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: ''});
+      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
      setTimeout(function () {
         window.location.reload();
@@ -569,13 +569,13 @@ completedTimingsData : any =[ ];
         this.status = res;
         if(this.status == true)
         {
-          this._toast.success({detail:"MEETING IS COMPLETED",summary:'The meeting has been confirmed', position: ''});
+          this._toast.success({detail:"MEETING IS COMPLETED",summary:'The meeting has been confirmed', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
         else{
-          this._toast.warning({detail:"UNABLE TO PROCCED",summary:'Unable to set as completed', position: ''});
+          this._toast.warning({detail:"UNABLE TO PROCCED",summary:'Unable to set as completed', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
@@ -584,7 +584,7 @@ completedTimingsData : any =[ ];
     },
     err =>{
       this.errMsg = err;
-      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: ''});
+      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
      setTimeout(function () {
         window.location.reload();
@@ -599,13 +599,13 @@ completedTimingsData : any =[ ];
         this.status = res;
         if(this.status == true)
         {
-          this._toast.success({detail:"BOOKING IS CANCELLED",summary:'The meeting has been cancel', position: ''});
+          this._toast.success({detail:"BOOKING IS CANCELLED",summary:'The meeting has been cancel', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
         else{
-          this._toast.warning({detail:"UNABLE TO CANCEL",summary:'Unable to cancel the meeting', position: ''});
+          this._toast.warning({detail:"UNABLE TO CANCEL",summary:'Unable to cancel the meeting', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
@@ -614,7 +614,7 @@ completedTimingsData : any =[ ];
     },
     err =>{
       this.errMsg = err;
-      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: ''});
+      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
      setTimeout(function () {
         window.location.reload();

@@ -38,20 +38,20 @@ export class SignupComponent implements OnInit {
         this.status = res;
         console.log(this.status);
         if (this.status == true) {
-          this._toast.success({detail:"REGISTRATION SUCCESS",summary:'Please Sign In Now', position: ''});
+          this._toast.success({detail:"REGISTRATION SUCCESS",summary:'Please Sign In Now', position: 'br'});
           setTimeout(function () {
             window.location.href = 'login'
           }, 2000);
         }
         else {
-          this._toast.warning({detail:"REGISTRATION FAILED",summary:'Unable to register', position: ''});
+          this._toast.warning({detail:"REGISTRATION FAILED",summary:'Unable to register', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
       },
       err => {
-        this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: ''});
+        this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: 'br'});
       }, () => console.log("Add New Event method excuted successfully"))
   }
 

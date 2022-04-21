@@ -23,7 +23,7 @@ export class CommonNavbarComponent implements OnInit {
   logoutUser()
   {
     sessionStorage.clear();
-    this._toast.success({ detail: "LOGGING OUT", summary: 'Redirecting to login page', position: '' });
+    this._toast.success({ detail: "LOGGING OUT", summary: 'Redirecting to login page',position: 'br'});
 
     setTimeout(() => {
       this.router.navigate(['login']);

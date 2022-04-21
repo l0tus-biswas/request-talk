@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
     this.isSignedIn = isSignedIn;
     if (isSignedIn) {
       //  this.addUpcomingEvents();
-      this._toast.success({detail:"SUCCESS",summary:'Integrated Google Calendar ', position: ''});
+      this._toast.success({detail:"SUCCESS",summary:'Integrated Google Calendar ', position: 'br'});
     }
   }
   

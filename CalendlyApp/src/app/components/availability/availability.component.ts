@@ -136,20 +136,20 @@ userToken: string | null;
       res => {
         this.status = res;
         if (this.status == true) {
-          this._toast.success({detail:"SUCCESS",summary:'New Schedule has been added', position: ''});
+          this._toast.success({detail:"SUCCESS",summary:'New Schedule has been added', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
         else {
-          this._toast.warning({detail:"FAILED",summary:'Unable to add new schedule', position: ''});
+          this._toast.warning({detail:"FAILED",summary:'Unable to add new schedule', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
       },
       err => {
-        this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: ''});
+        this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: 'br'});
       }, () => console.log("Add New Schedule method excuted successfully"))
   }
 
@@ -160,13 +160,13 @@ userToken: string | null;
         this.status = res;
         if(this.status == true)
         {
-          this._toast.success({detail:"DELETE SUCCESS",summary:'The Schedule has been deleted', position: ''});
+          this._toast.success({detail:"DELETE SUCCESS",summary:'The Schedule has been deleted', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
         else{
-          this._toast.warning({detail:"DELETE FAILED",summary:'Unable to delete the Schedule', position: ''});
+          this._toast.warning({detail:"DELETE FAILED",summary:'Unable to delete the Schedule', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
@@ -175,7 +175,7 @@ userToken: string | null;
     },
     err =>{
       this.errMsg = err;
-      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: ''});
+      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
      setTimeout(function () {
         window.location.reload();

@@ -96,20 +96,20 @@ locationArr = [
       res => {
         this.status = res;
         if (this.status == true) {
-          this._toast.success({detail:"ADD SUCCESS",summary:'New Event has been added', position: ''});
+          this._toast.success({detail:"ADD SUCCESS",summary:'New Event has been added', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
         else {
-          this._toast.warning({detail:"ADD FAILED",summary:'Unable to add new event', position: ''});
+          this._toast.warning({detail:"ADD FAILED",summary:'Unable to add new event', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
       },
       err => {
-        this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: ''});
+        this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: 'br'});
       }, () => console.log("Add New Event method excuted successfully"))
   }
 
@@ -120,13 +120,13 @@ locationArr = [
         this.status = res;
         if(this.status == true)
         {
-          this._toast.success({detail:"DELETE SUCCESS",summary:'The Event has been deleted', position: ''});
+          this._toast.success({detail:"DELETE SUCCESS",summary:'The Event has been deleted', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
         else{
-          this._toast.warning({detail:"DELETE FAILED",summary:'Unable to delete the event', position: ''});
+          this._toast.warning({detail:"DELETE FAILED",summary:'Unable to delete the event', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
@@ -135,7 +135,7 @@ locationArr = [
     },
     err =>{
       this.errMsg = err;
-      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: ''});
+      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
      setTimeout(function () {
         window.location.reload();
@@ -148,7 +148,7 @@ locationArr = [
   {
     var copyText = "http://localhost:4200/"+"user/" + this.userName+"/" +evtURL;
   navigator.clipboard.writeText(copyText);
-  this._toast.success({detail:"URL COPIED",summary:'Copied to clipboard', position: ''});
+  this._toast.success({detail:"URL COPIED",summary:'Copied to clipboard', position: 'br'});
   }
 
 }

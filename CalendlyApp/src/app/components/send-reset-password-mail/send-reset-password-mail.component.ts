@@ -52,16 +52,16 @@ export class SendResetPasswordMailComponent implements OnInit {
             },
             () => console.log("User data method executed successfully")
           );
-          this._toast.success({ detail: "PASSWORD RESET SUCESS ", summary: 'We have sent an email', position: '' });
+          this._toast.success({ detail: "PASSWORD RESET SUCESS ", summary: 'We have sent an email',position: 'br'});
 
         }
         else {
-          this._toast.warning({ detail: "FAILED", summary: 'No such email address found', position: '' });
+          this._toast.warning({ detail: "FAILED", summary: 'No such email address found',position: 'br'});
     
         }
       },
       err => {
-        this._toast.warning({ detail: "FAILED", summary: 'No such email address found', position: '' });
+        this._toast.warning({ detail: "FAILED", summary: 'No such email address found',position: 'br'});
       
       }, () => console.log("Validate User Email method excuted successfully"))
   }

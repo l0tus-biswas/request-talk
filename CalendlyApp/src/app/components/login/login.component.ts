@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
               sessionStorage.setItem("emailAddress", String(this.userDetails[0].emailAdderss));
               sessionStorage.setItem("profilePicture", String(this.userDetails[0].profilePicture));
 
-              this._toast.success({ detail: "LOGIN SUCCESS", summary: 'Redirecting to home page', position: '' });
+              this._toast.success({ detail: "LOGIN SUCCESS", summary: 'Redirecting to home page', position: 'br' });
 
               setTimeout(() => {
                 this.router.navigate(["/home"]);
@@ -57,14 +57,14 @@ export class LoginComponent implements OnInit {
 
         }
         else {
-          this._toast.warning({ detail: "WRONG CREDINTIALS", summary: 'Unable to login', position: '' });
+          this._toast.warning({ detail: "WRONG CREDINTIALS", summary: 'Unable to login',position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
       },
       err => {
-        this._toast.warning({ detail: " FAILED", summary: 'Please try after sometime', position: '' });
+        this._toast.warning({ detail: " FAILED", summary: 'Please try after sometime',position: 'br'});
       }, () => console.log("Login method excuted successfully"))
   }
 

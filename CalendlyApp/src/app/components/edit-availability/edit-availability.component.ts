@@ -268,15 +268,15 @@ this.getAvailDetails();
         this.status = res;
         if(this.status == true)
         {
-          this._toast.success({detail:"UPDATE SUCCESS",summary:'Schedule has been updated', position: ''});
+          this._toast.success({detail:"UPDATE SUCCESS",summary:'Schedule has been updated', position: 'br'});
         }
         else{
-          this._toast.warning({detail:"UPDATE FAILED",summary:'Unable to update schedule', position: ''});
+          this._toast.warning({detail:"UPDATE FAILED",summary:'Unable to update schedule', position: 'br'});
         }
        
       },
       err =>{
-        this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: ''});
+        this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: 'br'});
         setTimeout(function () {
           window.location.reload();
         }, 2000);

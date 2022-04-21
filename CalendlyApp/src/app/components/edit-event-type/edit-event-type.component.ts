@@ -215,15 +215,15 @@ export class EditEventTypeComponent implements OnInit {
         this.status = res;
         if(this.status == true)
         {
-          this._toast.success({detail:"UPDATE SUCCESS",summary:'Event Details has been updated', position: ''});
+          this._toast.success({detail:"UPDATE SUCCESS",summary:'Event Details has been updated', position: 'br'});
         }
         else{
-          this._toast.warning({detail:"UPDATE FAILED",summary:'Unable to update event details', position: ''});
+          this._toast.warning({detail:"UPDATE FAILED",summary:'Unable to update event details', position: 'br'});
         }
        
       },
       err =>{
-        this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: ''});
+        this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: 'br'});
         setTimeout(function () {
           window.location.reload();
         }, 2000);
@@ -241,13 +241,13 @@ export class EditEventTypeComponent implements OnInit {
         this.status = res;
         if(this.status == true)
         {
-          this._toast.success({detail:"DELETE SUCCESS",summary:'The Event has been deleted', position: ''});
+          this._toast.success({detail:"DELETE SUCCESS",summary:'The Event has been deleted', position: 'br'});
           setTimeout(function () {
             window.location.replace("/event-types");
           }, 2000);
         }
         else{
-          this._toast.warning({detail:"DELETE FAILED",summary:'Unable to delete the event', position: ''});
+          this._toast.warning({detail:"DELETE FAILED",summary:'Unable to delete the event', position: 'br'});
           setTimeout(function () {
             window.location.replace("/event-types");
           }, 2000);
@@ -256,7 +256,7 @@ export class EditEventTypeComponent implements OnInit {
     },
     err =>{
       this.errMsg = err;
-      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: ''});
+      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
      setTimeout(function () {
         window.location.reload();
@@ -269,7 +269,7 @@ export class EditEventTypeComponent implements OnInit {
   {
     var copyText = "http://localhost:4200/"+ "user/"+ this.userName + "/" +this.eventDetails[0].url;
   navigator.clipboard.writeText(copyText);
-  this._toast.success({detail:"URL COPIED",summary:'Copied to clipboard', position: ''});
+  this._toast.success({detail:"URL COPIED",summary:'Copied to clipboard', position: 'br'});
   }
   
 }

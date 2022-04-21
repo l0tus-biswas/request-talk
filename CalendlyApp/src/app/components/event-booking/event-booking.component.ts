@@ -982,14 +982,14 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
           var timezoneUser = this.bookedTimings[0].bookedTimeZone;
           if(this.event[0].optInBooking == "No")
           {
-            this._toast.success({detail:"Booking Done",summary:'Please wait till it is confirmed', position: ''}); 
+            this._toast.success({detail:"Booking Done",summary:'Please wait till it is confirmed', position: 'br'}); 
             setTimeout(function () {
              
               window.location.href = "/success?hostname=" +  hostname + "&optInBooking="+ optInBooking +"&whatEvent="+ whatEvent + "&whenDate="+ whenDate+ "&whenTime="+ whenTime + "&duration="+ duration + "&timezoneUser="+ timezoneUser;
             }, 2000);
           }
           else{
-            this._toast.success({detail:"Booking Confirmed",summary:'Thank you ! Talk to you soon!', position: ''});
+            this._toast.success({detail:"Booking Confirmed",summary:'Thank you ! Talk to you soon!', position: 'br'});
          
             setTimeout(function () {
               window.location.href = "/success?hostname=" +  hostname + "&optInBooking="+ optInBooking +"&whatEvent="+ whatEvent + "&whenDate="+ whenDate+ "&whenTime="+ whenTime + "&duration="+ duration + "&timezoneUser="+ timezoneUser;
@@ -997,14 +997,14 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
           }
         }
         else {
-          this._toast.warning({detail:"BOOKING FAILED",summary:'Unable to book a slot', position: ''});
+          this._toast.warning({detail:"BOOKING FAILED",summary:'Unable to book a slot', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
       },
       err => {
-        this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: ''});
+        this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: 'br'});
       }, () => console.log("New Booking method excuted successfully"))
   
   }

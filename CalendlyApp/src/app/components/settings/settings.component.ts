@@ -131,14 +131,14 @@ export class SettingsComponent implements OnInit {
             this.status = res;
             console.log(this.status);
             if (this.status == true) {
-              this._toast.success({ detail: "UPDATE SUCCESS", summary: 'Your profile picture have been updated', position: '' });
+              this._toast.success({ detail: "UPDATE SUCCESS", summary: 'Your profile picture have been updated',position: 'br'});
               setTimeout(function () {
                 window.location.reload();
               }, 2000);
     
             }
             else {
-              this._toast.warning({ detail: "UPDATE FAILED", summary: 'Unable to update your profile picture', position: '' });
+              this._toast.warning({ detail: "UPDATE FAILED", summary: 'Unable to update your profile picture',position: 'br'});
               setTimeout(function () {
                 window.location.reload();
               }, 2000);
@@ -147,7 +147,7 @@ export class SettingsComponent implements OnInit {
           }, err => {
            this.errMsg = err;
             console.log(this.errMsg);
-            this._toast.warning({ detail: "FAILED", summary: 'Please try after sometime', position: '' });
+            this._toast.warning({ detail: "FAILED", summary: 'Please try after sometime',position: 'br'});
             setTimeout(function () {
               window.location.reload();
             }, 2000);
@@ -155,7 +155,7 @@ export class SettingsComponent implements OnInit {
           }, () => console.log(" Update User Profile Picture method excuted successfully")
         )
       }, err => {
-        this._toast.warning({ detail: "FAILED", summary: 'Please try after sometime', position: '' });
+        this._toast.warning({ detail: "FAILED", summary: 'Please try after sometime',position: 'br'});
         setTimeout(function () {
           window.location.reload();
         }, 2000);
@@ -218,18 +218,18 @@ export class SettingsComponent implements OnInit {
         this.status = res;
         console.log(this.status);
         if (this.status == true) {
-          this._toast.success({ detail: "UPDATE SUCCESS", summary: 'Your profile details have been updated', position: '' });
+          this._toast.success({ detail: "UPDATE SUCCESS", summary: 'Your profile details have been updated',position: 'br'});
 
         }
         else {
-          this._toast.warning({ detail: "UPDATE FAILED", summary: 'Unable to update your profile', position: '' });
+          this._toast.warning({ detail: "UPDATE FAILED", summary: 'Unable to update your profile',position: 'br'});
 
         }
 
       },
       err => {
         this.errMsg = err;
-        this._toast.warning({ detail: "FAILED", summary: 'Please try after sometime', position: '' });
+        this._toast.warning({ detail: "FAILED", summary: 'Please try after sometime',position: 'br'});
 
       },
       () => console.log("Update User Settings successfully")
