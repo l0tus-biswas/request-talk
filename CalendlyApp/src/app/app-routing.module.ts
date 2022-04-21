@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: 'user/:username', component: ProfileBookingComponent},
   {path: 'user/:username/:event_id', component: EventBookingComponent},
   {path: 'success', component: SuccessBookingComponent},
-  {path: 'reset-mail', component: SendResetPasswordMailComponent}
+  {path: 'reset-password', component: SendResetPasswordMailComponent}
 ];
 
 @NgModule({
