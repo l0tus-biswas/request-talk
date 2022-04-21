@@ -464,6 +464,38 @@ namespace Lotus.ServiceLayerCalendly.Controllers
             return status;
         }
 
+        [HttpGet]
+        public bool ValidateUserEmail(string email)
+        {
+            bool status = false;
+            try
+            {
+                status = repository.ValidateUserEmail(email);
+            }
+            catch (Exception)
+            {
+                status = false;
+            }
+            return status;
+        }
+
+        [HttpPut]
+        public bool PasswordReset(User usr)
+        {
+            bool status = false;
+            try
+            {
+
+                status = repository.passwordReset(usr.EmailAdderss, usr.Password);
+            }
+            catch (Exception)
+            {
+                status = false;
+            }
+            return status;
+        }
+
+
 
     }
 }

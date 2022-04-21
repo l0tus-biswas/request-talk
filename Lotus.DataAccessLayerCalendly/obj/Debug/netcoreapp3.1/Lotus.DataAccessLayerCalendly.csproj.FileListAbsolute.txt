@@ -36,3 +36,4 @@ D:\Projects\Appointly.com\Lotus.DataAccessLayerCalendly\obj\Debug\netcoreapp3.1\
 D:\Projects\Appointly.com\Lotus.DataAccessLayerCalendly\obj\Debug\netcoreapp3.1\Lotus.DataAccessLayerCalendly.dll
 D:\Projects\Appointly.com\Lotus.DataAccessLayerCalendly\obj\Debug\netcoreapp3.1\Lotus.DataAccessLayerCalendly.pdb
 D:\Projects\Appointly.com\Lotus.DataAccessLayerCalendly\obj\Debug\netcoreapp3.1\Lotus.DataAccessLayerCalendly.genruntimeconfig.cache
+D:\Projects\Appointly.com\Lotus.DataAccessLayerCalendly\obj\Debug\netcoreapp3.1\Lotus.DataAccessLayerCalendly.csproj.AssemblyReference.cache

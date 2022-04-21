@@ -36,6 +36,84 @@ namespace Lotus.DataAccessLayerCalendly
             return status;
         }
 
+        public bool ValidateUserEmail(string email)
+        {
+            bool status = false;
+            try
+            {
+                var user = context.User.First(u => u.EmailAdderss == email);
+                if (user != null)
+                {
+                    Random ran = new Random();
+
+                    String b = "abcdefghijklmnopqrstuvwxyz0123456789";
+                    String sc = "@#$%^&*";
+
+                    int length = 10;
+
+                    String random = "";
+
+                    for (int i = 0; i < length; i++)
+                    {
+                        int a = ran.Next(b.Length); //string.Lenght gets the size of string
+                        random = random + b.ElementAt(a);
+                    }
+                    for (int j = 0; j < 2; j++)
+                    {
+                        int sz = ran.Next(sc.Length);
+                        random = random + sc.ElementAt(sz);
+                    }
+                    bool getResult = passwordReset( email, random);
+                    if(getResult == true)
+                    {
+                        status = true;
+
+                    }
+                    else
+                    {
+                        status = false;
+                    }
+                }
+                else
+                {
+                    status = false;
+                }
+            }
+            catch (Exception)
+            {
+                status = false;
+            }
+            return status;
+        }
+
+        public bool passwordReset(string email, string password)
+        {
+            bool status = false;
+            try
+            {
+                var user = context.User.First(u => u.EmailAdderss == email );
+
+                if (user != null)
+                {
+                    user.EmailAdderss = email;
+                    user.Password = password;
+                    context.User.Update(user);
+                    context.SaveChanges();
+                    status = true;
+                }
+                else
+                {
+                    status = false;
+                }
+            }
+            catch (Exception)
+            {
+                status = false;
+            }
+
+            return status;
+        }
+
         public List<User> getUserData(int userId, string userToken)
         {
             List<User> lstUser = null;
