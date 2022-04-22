@@ -46,8 +46,8 @@ namespace Lotus.DataAccessLayerCalendly
                 {
                     Random ran = new Random();
 
-                    String b = "abcdefghijklmnopqrstuvwxyz0123456789";
-                    String sc = "@#$%^&*";
+                    String b = "ABCDEFGHIJKLMNOPQKSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                    String sc = "@$";
 
                     int length = 10;
 
