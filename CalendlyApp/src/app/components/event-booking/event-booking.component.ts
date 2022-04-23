@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IEvents } from 'src/app/interface/events';
 import { IAvailibility } from 'src/app/interface/availibility';
 import { NgForm } from '@angular/forms';
+import { UserService } from 'src/app/services/user-service/user.service';
 @Component({
   selector: 'app-event-booking',
   templateUrl: './event-booking.component.html',
@@ -259,7 +260,7 @@ export class EventBookingComponent implements OnInit {
 
   deleteBookedTime: any=[];
   userProfilePicture : string = "";
-  constructor(private _bookingServices: BookingService, private _toast: NgToastService,private route: ActivatedRoute) { 
+  constructor(private _bookingServices: BookingService, private _usrServices : UserService, private _toast: NgToastService,private route: ActivatedRoute) { 
     
     const routeParams = this.route.snapshot.paramMap;
     this.availUserNameParams = String(routeParams.get('username'));
@@ -982,18 +983,40 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
           var timezoneUser = this.bookedTimings[0].bookedTimeZone;
           if(this.event[0].optInBooking == "No")
           {
+            this._usrServices.sendBookingConfirmationMail(this.user[0].emailAdderss,form.value.emailId,hostname,whatEvent).subscribe(
+              res =>{
+                console.log(res);
+              },
+              err =>{
+                console.log(err);
+              },
+              () => console.log("Send Mail Worked")
+            )
+            this._toast.success({detail:"Booking Confirmed",summary:'Thank you ! Talk to you soon!', position: 'br'});
+            
+            setTimeout(function () {
+              window.location.href = "/success?hostname=" +  hostname + "&optInBooking="+ optInBooking +"&whatEvent="+ whatEvent + "&whenDate="+ whenDate+ "&whenTime="+ whenTime + "&duration="+ duration + "&timezoneUser="+ timezoneUser;
+             }, 2000);
+          
+          }
+          else{
+         
+            this._usrServices.sendBookingPendingMail(this.user[0].emailAdderss,form.value.emailId,hostname,whatEvent).subscribe(
+              res =>{
+                console.log(res);
+              },
+              err =>{
+                console.log(err);
+              },
+              () => console.log("Send Mail Worked")
+            )
             this._toast.success({detail:"Booking Done",summary:'Please wait till it is confirmed', position: 'br'}); 
+           
             setTimeout(function () {
              
               window.location.href = "/success?hostname=" +  hostname + "&optInBooking="+ optInBooking +"&whatEvent="+ whatEvent + "&whenDate="+ whenDate+ "&whenTime="+ whenTime + "&duration="+ duration + "&timezoneUser="+ timezoneUser;
             }, 2000);
-          }
-          else{
-            this._toast.success({detail:"Booking Confirmed",summary:'Thank you ! Talk to you soon!', position: 'br'});
-         
-            setTimeout(function () {
-              window.location.href = "/success?hostname=" +  hostname + "&optInBooking="+ optInBooking +"&whatEvent="+ whatEvent + "&whenDate="+ whenDate+ "&whenTime="+ whenTime + "&duration="+ duration + "&timezoneUser="+ timezoneUser;
-             }, 2000);
+            
           }
         }
         else {

@@ -23,6 +23,15 @@ export class UserService {
   
     return this.http.get<any>("http://localhost:3000/resetMail?emailAddress=" + emailAdderss + "&password=" +password ).pipe(catchError(this.errorHandler));
   }
+
+  sendBookingConfirmationMail( bookedEmailAdderss: string, userEmailAdderss: string, bookedName: string, eventName: string): Observable<any> {
+  
+    return this.http.get<any>("http://localhost:3000/sendBookingConfirmationMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss +  "&bookedName=" +bookedName + "&eventName=" +eventName  ).pipe(catchError(this.errorHandler));
+  }
+
+  sendBookingPendingMail( bookedEmailAdderss: string, userEmailAdderss: string, bookedName: string,  eventName: string): Observable<any> {
+    return this.http.get<any>("http://localhost:3000/sendBookingPendingMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss + "&bookedName=" + bookedName + "&eventName=" +eventName  ).pipe(catchError(this.errorHandler));
+ }
   
   registerUser( userToken: string,  fullName: string, username: string, emailAdderss: string, password: string,timezone: string): Observable<boolean> {
     console.log(userToken,fullName,username,emailAdderss, password, timezone);
