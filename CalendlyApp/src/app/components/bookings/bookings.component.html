@@ -170,12 +170,7 @@
                           <div class="btn-toolbar mt-2 mb-2 mb-md-0">
                             <div class="btn-group me-2 ">
                            
-                              <button type="button" class="btn btn-sm btn-info" style="margin-right: 4px;" (click)="addToCalendar(bk.bookedEventId, indexOfelement,bk.bookingId)"  *ngIf="bk.sendConfirmationMail =='Not Sent' else elseBlock"><i class="fa fa-envelope" aria-hidden="true"></i> Send Schedule Mail</button>
-                             
-                              <ng-template #elseBlock>
-                                <button type="button" class="btn btn-sm btn-success" disabled style="margin-right: 4px;"><i class="fa fa-envelope" aria-hidden="true"></i> Mail Sent</button>
-                             
-                              </ng-template>
+                           
                               <button type="button" class="btn btn-sm btn-success" style="margin-right: 4px;" (click)="updateOnComplete(bk.bookingId)"><i class="fa fa-check-circle" ></i>Completed</button>
                               <button type="button" class="btn btn-sm btn-warning" style="margin-right: 4px;" (click)="updateOnReschedule(bk.bookingId)"><i class="fa fa-repeat" aria-hidden="true" ></i>Reschedule</button>
                              </div>
