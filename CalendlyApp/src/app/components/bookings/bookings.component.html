@@ -92,7 +92,7 @@
                         <div>
                           <div class="btn-toolbar mt-2 mb-2 mb-md-0">
                             <div class="btn-group me-2 ">
-                                <button type="button" class="btn btn-sm btn-danger" style="margin-right: 4px;" (click)="updateOnCancel(bk.bookingId)"><i class="fa fa-window-close" aria-hidden="true"></i>Cancel</button>
+                                <button type="button" class="btn btn-sm btn-danger" style="margin-right: 4px;" (click)="updateOnCancelUpcoming(bk.bookingId,indexOfelement)"><i class="fa fa-window-close" aria-hidden="true"></i>Cancel</button>
                               
                               <button type="button"  class="btn btn-outline-dark" style="margin-right: 4px;"  data-bs-toggle="collapse" [attr.href]="'#collapseExample' + indexOfelement" role="button" aria-expanded="false"  [attr.aria-controls]="'#collapseExample' + indexOfelement" ><i class="fa fa-arrow-down" aria-hidden="true"></i>View Deatils</button>
                             </div>
@@ -147,7 +147,7 @@
                         <div>
                           <div class="btn-toolbar mt-2 mb-2 mb-md-0">
                             <div class="btn-group me-2 ">
-                                <button type="button" class="btn btn-sm btn-danger" style="margin-right: 4px;" (click)="updateOnCancel(bk.bookingId)"><i class="fa fa-window-close" aria-hidden="true"></i>Cancel</button>
+                                <button type="button" class="btn btn-sm btn-danger" style="margin-right: 4px;" (click)="updateOnCancelPast(bk.bookingId,indexOfelement)"><i class="fa fa-window-close" aria-hidden="true"></i>Cancel</button>
                               
                               <button type="button"  class="btn btn-outline-dark" style="margin-right: 4px;"  data-bs-toggle="collapse" [attr.href]="'#collapseExample' + indexOfelement" role="button" aria-expanded="false"  [attr.aria-controls]="'#collapseExample' + indexOfelement" ><i class="fa fa-arrow-down" aria-hidden="true"></i>View Deatils</button>
                             </div>
@@ -172,7 +172,7 @@
                            
                            
                               <button type="button" class="btn btn-sm btn-success" style="margin-right: 4px;" (click)="updateOnComplete(bk.bookingId)"><i class="fa fa-check-circle" ></i>Completed</button>
-                              <button type="button" class="btn btn-sm btn-warning" style="margin-right: 4px;" (click)="updateOnReschedule(bk.bookingId, indexOfelement)"><i class="fa fa-repeat" aria-hidden="true" ></i>Reschedule</button>
+                              <button type="button" class="btn btn-sm btn-warning" style="margin-right: 4px;" (click)="updateOnRescheduleFromPast(bk.bookingId, indexOfelement)"><i class="fa fa-repeat" aria-hidden="true" ></i>Reschedule</button>
                              </div>
                           
                           </div>
@@ -272,9 +272,13 @@
                 </div>
                 <div class="tab-pane fade" id="rescheduled" role="tabpanel" aria-labelledby="rescheduled-tab">
                   <div class="row mx-1 my-2">
+                    
                     <div class="col-md-12 mb-2 text-dark rounded bg-white border border-1 shadow-sm bg-body" *ngFor="let bk of rescheduleBookings;index as indexOfelement;">
+                    
                       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-4  ">
                         <div>
+                          <span class="badge rounded-pill bg-warning text-dark mb-2">Rescheduled</span>
+                        
                           <p class="fw-bold">{{bk.bookedEventName}} <span class="fst-italic">between {{fullNameCurrentUser}} & {{bk.appointmentBookedUsername}}</span></p>
                           <div >
                             <span ><i class="fa fa-clock-o" aria-hidden="true"></i> {{rescheduleTimingsData[indexOfelement][0].userstartTime}} - {{rescheduleTimingsData[indexOfelement][0].userEndTime}}  ({{rescheduleTimingsData[indexOfelement][0].userTimezone}}) </span><br/>
@@ -292,7 +296,7 @@
                           <div class="btn-toolbar mt-2 mb-2 mb-md-0">
                             <div class="btn-group me-2 ">
                              
-                                <button type="button" class="btn btn-sm btn-danger" style="margin-right: 4px;" (click)="updateOnCancel(bk.bookingId)"><i class="fa fa-window-close" aria-hidden="true"></i>Cancel</button>
+                                <button type="button" class="btn btn-sm btn-danger" style="margin-right: 4px;" (click)="updateOnCancelReschedule(bk.bookingId,indexOfelement)"><i class="fa fa-window-close" aria-hidden="true"></i>Cancel</button>
                               
                               <button type="button"  class="btn btn-outline-dark" style="margin-right: 4px;"  data-bs-toggle="collapse" [attr.href]="'#collapseExample' + indexOfelement" role="button" aria-expanded="false"  [attr.aria-controls]="'#collapseExample' + indexOfelement" ><i class="fa fa-arrow-down" aria-hidden="true"></i>View Deatils</button>
                             </div>
@@ -311,14 +315,14 @@
 
                           <p ><i class="fa fa-phone-square" aria-hidden="true"></i> {{bk.appointmentBookedPhoneNumber}}</p>
                            
-                          <div class="btn-toolbar mt-2 mb-2 mb-md-0">
+                          <!-- <div class="btn-toolbar mt-2 mb-2 mb-md-0">
                             <div class="btn-group me-2 ">
                            
                               <button type="button" class="btn btn-sm btn-warning" style="margin-right: 4px;"><i class="fa fa-envelope" aria-hidden="true"></i>Send Reschedule Mail</button>
                          
                                </div>
                           
-                          </div>
+                          </div> -->
                         </div>
                         
                       </div>

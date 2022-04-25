@@ -532,7 +532,166 @@ completedTimingsData : any =[ ];
     () => console.log("Update Booking on Reject method excuted successfully"))
   }
 
-  updateOnReschedule(bookingId: number, indexOfelement: number)
+ 
+
+  updateOnComplete(bookingId: number)
+  {
+    this._bookingServices.updateBookingOnComplete(String(this.username), bookingId).subscribe(
+      res => {
+        this.status = res;
+        if(this.status == true)
+        {
+          this._toast.success({detail:"MEETING IS COMPLETED",summary:'The meeting has been confirmed', position: 'br'});
+          setTimeout(function () {
+            window.location.reload();
+          }, 2000);
+        }
+        else{
+          this._toast.warning({detail:"UNABLE TO PROCCED",summary:'Unable to set as completed', position: 'br'});
+          setTimeout(function () {
+            window.location.reload();
+          }, 2000);
+        }
+       
+    },
+    err =>{
+      this.errMsg = err;
+      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
+  
+     setTimeout(function () {
+        window.location.reload();
+      }, 2000);
+    },
+    () => console.log("Update Booking on Complete method excuted successfully"))
+  }
+  updateOnCancelPast(bookingId: number, indexOfelement: number)
+  {
+    this._bookingServices.updateBookingOnCancel(String(this.username), bookingId).subscribe(
+      res => {
+        this.status = res;
+        if(this.status == true)
+        {
+           var timeAndTimeZone  = this.pastTimingsData[indexOfelement][0].userstartTime + " - "+  this.pastTimingsData[indexOfelement][0].userEndTime +  "( " + this.pastTimingsData[indexOfelement][0].userTimezone  + " )";
+          var evtDate = this.pastTimingsData[indexOfelement][0].userbookedDate;
+         
+          this._usrServices.sendCancelMail(String(this.emailCurrentUser),this.pastBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.pastBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
+            res =>{
+              console.log(res);
+            },
+            err =>{
+              console.log(err);
+            },
+            () => console.log("Send Mail Worked")
+          )
+          this._toast.success({detail:"BOOKING IS CANCELLED",summary:'The meeting has been cancel', position: 'br'});
+          setTimeout(function () {
+            window.location.reload();
+          }, 2000);
+        }
+        else{
+          this._toast.warning({detail:"UNABLE TO CANCEL",summary:'Unable to cancel the meeting', position: 'br'});
+          setTimeout(function () {
+            window.location.reload();
+          }, 2000);
+        }
+       
+    },
+    err =>{
+      this.errMsg = err;
+      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
+  
+     setTimeout(function () {
+        window.location.reload();
+      }, 2000);
+    },
+    () => console.log("Update Booking on cancel method excuted successfully"))
+  }
+  updateOnCancelUpcoming(bookingId: number, indexOfelement: number)
+  {
+    this._bookingServices.updateBookingOnCancel(String(this.username), bookingId).subscribe(
+      res => {
+        this.status = res;
+        if(this.status == true)
+        {
+           var timeAndTimeZone  = this.upcomingTimingsData[indexOfelement][0].userstartTime + " - "+  this.upcomingTimingsData[indexOfelement][0].userEndTime +  "( " + this.upcomingTimingsData[indexOfelement][0].userTimezone  + " )";
+          var evtDate = this.upcomingTimingsData[indexOfelement][0].userbookedDate;
+         
+          this._usrServices.sendCancelMail(String(this.emailCurrentUser),this.upcomingBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.upcomingBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
+            res =>{
+              console.log(res);
+            },
+            err =>{
+              console.log(err);
+            },
+            () => console.log("Send Mail Worked")
+          )
+          this._toast.success({detail:"BOOKING IS CANCELLED",summary:'The meeting has been cancel', position: 'br'});
+          setTimeout(function () {
+            window.location.reload();
+          }, 2000);
+        }
+        else{
+          this._toast.warning({detail:"UNABLE TO CANCEL",summary:'Unable to cancel the meeting', position: 'br'});
+          setTimeout(function () {
+            window.location.reload();
+          }, 2000);
+        }
+       
+    },
+    err =>{
+      this.errMsg = err;
+      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
+  
+     setTimeout(function () {
+        window.location.reload();
+      }, 2000);
+    },
+    () => console.log("Update Booking on cancel method excuted successfully"))
+  }
+  updateOnCancelReschedule(bookingId: number, indexOfelement: number)
+  {
+    this._bookingServices.updateBookingOnCancel(String(this.username), bookingId).subscribe(
+      res => {
+        this.status = res;
+        if(this.status == true)
+        {
+           var timeAndTimeZone  = this.rescheduleTimingsData[indexOfelement][0].userstartTime + " - "+  this.rescheduleTimingsData[indexOfelement][0].userEndTime +  "( " + this.rescheduleTimingsData[indexOfelement][0].userTimezone  + " )";
+          var evtDate = this.rescheduleTimingsData[indexOfelement][0].userbookedDate;
+         
+          this._usrServices.sendCancelMail(String(this.emailCurrentUser),this.rescheduleBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.rescheduleBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
+            res =>{
+              console.log(res);
+            },
+            err =>{
+              console.log(err);
+            },
+            () => console.log("Send Mail Worked")
+          )
+          this._toast.success({detail:"BOOKING IS CANCELLED",summary:'The meeting has been cancel', position: 'br'});
+          setTimeout(function () {
+            window.location.reload();
+          }, 2000);
+        }
+        else{
+          this._toast.warning({detail:"UNABLE TO CANCEL",summary:'Unable to cancel the meeting', position: 'br'});
+          setTimeout(function () {
+            window.location.reload();
+          }, 2000);
+        }
+       
+    },
+    err =>{
+      this.errMsg = err;
+      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
+  
+     setTimeout(function () {
+        window.location.reload();
+      }, 2000);
+    },
+    () => console.log("Update Booking on cancel method excuted successfully"))
+  }
+
+  updateOnRescheduleFromPast(bookingId: number, indexOfelement: number)
   {
     this._bookingServices.updateBookingOnReschedule(String(this.username), bookingId).subscribe(
       res => {
@@ -575,20 +734,32 @@ completedTimingsData : any =[ ];
     () => console.log("Update Booking on Reschedule method excuted successfully"))
   }
 
-  updateOnComplete(bookingId: number)
+  updateOnRescheduleFromUpcoming(bookingId: number, indexOfelement: number)
   {
-    this._bookingServices.updateBookingOnComplete(String(this.username), bookingId).subscribe(
+    this._bookingServices.updateBookingOnReschedule(String(this.username), bookingId).subscribe(
       res => {
         this.status = res;
         if(this.status == true)
         {
-          this._toast.success({detail:"MEETING IS COMPLETED",summary:'The meeting has been confirmed', position: 'br'});
+          var timeAndTimeZone  = this.pastTimingsData[indexOfelement][0].userstartTime + " - "+  this.pastTimingsData[indexOfelement][0].userEndTime +  "( " + this.pastTimingsData[indexOfelement][0].userTimezone  + " )";
+          var evtDate = this.pastTimingsData[indexOfelement][0].userbookedDate;
+          this._usrServices.sendRescheduleMail(String(this.emailCurrentUser),this.pastBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.pastBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
+            res =>{
+              console.log(res);
+            },
+            err =>{
+              console.log(err);
+            },
+            () => console.log("Send Mail Worked")
+          )
+       
+          this._toast.success({detail:"BOOKING IS RESCHEDULED",summary:'Reschedule mail has been sent', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
         else{
-          this._toast.warning({detail:"UNABLE TO PROCCED",summary:'Unable to set as completed', position: 'br'});
+          this._toast.warning({detail:"UNABLE TO RESCHEDULE",summary:'Unable to send mail', position: 'br'});
           setTimeout(function () {
             window.location.reload();
           }, 2000);
@@ -603,39 +774,8 @@ completedTimingsData : any =[ ];
         window.location.reload();
       }, 2000);
     },
-    () => console.log("Update Booking on Complete method excuted successfully"))
+    () => console.log("Update Booking on Reschedule method excuted successfully"))
   }
-  updateOnCancel(bookingId: number)
-  {
-    this._bookingServices.updateBookingOnCancel(String(this.username), bookingId).subscribe(
-      res => {
-        this.status = res;
-        if(this.status == true)
-        {
-          this._toast.success({detail:"BOOKING IS CANCELLED",summary:'The meeting has been cancel', position: 'br'});
-          setTimeout(function () {
-            window.location.reload();
-          }, 2000);
-        }
-        else{
-          this._toast.warning({detail:"UNABLE TO CANCEL",summary:'Unable to cancel the meeting', position: 'br'});
-          setTimeout(function () {
-            window.location.reload();
-          }, 2000);
-        }
-       
-    },
-    err =>{
-      this.errMsg = err;
-      this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
-  
-     setTimeout(function () {
-        window.location.reload();
-      }, 2000);
-    },
-    () => console.log("Update Booking on cancel method excuted successfully"))
-  }
-
 
   
 }
