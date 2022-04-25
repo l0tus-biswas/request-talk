@@ -32,6 +32,10 @@ export class UserService {
   sendBookingPendingMail( bookedEmailAdderss: string, userEmailAdderss: string, bookedName: string,  eventName: string): Observable<any> {
     return this.http.get<any>("http://localhost:3000/sendBookingPendingMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss + "&bookedName=" + bookedName + "&eventName=" +eventName  ).pipe(catchError(this.errorHandler));
  }
+
+ sendRescheduleMail( bookedEmailAdderss: string, userEmailAdderss: string, bookedName: string,  eventName: string, userURL: string, timeAndTimeZone: string, eventDate: string ): Observable<any> {
+  return this.http.get<any>("http://localhost:3000/sendRescheduleMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss + "&bookedName=" + bookedName + "&eventName=" +eventName  + "&userURL=" + userURL + "&timeAndTimeZone=" +timeAndTimeZone+ "&eventDate=" +eventDate).pipe(catchError(this.errorHandler));
+}
   
   registerUser( userToken: string,  fullName: string, username: string, emailAdderss: string, password: string,timezone: string): Observable<boolean> {
     console.log(userToken,fullName,username,emailAdderss, password, timezone);

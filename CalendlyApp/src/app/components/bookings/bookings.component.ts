@@ -9,6 +9,7 @@ import * as moment from 'moment';
 import * as momenttm from 'moment-timezone';
 import { IEvents } from 'src/app/interface/events';
 import { HttpClient } from '@angular/common/http';
+import { UserService } from 'src/app/services/user-service/user.service';
 declare var gapi : any;
 
 @Component({
@@ -130,7 +131,7 @@ completedTimingsData : any =[ ];
   errMsg!: string;
   status: boolean = false;
 
-  constructor(private _bookingServices: BookingService, private _evtServices: EventService, private _toast: NgToastService, private route: ActivatedRoute,private zone: NgZone,private http: HttpClient ) { 
+  constructor(private _bookingServices: BookingService,private _usrServices : UserService,  private _evtServices: EventService, private _toast: NgToastService, private route: ActivatedRoute,private zone: NgZone,private http: HttpClient ) { 
     this.username = sessionStorage.getItem('userName');;
     this.userTimezone = "Asia/Calcutta";
     this.userId = Number(sessionStorage.getItem('userID'));
@@ -440,7 +441,7 @@ completedTimingsData : any =[ ];
 
   updateConfirmationMailOnSent(bookingId: number)
   {
-    this._bookingServices.updateConfirmationOnMailSentEvent("lotus-biswas", bookingId).subscribe(
+    this._bookingServices.updateConfirmationOnMailSentEvent(String(this.username), bookingId).subscribe(
       res => {
         this.status = res;
         if(this.status == true)
@@ -471,7 +472,7 @@ completedTimingsData : any =[ ];
 
   updateOnConfirm(bookingId: number)
   {
-    this._bookingServices.updateBookingOnConfirm("lotus-biswas", bookingId).subscribe(
+    this._bookingServices.updateBookingOnConfirm(String(this.username), bookingId).subscribe(
       res => {
         this.status = res;
         if(this.status == true)
@@ -502,7 +503,7 @@ completedTimingsData : any =[ ];
 
   updateOnReject(bookingId: number)
   {
-    this._bookingServices.updateBookingOnReject("lotus-biswas", bookingId).subscribe(
+    this._bookingServices.updateBookingOnReject(String(this.username), bookingId).subscribe(
       res => {
         this.status = res;
         if(this.status == true)
@@ -531,13 +532,25 @@ completedTimingsData : any =[ ];
     () => console.log("Update Booking on Reject method excuted successfully"))
   }
 
-  updateOnReschedule(bookingId: number)
+  updateOnReschedule(bookingId: number, indexOfelement: number)
   {
-    this._bookingServices.updateBookingOnReschedule("lotus-biswas", bookingId).subscribe(
+    this._bookingServices.updateBookingOnReschedule(String(this.username), bookingId).subscribe(
       res => {
         this.status = res;
         if(this.status == true)
         {
+          var timeAndTimeZone  = this.pastTimingsData[indexOfelement][0].userstartTime + " - "+  this.pastTimingsData[indexOfelement][0].userEndTime +  "( " + this.pastTimingsData[indexOfelement][0].userTimezone  + " )";
+          var evtDate = this.pastTimingsData[indexOfelement][0].userbookedDate;
+          this._usrServices.sendRescheduleMail(String(this.emailCurrentUser),this.pastBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.pastBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
+            res =>{
+              console.log(res);
+            },
+            err =>{
+              console.log(err);
+            },
+            () => console.log("Send Mail Worked")
+          )
+       
           this._toast.success({detail:"BOOKING IS RESCHEDULED",summary:'Reschedule mail has been sent', position: 'br'});
           setTimeout(function () {
             window.location.reload();
@@ -564,7 +577,7 @@ completedTimingsData : any =[ ];
 
   updateOnComplete(bookingId: number)
   {
-    this._bookingServices.updateBookingOnComplete("lotus-biswas", bookingId).subscribe(
+    this._bookingServices.updateBookingOnComplete(String(this.username), bookingId).subscribe(
       res => {
         this.status = res;
         if(this.status == true)
@@ -594,7 +607,7 @@ completedTimingsData : any =[ ];
   }
   updateOnCancel(bookingId: number)
   {
-    this._bookingServices.updateBookingOnCancel("lotus-biswas", bookingId).subscribe(
+    this._bookingServices.updateBookingOnCancel(String(this.username), bookingId).subscribe(
       res => {
         this.status = res;
         if(this.status == true)
