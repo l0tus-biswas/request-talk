@@ -741,9 +741,9 @@ completedTimingsData : any =[ ];
         this.status = res;
         if(this.status == true)
         {
-          var timeAndTimeZone  = this.pastTimingsData[indexOfelement][0].userstartTime + " - "+  this.pastTimingsData[indexOfelement][0].userEndTime +  "( " + this.pastTimingsData[indexOfelement][0].userTimezone  + " )";
-          var evtDate = this.pastTimingsData[indexOfelement][0].userbookedDate;
-          this._usrServices.sendRescheduleMail(String(this.emailCurrentUser),this.pastBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.pastBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
+          var timeAndTimeZone  = this.upcomingTimingsData[indexOfelement][0].userstartTime + " - "+  this.upcomingTimingsData[indexOfelement][0].userEndTime +  "( " + this.upcomingTimingsData[indexOfelement][0].userTimezone  + " )";
+          var evtDate = this.upcomingTimingsData[indexOfelement][0].userbookedDate;
+          this._usrServices.sendRescheduleMail(String(this.emailCurrentUser),this.upcomingBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.upcomingBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
             res =>{
               console.log(res);
             },
