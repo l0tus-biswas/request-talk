@@ -55,8 +55,8 @@
                             <div>
                               <div class="btn-toolbar mt-2 mb-2 mb-md-0">
                                 <div class="btn-group me-2 ">
-                                  <button type="button" class="btn btn-sm btn-success" style="margin-right: 4px;" (click)="updateOnConfirm(bk.bookingId)"><i class="fa fa-check-circle" aria-hidden="true" ></i>Confirm</button>
-                                  <button type="button" class="btn btn-sm btn-danger" style="margin-right: 4px;"  (click)="updateOnReject(bk.bookingId)"><i class="fa fa-window-close" aria-hidden="true" ></i>Reject</button>
+                                  <button type="button" class="btn btn-sm btn-success" style="margin-right: 4px;" (click)="updateOnConfirm(bk.bookingId, indexOfelement)"><i class="fa fa-check-circle" aria-hidden="true" ></i>Confirm</button>
+                                  <button type="button" class="btn btn-sm btn-danger" style="margin-right: 4px;"  (click)="updateOnReject(bk.bookingId, indexOfelement)"><i class="fa fa-window-close" aria-hidden="true" ></i>Reject</button>
                                   <button type="button"  class="btn btn-outline-dark" style="margin-right: 4px;"  data-bs-toggle="collapse" [attr.href]="'#collapseExample' + indexOfelement" role="button" aria-expanded="false"  [attr.aria-controls]="'#collapseExample' + indexOfelement" ><i class="fa fa-arrow-down" aria-hidden="true"></i>View Deatils</button>
                                 </div>
                               </div>

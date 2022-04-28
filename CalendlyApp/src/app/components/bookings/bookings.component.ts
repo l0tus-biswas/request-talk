@@ -470,13 +470,25 @@ completedTimingsData : any =[ ];
     () => console.log("Update Cofirmation mail on sent method excuted successfully"))
   }
 
-  updateOnConfirm(bookingId: number)
+  updateOnConfirm(bookingId: number, indexOfelement : any)
   {
     this._bookingServices.updateBookingOnConfirm(String(this.username), bookingId).subscribe(
       res => {
         this.status = res;
+  
         if(this.status == true)
         {
+          var timeAndTimeZone  = this.onHoldTimingsData[indexOfelement][0].userstartTime + " - "+  this.onHoldTimingsData[indexOfelement][0].userEndTime +  "( " + this.onHoldTimingsData[indexOfelement][0].userTimezone  + " )";
+          var evtDate = this.onHoldTimingsData[indexOfelement][0].userbookedDate;
+          this._usrServices.sendBookingAcceptMail(String(this.emailCurrentUser),this.onHoldBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.onHoldBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
+            res =>{
+              console.log(res);
+            },
+            err =>{
+              console.log(err);
+            },
+            () => console.log("Send Mail Worked")
+          )
           this._toast.success({detail:"BOOKING IS CONFIRMED",summary:'The meeting has been confirmed', position: 'br'});
           setTimeout(function () {
             window.location.reload();
@@ -501,13 +513,25 @@ completedTimingsData : any =[ ];
     () => console.log("Update Booking on Confirm method excuted successfully"))
   }
 
-  updateOnReject(bookingId: number)
+  updateOnReject(bookingId: number, indexOfelement: any)
   {
     this._bookingServices.updateBookingOnReject(String(this.username), bookingId).subscribe(
       res => {
         this.status = res;
+    
         if(this.status == true)
         {
+          var timeAndTimeZone  = this.onHoldTimingsData[indexOfelement][0].userstartTime + " - "+  this.onHoldTimingsData[indexOfelement][0].userEndTime +  "( " + this.onHoldTimingsData[indexOfelement][0].userTimezone  + " )";
+          var evtDate = this.onHoldTimingsData[indexOfelement][0].userbookedDate;
+          this._usrServices.sendBookingRejectMail(String(this.emailCurrentUser),this.onHoldBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.onHoldBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
+            res =>{
+              console.log(res);
+            },
+            err =>{
+              console.log(err);
+            },
+            () => console.log("Send Mail Worked")
+          )
           this._toast.success({detail:"BOOKING IS REJECTED",summary:'The meeting has been rejected', position: 'br'});
           setTimeout(function () {
             window.location.reload();
