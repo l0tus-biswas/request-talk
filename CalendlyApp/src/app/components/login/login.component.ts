@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
               this._toast.success({ detail: "LOGIN SUCCESS", summary: 'Redirecting to home page', position: 'br' });
 
               setTimeout(() => {
-                this.router.navigate(["/home"]);
+                this.router.navigate(["/calendar-intregration"]);
               }, 2000);
     
     

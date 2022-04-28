@@ -4,6 +4,7 @@ import { UserService } from 'src/app/services/user-service/user.service';
 import { NgForm } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
 import {ImgbbServiceService} from ".././../services/imgbb-service.service"
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -108,7 +109,7 @@ export class SettingsComponent implements OnInit {
     { "label": "(GMT+13:00) Nuku'alofa", "value": "Pacific/Tongatapu", status: "false" }
   ]
 
-  constructor(private _userService: UserService, private _toast: NgToastService, private readonly ImgbbService : ImgbbServiceService) {
+  constructor(private _userService: UserService, private _toast: NgToastService, private readonly ImgbbService : ImgbbServiceService,private _router: Router) {
 
     this.userId = Number(sessionStorage.getItem('userID'));
     this.userToken = sessionStorage.getItem('userToken');;
@@ -132,9 +133,13 @@ export class SettingsComponent implements OnInit {
             console.log(this.status);
             if (this.status == true) {
               this._toast.success({ detail: "UPDATE SUCCESS", summary: 'Your profile picture have been updated',position: 'br'});
-              setTimeout(function () {
+         
+              sessionStorage.setItem("profilePicture", this.userProfilePicture);
+             
+              this._router.navigate(['/settings'])
+              .then(() => {
                 window.location.reload();
-              }, 2000);
+              });
     
             }
             else {
@@ -220,6 +225,14 @@ export class SettingsComponent implements OnInit {
         if (this.status == true) {
           this._toast.success({ detail: "UPDATE SUCCESS", summary: 'Your profile details have been updated',position: 'br'});
 
+          sessionStorage.setItem("fullName", updateForm.value.fullName);
+          setTimeout(function () {
+            window.location.reload();
+          }, 2000);
+          this._router.navigate(['/settings'])
+          .then(() => {
+            window.location.reload();
+          });
         }
         else {
           this._toast.warning({ detail: "UPDATE FAILED", summary: 'Unable to update your profile',position: 'br'});
