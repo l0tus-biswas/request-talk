@@ -293,7 +293,19 @@ completedTimingsData : any =[ ];
             // )
 
             this.updateConfirmationMailOnSent(Number(bookingId));
-         
+           this._usrServices.sendPreScheduleMail(String(this.emailCurrentUser),this.upcomingBookings[Number(indexNum)].appointmentBookedEmail,String(this.fullNameCurrentUser),this.upcomingBookings[Number(indexNum)].bookedEventName).subscribe(
+              res =>{
+                console.log(res);
+              },
+              err =>{
+                console.log(err);
+              },
+              () => console.log("Send Mail Worked")
+            )
+            this._toast.success({detail:"EMAIL SENT",summary:'Schedule Mail has been sent', position: 'br'});
+            setTimeout(function () {
+              window.location.reload();
+            }, 2000);
         
         }
         });
@@ -349,7 +361,19 @@ completedTimingsData : any =[ ];
           {
             
             this.updateConfirmationMailOnSent(Number(bookingId));
-         
+            this._usrServices.sendPreScheduleMail(String(this.emailCurrentUser),this.upcomingBookings[Number(indexNum)].appointmentBookedEmail,String(this.fullNameCurrentUser),this.upcomingBookings[Number(indexNum)].bookedEventName).subscribe(
+              res =>{
+                console.log(res);
+              },
+              err =>{
+                console.log(err);
+              },
+              () => console.log("Send Mail Worked")
+            )
+            this._toast.success({detail:"EMAIL SENT",summary:'Schedule Mail has been sent', position: 'br'});
+            setTimeout(function () {
+              window.location.reload();
+            }, 2000);
           }
         });
 
