@@ -21,6 +21,7 @@ import { EventBookingComponent } from './components/event-booking/event-booking.
 import { SuccessBookingComponent } from './components/success-booking/success-booking.component';
 import { ImgurApiService } from './components/settings/imgur-api.service';
 import { SendResetPasswordMailComponent } from './components/send-reset-password-mail/send-reset-password-mail.component';
+import { GoogleCalendarIntregrationComponent } from './components/google-calendar-intregration/google-calendar-intregration.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { SendResetPasswordMailComponent } from './components/send-reset-password
     EventBookingComponent,
     SuccessBookingComponent,
     SendResetPasswordMailComponent,
+    GoogleCalendarIntregrationComponent,
    
   ],
   imports: [

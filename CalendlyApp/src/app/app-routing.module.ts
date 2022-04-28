@@ -6,6 +6,7 @@ import { EditAvailabilityComponent } from './components/edit-availability/edit-a
 import { EditEventTypeComponent } from './components/edit-event-type/edit-event-type.component';
 import { EventBookingComponent } from './components/event-booking/event-booking.component';
 import { EventTypesComponent } from './components/event-types/event-types.component';
+import { GoogleCalendarIntregrationComponent } from './components/google-calendar-intregration/google-calendar-intregration.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileBookingComponent } from './components/profile-booking/profile-booking.component';
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path: 'user/:username', component: ProfileBookingComponent},
   {path: 'user/:username/:event_id', component: EventBookingComponent},
   {path: 'success', component: SuccessBookingComponent},
-  {path: 'reset-password', component: SendResetPasswordMailComponent}
+  {path: 'reset-password', component: SendResetPasswordMailComponent},
+  {path: 'calendar-intregration', component: GoogleCalendarIntregrationComponent, canActivate: [AuthGuardService]},
 ];
 
 @NgModule({

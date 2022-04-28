@@ -1,13 +1,15 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+
 declare var gapi: any;
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-google-calendar-intregration',
+  templateUrl: './google-calendar-intregration.component.html',
+  styleUrls: ['./google-calendar-intregration.component.css']
 })
-export class HomeComponent implements OnInit {
+export class GoogleCalendarIntregrationComponent implements OnInit {
+
   isSignedIn = false;
 
   constructor(private zone: NgZone, private _toast: NgToastService, private _router: Router) { }
@@ -44,9 +46,11 @@ export class HomeComponent implements OnInit {
     console.log('updateSigninStatus', isSignedIn);
     this.isSignedIn = isSignedIn;
     if (isSignedIn) {
-      //  this.addUpcomingEvents();
       this._toast.success({ detail: "SUCCESS", summary: 'Integrated Google Calendar ', position: 'br' });
-
+      this._router.navigate(['/home'])
+        .then(() => {
+          window.location.reload();
+        });
     }
     if (isSignedIn == false) {
       this._router.navigate(["/calendar-intregration"]);

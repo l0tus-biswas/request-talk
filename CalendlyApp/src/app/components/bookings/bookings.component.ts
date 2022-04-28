@@ -1,5 +1,5 @@
 import { Component,NgZone, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { IBooking } from 'src/app/interface/booking';
 import { BookingService } from 'src/app/services/booking-services/booking.service';
@@ -131,7 +131,7 @@ completedTimingsData : any =[ ];
   errMsg!: string;
   status: boolean = false;
 
-  constructor(private _bookingServices: BookingService,private _usrServices : UserService,  private _evtServices: EventService, private _toast: NgToastService, private route: ActivatedRoute,private zone: NgZone,private http: HttpClient ) { 
+  constructor(private _bookingServices: BookingService,private _usrServices : UserService,  private _evtServices: EventService, private _toast: NgToastService, private route: ActivatedRoute,private zone: NgZone,private http: HttpClient,private _router: Router ) { 
     this.username = sessionStorage.getItem('userName');;
     this.userTimezone = "Asia/Calcutta";
     this.userId = Number(sessionStorage.getItem('userID'));
@@ -174,9 +174,15 @@ completedTimingsData : any =[ ];
   updateSigninStatus(isSignedIn: any) {
     console.log('updateSigninStatus', isSignedIn);
     this.isSignedIn = isSignedIn;
+ 
+
     if (isSignedIn) {
-      // this.addUpcomingEvents();
-      this._toast.success({detail:"SUCCESS",summary:'Integrated Google Calendar ', position: 'br'});
+      //  this.addUpcomingEvents();
+      this._toast.success({ detail: "SUCCESS", summary: 'Integrated Google Calendar ', position: 'br' });
+
+    }
+    if (isSignedIn == false) {
+      this._router.navigate(["/calendar-intregration"]);
     }
   }
   
