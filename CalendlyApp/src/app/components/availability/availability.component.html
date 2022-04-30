@@ -85,7 +85,7 @@
           
       </div> -->
 
-      
+      <div *ngIf="tempavaibility.length !=0; else elseBlock">  
   <div class="row mx-1">
     <div class="col-md-12 mb-2 text-dark rounded bg-white border border-1 shadow-sm bg-body"  *ngFor="let avl of tempavaibility">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-3  ">
@@ -116,3 +116,14 @@
     </div>
 
       </div>
+
+      <ng-template #elseBlock>
+        <div class="row mx-1" >
+          <div class="col-md-12 mb-2 text-dark bg-white border border-1 shadow-sm bg-body rounded"  >
+           <div class=" pt-5 pb-5 text-center ">
+             <img src="https://camden.rutgers.edu/new/wp-content/plugins/elementor/assets/images/no-search-results.svg" alt="" class="pb-4">
+           <p class="lead text-muted" >You haven't created any avaibility schedule yet. Click on <span class="fst-italic"> New Schedule</span>  to create.</p>
+           </div>
+         </div>
+      </div>
+      </ng-template>
