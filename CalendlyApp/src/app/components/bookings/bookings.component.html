@@ -41,8 +41,10 @@
             
               </ul>
               <div class="tab-content" id="myTabContent">
+
                 <div class="tab-pane fade show active" id="confirmation-pending" role="tabpanel" aria-labelledby="confirmation-pending-tab">
-                    <div class="row mx-1 my-2">
+                  <div *ngIf="onHoldBookings.length !=0; else elseBlock"  >  
+                  <div class="row mx-1 my-2">
                         <div class="col-md-12 mb-2 text-dark rounded bg-white border border-1 shadow-sm bg-body rounded" *ngFor="let bk of onHoldBookings;index as indexOfelement;">
                           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-4  ">
                             <div>
@@ -77,8 +79,21 @@
                           </div>
                         </div>
                       </div>
+                      </div>
+                      <ng-template #elseBlock>
+                        <div class="row  mx-1 my-2" >
+                          <div class="col-md-12 mb-2 text-dark bg-white border border-1 shadow-sm bg-body rounded"  >
+                           <div class=" pt-5 pb-5 text-center ">
+                             <img src="https://camden.rutgers.edu/new/wp-content/plugins/elementor/assets/images/no-search-results.svg" alt="" class="pb-4">
+                            </div>
+                         </div>
+                      </div>
+                      </ng-template>
+                     
                 </div>
+
                 <div class="tab-pane fade" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
+                  <div *ngIf="upcomingBookings.length !=0; else elseBlock"  > 
                   <div class="row mx-1 my-2">
                     <div class="col-md-12 mb-2 text-dark rounded bg-white border border-1 shadow-sm bg-body rounded" *ngFor="let bk of upcomingBookings;index as indexOfelement;">
                       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-4  ">
@@ -131,9 +146,20 @@
                 
               
                   </div>
+                  </div>
+                  <ng-template #elseBlock>
+                    <div class="row  mx-1 my-2" >
+                      <div class="col-md-12 mb-2 text-dark bg-white border border-1 shadow-sm bg-body rounded"  >
+                       <div class=" pt-5 pb-5 text-center ">
+                         <img src="https://camden.rutgers.edu/new/wp-content/plugins/elementor/assets/images/no-search-results.svg" alt="" class="pb-4">
+                        </div>
+                     </div>
+                  </div>
+                  </ng-template>
                 </div>
-                <div class="tab-pane fade" id="past" role="tabpanel" aria-labelledby="past-tab">
 
+                <div class="tab-pane fade" id="past" role="tabpanel" aria-labelledby="past-tab">
+                  <div *ngIf="pastBookings.length !=0; else elseBlock"  > 
                   <div class="row mx-1 my-2">
                     <div class="col-md-12 mb-2 text-dark rounded bg-white border border-1 shadow-sm bg-body" *ngFor="let bk of pastBookings;index as indexOfelement;">
                       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-4  ">
@@ -180,9 +206,20 @@
                       </div>
                     </div>
                   </div>
+                  </div>
+                  <ng-template #elseBlock>
+                    <div class="row  mx-1 my-2" >
+                      <div class="col-md-12 mb-2 text-dark bg-white border border-1 shadow-sm bg-body rounded"  >
+                       <div class=" pt-5 pb-5 text-center ">
+                         <img src="https://camden.rutgers.edu/new/wp-content/plugins/elementor/assets/images/no-search-results.svg" alt="" class="pb-4">
+                        </div>
+                     </div>
+                  </div>
+                  </ng-template>
                 </div>
-                <div class="tab-pane fade" id="cancelled" role="tabpanel" aria-labelledby="cancelled-tab">
 
+                <div class="tab-pane fade" id="cancelled" role="tabpanel" aria-labelledby="cancelled-tab">
+                  <div *ngIf="cancelledBookings.length !=0; else elseBlock"  > 
                   <div class="row mx-1 my-2">
                     <div class="col-md-12 mb-2 text-dark rounded bg-white border border-1 shadow-sm bg-body" *ngFor="let bk of cancelledBookings;index as indexOfelement;">
                       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-4  ">
@@ -221,9 +258,20 @@
                       
                     </div>
                   </div>
+                  </div>
+                  <ng-template #elseBlock>
+                    <div class="row  mx-1 my-2" >
+                      <div class="col-md-12 mb-2 text-dark bg-white border border-1 shadow-sm bg-body rounded"  >
+                       <div class=" pt-5 pb-5 text-center ">
+                         <img src="https://camden.rutgers.edu/new/wp-content/plugins/elementor/assets/images/no-search-results.svg" alt="" class="pb-4">
+                        </div>
+                     </div>
+                  </div>
+                  </ng-template>
                 </div>
+                
                 <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="completed-tab">
-
+                  <div *ngIf="completedBookings.length !=0; else elseBlock"  > 
                   <div class="row mx-1 my-2">
                     <div class="col-md-12 mb-2 text-dark rounded bg-white border border-1 shadow-sm bg-body" *ngFor="let bk of completedBookings;index as indexOfelement;">
                       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-4  ">
@@ -270,66 +318,80 @@
                     </div>
                   </div>
                 </div>
-                <div class="tab-pane fade" id="rescheduled" role="tabpanel" aria-labelledby="rescheduled-tab">
-                  <div class="row mx-1 my-2">
-                    
-                    <div class="col-md-12 mb-2 text-dark rounded bg-white border border-1 shadow-sm bg-body" *ngFor="let bk of rescheduleBookings;index as indexOfelement;">
-                    
-                      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-4  ">
-                        <div>
-                          <span class="badge rounded-pill bg-warning text-dark mb-2">Rescheduled</span>
-                        
-                          <p class="fw-bold">{{bk.bookedEventName}} <span class="fst-italic">between {{fullNameCurrentUser}} & {{bk.appointmentBookedUsername}}</span></p>
-                          <div >
-                            <span ><i class="fa fa-clock-o" aria-hidden="true"></i> {{rescheduleTimingsData[indexOfelement][0].userstartTime}} - {{rescheduleTimingsData[indexOfelement][0].userEndTime}}  ({{rescheduleTimingsData[indexOfelement][0].userTimezone}}) </span><br/>
-                            <span><i class="fa fa-calendar-o" aria-hidden="true"></i> {{rescheduleTimingsData[indexOfelement][0].userbookedDate}}</span>
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <!-- <div class="btn-toolbar mt-2 mb-2 mb-md-0">
-                            <div class="btn-group me-2 ">
-                              <button type="button" class="btn btn-sm btn-warning" style="margin-right: 4px;"><i class="fa fa-envelope" aria-hidden="true"></i>Send Reschedule Mail</button>
-                              <button type="button" class="btn btn-sm btn-danger" (click)="updateOnCancel(bk.bookingId)"><i class="fa fa-times-circle" aria-hidden="true"></i>Cancel</button>
-                            </div>
-                          </div> -->
-                          <div class="btn-toolbar mt-2 mb-2 mb-md-0">
-                            <div class="btn-group me-2 ">
-                             
-                                <button type="button" class="btn btn-sm btn-danger" style="margin-right: 4px;" (click)="updateOnCancelReschedule(bk.bookingId,indexOfelement)"><i class="fa fa-window-close" aria-hidden="true"></i>Cancel</button>
-                              
-                              <button type="button"  class="btn btn-outline-dark" style="margin-right: 4px;"  data-bs-toggle="collapse" [attr.href]="'#collapseExample' + indexOfelement" role="button" aria-expanded="false"  [attr.aria-controls]="'#collapseExample' + indexOfelement" ><i class="fa fa-arrow-down" aria-hidden="true"></i>View Deatils</button>
-                            </div>
-                          
-                          </div>
-                        </div>
-                        
-                      </div>
-                      <div class="collapse mb-4" id="collapseExample{{indexOfelement}}">
-                        <div class="card card-body">
-                          <p class="fw-bold badge bg-primary text-wrap" style="width: 10rem;">Attendee Information</p>
-                         <p  class="fst-italic"><i class="fa fa-commenting" aria-hidden="true"></i> {{bk.additionalNotes}}</p>
+            
+                
+              </div>
 
+               
+              <div class="tab-pane fade" id="rescheduled" role="tabpanel" aria-labelledby="rescheduled-tab">
+                <div *ngIf="rescheduleBookings.length !=0; else elseBlock"  > 
+                <div class="row mx-1 my-2">
+                  
+                  <div class="col-md-12 mb-2 text-dark rounded bg-white border border-1 shadow-sm bg-body" *ngFor="let bk of rescheduleBookings;index as indexOfelement;">
+                  
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-4  ">
+                      <div>
+                        <span class="badge rounded-pill bg-warning text-dark mb-2">Rescheduled</span>
                       
-                         <p ><i class="fa fa-envelope" aria-hidden="true"></i>  <a href = "mailto: {{bk.appointmentBookedEmail}}">{{bk.appointmentBookedEmail}}</a> <span *ngIf="bk.appointmentGuestEmail !=null" > , <a href = "mailto: {{bk.appointmentGuestEmail}}"> {{bk.appointmentGuestEmail}}</a> (Guest)</span> </p>
-
-                          <p ><i class="fa fa-phone-square" aria-hidden="true"></i> {{bk.appointmentBookedPhoneNumber}}</p>
-                           
-                          <!-- <div class="btn-toolbar mt-2 mb-2 mb-md-0">
-                            <div class="btn-group me-2 ">
-                           
-                              <button type="button" class="btn btn-sm btn-warning" style="margin-right: 4px;"><i class="fa fa-envelope" aria-hidden="true"></i>Send Reschedule Mail</button>
-                         
-                               </div>
-                          
-                          </div> -->
+                        <p class="fw-bold">{{bk.bookedEventName}} <span class="fst-italic">between {{fullNameCurrentUser}} & {{bk.appointmentBookedUsername}}</span></p>
+                        <div >
+                          <span ><i class="fa fa-clock-o" aria-hidden="true"></i> {{rescheduleTimingsData[indexOfelement][0].userstartTime}} - {{rescheduleTimingsData[indexOfelement][0].userEndTime}}  ({{rescheduleTimingsData[indexOfelement][0].userTimezone}}) </span><br/>
+                          <span><i class="fa fa-calendar-o" aria-hidden="true"></i> {{rescheduleTimingsData[indexOfelement][0].userbookedDate}}</span>
                         </div>
-                        
                       </div>
+                      
+                      <div>
+                        <!-- <div class="btn-toolbar mt-2 mb-2 mb-md-0">
+                          <div class="btn-group me-2 ">
+                            <button type="button" class="btn btn-sm btn-warning" style="margin-right: 4px;"><i class="fa fa-envelope" aria-hidden="true"></i>Send Reschedule Mail</button>
+                            <button type="button" class="btn btn-sm btn-danger" (click)="updateOnCancel(bk.bookingId)"><i class="fa fa-times-circle" aria-hidden="true"></i>Cancel</button>
+                          </div>
+                        </div> -->
+                        <div class="btn-toolbar mt-2 mb-2 mb-md-0">
+                          <div class="btn-group me-2 ">
+                           
+                              <button type="button" class="btn btn-sm btn-danger" style="margin-right: 4px;" (click)="updateOnCancelReschedule(bk.bookingId,indexOfelement)"><i class="fa fa-window-close" aria-hidden="true"></i>Cancel</button>
+                            
+                            <button type="button"  class="btn btn-outline-dark" style="margin-right: 4px;"  data-bs-toggle="collapse" [attr.href]="'#collapseExample' + indexOfelement" role="button" aria-expanded="false"  [attr.aria-controls]="'#collapseExample' + indexOfelement" ><i class="fa fa-arrow-down" aria-hidden="true"></i>View Deatils</button>
+                          </div>
+                        
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="collapse mb-4" id="collapseExample{{indexOfelement}}">
+                      <div class="card card-body">
+                        <p class="fw-bold badge bg-primary text-wrap" style="width: 10rem;">Attendee Information</p>
+                       <p  class="fst-italic"><i class="fa fa-commenting" aria-hidden="true"></i> {{bk.additionalNotes}}</p>
+
+                    
+                       <p ><i class="fa fa-envelope" aria-hidden="true"></i>  <a href = "mailto: {{bk.appointmentBookedEmail}}">{{bk.appointmentBookedEmail}}</a> <span *ngIf="bk.appointmentGuestEmail !=null" > , <a href = "mailto: {{bk.appointmentGuestEmail}}"> {{bk.appointmentGuestEmail}}</a> (Guest)</span> </p>
+
+                        <p ><i class="fa fa-phone-square" aria-hidden="true"></i> {{bk.appointmentBookedPhoneNumber}}</p>
+                         
+                        <!-- <div class="btn-toolbar mt-2 mb-2 mb-md-0">
+                          <div class="btn-group me-2 ">
+                         
+                            <button type="button" class="btn btn-sm btn-warning" style="margin-right: 4px;"><i class="fa fa-envelope" aria-hidden="true"></i>Send Reschedule Mail</button>
+                       
+                             </div>
+                        
+                        </div> -->
+                      </div>
+                      
                     </div>
                   </div>
                 </div>
-                
+                </div>
+                <ng-template #elseBlock>
+                  <div class="row  mx-1 my-2" >
+                    <div class="col-md-12 mb-2 text-dark bg-white border border-1 shadow-sm bg-body rounded"  >
+                     <div class=" pt-5 pb-5 text-center ">
+                       <img src="https://camden.rutgers.edu/new/wp-content/plugins/elementor/assets/images/no-search-results.svg" alt="" class="pb-4">
+                      </div>
+                   </div>
+                </div>
+                </ng-template>
               </div>
         </div>
       
