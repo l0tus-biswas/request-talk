@@ -1,6 +1,10 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 import { NgToastService } from 'ng-angular-popup';
+import { IBooking } from 'src/app/interface/booking';
+import { IEvents } from 'src/app/interface/events';
+import { BookingService } from 'src/app/services/booking-services/booking.service';
 declare var gapi: any;
 @Component({
   selector: 'app-home',
@@ -10,12 +14,120 @@ declare var gapi: any;
 export class HomeComponent implements OnInit {
   isSignedIn = false;
 
-  constructor(private zone: NgZone, private _toast: NgToastService, private _router: Router) { }
+  bookings: IBooking[] = [];
+  eventDetails: IEvents[] = [];
+  onHoldBookings: IBooking[] = [];
+  rescheduleBookings: IBooking[] = [];
+  upcomingBookings: IBooking[] = [];
+  cancelledBookings: IBooking[] = [];
+  pastBookings: IBooking[] = [];
+ completedBookings: IBooking[] = [];
+  
+  
+  timingsData : any =[ ];
+  upcomingTimingsData : any =[ ];
+completedTimingsData : any =[ ];
+  onHoldTimingsData : any =[ ];
+  cancelledTimingsData : any =[ ];
+  pastTimingsData : any =[ ];
+  rescheduleTimingsData : any =[ ];
+
+  
+  username: string | null;
+  fullNameCurrentUser: string | null;
+  emailCurrentUser : string | null;
+  userId: number | null;
+  userTimezone: string = "";
+  userToken: string | null;
+  errMsg!: string;
+  status: boolean = false;
+
+  constructor(private _bookingServices: BookingService, private zone: NgZone, private _toast: NgToastService, private _router: Router) {
+
+    this.username = sessionStorage.getItem('userName');;
+    this.userTimezone = "Asia/Calcutta";
+    this.userId = Number(sessionStorage.getItem('userID'));
+    this.userToken = sessionStorage.getItem('userToken');;
+    this.fullNameCurrentUser = sessionStorage.getItem('fullName');
+    this.emailCurrentUser = sessionStorage.getItem('emailAddress');
+   }
 
   async ngOnInit() {
+    this.getAllBookings();
     await this.loadGapi();
     gapi.load('client:auth2', this.initClient.bind(this));
   }
+
+  getAllBookings() {
+    this._bookingServices.getAllBookings(String(this.username)).subscribe(
+      res => {
+      this.bookings = res;
+      console.log(this.bookings);
+
+     var getCurentDateOfUser = (moment.tz(moment(), this.userTimezone).format('LL'));
+      var currentTime = (moment.tz(moment(), this.userTimezone)).format('LT');
+    
+      console.log(getCurentDateOfUser);
+      console.log(currentTime);
+
+      for(var i =0;i<this.bookings.length;i++)
+      {
+        if(this.bookings[i].bookingStatus == "On Hold")
+        {
+          this.onHoldBookings.push(this.bookings[i]);
+          this.onHoldTimingsData.push(eval(this.bookings[i].bookedTime));
+          console.log(this.onHoldBookings);
+        }
+        else if(this.bookings[i].bookingStatus == "Completed")
+        {
+          this.completedBookings.push(this.bookings[i]);
+          this.completedTimingsData.push(eval(this.bookings[i].bookedTime));
+        }
+        else if(this.bookings[i].bookingStatus == "Cancelled")
+        {
+          this.cancelledBookings.push(this.bookings[i]);
+          this.cancelledTimingsData.push(eval(this.bookings[i].bookedTime));
+        }
+        else if(this.bookings[i].bookingStatus == "Rescheduled")
+        {
+          this.rescheduleBookings.push(this.bookings[i]);
+          this.rescheduleTimingsData.push(eval(this.bookings[i].bookedTime));
+        }
+        else if(this.bookings[i].bookingStatus == "Confirmed")
+        {
+          var intoJson = (eval(this.bookings[i].bookedTime));
+          console.log((moment.tz(intoJson[0].userbookedDate, intoJson[0].userTimezone).format('YYYY-MM-DD'))  + " > "+ getCurentDateOfUser);
+
+          var date1 = new Date(intoJson[0].userbookedDate);
+          var date2 = new Date(getCurentDateOfUser);
+        
+          if(date1.getTime() < date2.getTime()){
+            this.pastBookings.push(this.bookings[i]);
+            this.pastTimingsData.push(eval(this.bookings[i].bookedTime));
+          }
+          else{
+            this.upcomingBookings.push(this.bookings[i]);
+            this.upcomingTimingsData.push(eval(this.bookings[i].bookedTime));
+          }
+                  
+        }
+        else
+        {
+          this.pastBookings.push(this.bookings[i]);
+          this.pastTimingsData.push(eval(this.bookings[i].bookedTime));
+        }
+      }
+      console.log(this.rescheduleBookings);
+      console.log(this.rescheduleTimingsData);
+      console.log(this.timingsData);
+
+    }, err => {
+      this.bookings = [];
+       this.errMsg = err;
+       console.log(this.errMsg)
+    }, () => console.log("Get All Bookings method excuted successfully"))
+  }
+
 
   initClient() {
     const updateSigninStatus = this.updateSigninStatus.bind(this);
