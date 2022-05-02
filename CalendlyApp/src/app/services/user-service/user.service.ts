@@ -21,34 +21,34 @@ export class UserService {
 
   resetMail( emailAdderss: string, password: string): Observable<any> {
   
-    return this.http.get<any>("http://localhost:3000/resetMail?emailAddress=" + emailAdderss + "&password=" +password ).pipe(catchError(this.errorHandler));
+    return this.http.get<any>("https://mail-backend.onrender.com/resetMail?emailAddress=" + emailAdderss + "&password=" +password ).pipe(catchError(this.errorHandler));
   }
 
   sendBookingConfirmationMail( bookedEmailAdderss: string, userEmailAdderss: string, bookedName: string, eventName: string): Observable<any> {
   
-    return this.http.get<any>("http://localhost:3000/sendBookingConfirmationMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss +  "&bookedName=" +bookedName + "&eventName=" +eventName  ).pipe(catchError(this.errorHandler));
+    return this.http.get<any>("https://mail-backend.onrender.com/sendBookingConfirmationMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss +  "&bookedName=" +bookedName + "&eventName=" +eventName  ).pipe(catchError(this.errorHandler));
   }
 
   sendBookingPendingMail( bookedEmailAdderss: string, userEmailAdderss: string, bookedName: string,  eventName: string): Observable<any> {
-    return this.http.get<any>("http://localhost:3000/sendBookingPendingMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss + "&bookedName=" + bookedName + "&eventName=" +eventName  ).pipe(catchError(this.errorHandler));
+    return this.http.get<any>("https://mail-backend.onrender.com/sendBookingPendingMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss + "&bookedName=" + bookedName + "&eventName=" +eventName  ).pipe(catchError(this.errorHandler));
  }
 
  sendRescheduleMail( bookedEmailAdderss: string, userEmailAdderss: string, bookedName: string,  eventName: string, userURL: string, timeAndTimeZone: string, eventDate: string ): Observable<any> {
-  return this.http.get<any>("http://localhost:3000/sendRescheduleMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss + "&bookedName=" + bookedName + "&eventName=" +eventName  + "&userURL=" + userURL + "&timeAndTimeZone=" +timeAndTimeZone+ "&eventDate=" +eventDate).pipe(catchError(this.errorHandler));
+  return this.http.get<any>("https://mail-backend.onrender.com/sendRescheduleMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss + "&bookedName=" + bookedName + "&eventName=" +eventName  + "&userURL=" + userURL + "&timeAndTimeZone=" +timeAndTimeZone+ "&eventDate=" +eventDate).pipe(catchError(this.errorHandler));
 }
 sendCancelMail( bookedEmailAdderss: string, userEmailAdderss: string, bookedName: string,  eventName: string, userURL: string, timeAndTimeZone: string, eventDate: string ): Observable<any> {
-  return this.http.get<any>("http://localhost:3000/sendCancelMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss + "&bookedName=" + bookedName + "&eventName=" +eventName  + "&userURL=" + userURL + "&timeAndTimeZone=" +timeAndTimeZone+ "&eventDate=" +eventDate).pipe(catchError(this.errorHandler));
+  return this.http.get<any>("https://mail-backend.onrender.com/sendCancelMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss + "&bookedName=" + bookedName + "&eventName=" +eventName  + "&userURL=" + userURL + "&timeAndTimeZone=" +timeAndTimeZone+ "&eventDate=" +eventDate).pipe(catchError(this.errorHandler));
 }
 
 sendBookingAcceptMail( bookedEmailAdderss: string, userEmailAdderss: string, bookedName: string,  eventName: string, userURL: string, timeAndTimeZone: string, eventDate: string ): Observable<any> {
-  return this.http.get<any>("http://localhost:3000/sendBookingAcceptMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss + "&bookedName=" + bookedName + "&eventName=" +eventName  + "&userURL=" + userURL + "&timeAndTimeZone=" +timeAndTimeZone+ "&eventDate=" +eventDate).pipe(catchError(this.errorHandler));
+  return this.http.get<any>("https://mail-backend.onrender.com/sendBookingAcceptMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss + "&bookedName=" + bookedName + "&eventName=" +eventName  + "&userURL=" + userURL + "&timeAndTimeZone=" +timeAndTimeZone+ "&eventDate=" +eventDate).pipe(catchError(this.errorHandler));
 }
 sendBookingRejectMail( bookedEmailAdderss: string, userEmailAdderss: string, bookedName: string,  eventName: string, userURL: string, timeAndTimeZone: string, eventDate: string ): Observable<any> {
-  return this.http.get<any>("http://localhost:3000/sendBookingRejectMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss + "&bookedName=" + bookedName + "&eventName=" +eventName  + "&userURL=" + userURL + "&timeAndTimeZone=" +timeAndTimeZone+ "&eventDate=" +eventDate).pipe(catchError(this.errorHandler));
+  return this.http.get<any>("https://mail-backend.onrender.com/sendBookingRejectMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss + "&bookedName=" + bookedName + "&eventName=" +eventName  + "&userURL=" + userURL + "&timeAndTimeZone=" +timeAndTimeZone+ "&eventDate=" +eventDate).pipe(catchError(this.errorHandler));
 }
 
 sendPreScheduleMail( bookedEmailAdderss: string, userEmailAdderss: string, bookedName: string,  eventName: string): Observable<any> {
-  return this.http.get<any>("http://localhost:3000/sendPreScheduleMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss + "&bookedName=" + bookedName + "&eventName=" +eventName  ).pipe(catchError(this.errorHandler));
+  return this.http.get<any>("https://mail-backend.onrender.com/sendPreScheduleMail?bookedEmailAdderss=" + bookedEmailAdderss +  "&userEmailAdderss=" +userEmailAdderss + "&bookedName=" + bookedName + "&eventName=" +eventName  ).pipe(catchError(this.errorHandler));
 }
 
   registerUser( userToken: string,  fullName: string, username: string, emailAdderss: string, password: string,timezone: string): Observable<boolean> {

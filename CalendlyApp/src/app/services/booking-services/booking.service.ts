@@ -47,7 +47,7 @@ export class BookingService {
 
   sendMail( appointWith: string, appointWithEmail: string, eventSummary: string,dateEvent: string, time:string, timezone: string, location: string, eventAttendee:string,eventAttendeeEmail:string, eventDesc:string): Observable<any> {
   
-    return this.http.get<any>("http://localhost:3000/sendmail?appointWith=" + appointWith + "&appointWithEmail=" +appointWithEmail + "&eventSummary="+eventSummary + "&dateEvent=" +dateEvent + "&time="+time+ "&timezone=" +timezone + "&location="+location+"&eventAttendee="+eventAttendee+ "&eventAttendeeEmail=" + eventAttendeeEmail + "&eventDesc="+eventDesc).pipe(catchError(this.errorHandler));
+    return this.http.get<any>("https://mail-backend.onrender.com/sendmail?appointWith=" + appointWith + "&appointWithEmail=" +appointWithEmail + "&eventSummary="+eventSummary + "&dateEvent=" +dateEvent + "&time="+time+ "&timezone=" +timezone + "&location="+location+"&eventAttendee="+eventAttendee+ "&eventAttendeeEmail=" + eventAttendeeEmail + "&eventDesc="+eventDesc).pipe(catchError(this.errorHandler));
   }
 
   updateConfirmationOnMailSentEvent( bookedUser: string, bookingId:number): Observable<boolean>  {
