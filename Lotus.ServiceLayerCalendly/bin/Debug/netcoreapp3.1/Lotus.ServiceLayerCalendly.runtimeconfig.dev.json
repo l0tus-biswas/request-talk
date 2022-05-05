@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\lotus\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\lotus\\.nuget\\packages"
+    ]
+  }
+}
