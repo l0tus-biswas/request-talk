@@ -8,14 +8,16 @@ CREATE TABLE [dbo].[User] (
     [Password]       VARCHAR (50)  NOT NULL,
     [FullName]       VARCHAR (50)  NOT NULL,
     [About]          VARCHAR (MAX) NULL,
-    [ProfilePicture] VARCHAR (MAX) NULL,
+    [ProfilePicture] VARCHAR (MAX) DEFAULT ('http://www.mountainheavensella.com/wp-content/uploads/2018/12/default-user.png') NULL,
     [Timezone]       VARCHAR (MAX) NULL,
     [Language]       VARCHAR (50)  NULL,
     PRIMARY KEY CLUSTERED ([UserId] ASC),
-    UNIQUE NONCLUSTERED ([UserToken] ASC),
+    UNIQUE NONCLUSTERED ([EmailAdderss] ASC),
     UNIQUE NONCLUSTERED ([Username] ASC),
-    UNIQUE NONCLUSTERED ([EmailAdderss] ASC)
+    UNIQUE NONCLUSTERED ([UserToken] ASC)
 );
+
+
 
 CREATE TABLE [dbo].[Event] (
     [EventId]           INT           IDENTITY (1, 1) NOT NULL,
