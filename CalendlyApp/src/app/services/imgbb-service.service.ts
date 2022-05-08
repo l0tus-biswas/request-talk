@@ -6,7 +6,7 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ImgbbServiceService {
-  private readonly apiKey : string = "47ba03fc6481072bfc9a580cce6297c0";
+  private readonly apiKey : string = "d296aa0e84870997059e70711820c71d";
 
   constructor( private readonly httpClient: HttpClient) { }
 
@@ -15,7 +15,7 @@ export class ImgbbServiceService {
     formData.append('image', file);
 
     return this.httpClient
-    .post('/upload', formData, {params: {key: this.apiKey}})
+    .post('https://api.imgbb.com/1/upload', formData, {params: {key: this.apiKey}})
   }
 
 }
