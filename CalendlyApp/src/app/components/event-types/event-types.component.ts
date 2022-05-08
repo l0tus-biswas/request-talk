@@ -21,11 +21,17 @@ userId: number | null;
 userToken: string | null;
 userName: string | null;
 
+// locationArr = [
+//   { id: 1, label: "Zoom", status: "false" },
+//   { id: 2, label: "Google Meet", status: "false" },
+//   { id: 3, label: "Microsoft Teams", status: "false" }
+// ];
+
+
 locationArr = [
-  { id: 1, label: "Zoom", status: "false" },
-  { id: 2, label: "Google Meet", status: "false" },
-  { id: 3, label: "Microsoft Teams", status: "false" }
+  { id: 2, label: "Google Meet", status: "false" }
 ];
+
 
   constructor(private _evtServices: EventService, private _toast: NgToastService) { 
     this.userId = Number(sessionStorage.getItem('userID'));
@@ -99,6 +105,7 @@ locationArr = [
           this._toast.success({detail:"ADD SUCCESS",summary:'New Event has been added', position: 'br'});
           setTimeout(function () {
             window.location.reload();
+            
           }, 2000);
         }
         else {

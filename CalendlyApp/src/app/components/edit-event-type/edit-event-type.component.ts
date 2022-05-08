@@ -23,12 +23,16 @@ export class EditEventTypeComponent implements OnInit {
   userToken: string | null;
   eventIdParams: number;
 
-  locationArr = [
-    { id: 1, label: "Zoom", status: "false" },
-    { id: 2, label: "Google Meet", status: "false" },
-    { id: 3, label: "Microsoft Teams", status: "false" }
-  ];
+  // locationArr = [
+  //   { id: 1, label: "Zoom", status: "false" },
+  //   { id: 2, label: "Google Meet", status: "false" },
+  //   { id: 3, label: "Microsoft Teams", status: "false" }
+  // ];
 
+  locationArr = [
+    { id: 2, label: "Google Meet", status: "false" }
+  ];
+  
   intervalArr = [
     { id: 1, label: "Use Event Length (default)", duration: 0, status: "false" },
     { id: 2, label: "5 Minutes",  duration: 5, status: "false" },

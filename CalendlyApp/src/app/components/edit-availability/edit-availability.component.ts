@@ -16,11 +16,17 @@ export class EditAvailabilityComponent implements OnInit {
   fruits: any[] = [];
   vegs: any[] = [];
 
-  locationArr = [
-    { id: 1, label: "Zoom", status: "false" },
-    { id: 2, label: "Google Meet", status: "false" },
-    { id: 3, label: "Microsoft Teams", status: "false" }
-  ];
+  // locationArr = [
+  //   { id: 1, label: "Zoom", status: "false" },
+  //   { id: 2, label: "Google Meet", status: "false" },
+  //   { id: 3, label: "Microsoft Teams", status: "false" }
+  // ];
+
+  
+locationArr = [
+  { id: 2, label: "Google Meet", status: "false" }
+];
+
   str = [
     {
       id: 1,
