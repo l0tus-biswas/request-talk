@@ -13,3 +13,15 @@ h1{
 .card {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+
+
+@media screen and (max-width: 480px) {
+
+    h1{
+        font-size: 30px;
+    }
+    h3{
+        line-height: 1.5;
+    }
+}

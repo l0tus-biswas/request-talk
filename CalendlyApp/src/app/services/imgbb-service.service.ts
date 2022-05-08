@@ -16,6 +16,9 @@ export class ImgbbServiceService {
 
     return this.httpClient
     .post('https://api.imgbb.com/1/upload', formData, {params: {key: this.apiKey}})
+
+    // return this.httpClient
+    // .post('/upload', formData, {params: {key: this.apiKey}})
   }
 
 }
