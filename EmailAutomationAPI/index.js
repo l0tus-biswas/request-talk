@@ -12,7 +12,7 @@ var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: "lotushotmail111@gmail.com",
-  pass:"Sribas@22"
+  pass:"ShuilyBis@22"
     
   }
 });
@@ -46,7 +46,7 @@ res.send(true);
       service: 'gmail',
       auth: {
         user: "lotushotmail111@gmail.com",
-      pass:"Sribas@22"
+      pass:"ShuilyBis@22"
         
       }
     });
@@ -81,7 +81,7 @@ res.send(true);
         service: 'gmail',
         auth: {
           user: "lotushotmail111@gmail.com",
-        pass:"Sribas@22"
+        pass:"ShuilyBis@22"
           
         }
       });
@@ -116,7 +116,7 @@ res.send(true);
           service: 'gmail',
           auth: {
             user: "lotushotmail111@gmail.com",
-          pass:"Sribas@22"
+          pass:"ShuilyBis@22"
             
           }
         });
@@ -151,7 +151,7 @@ res.send(true);
             service: 'gmail',
             auth: {
               user: "lotushotmail111@gmail.com",
-            pass:"Sribas@22"
+            pass:"ShuilyBis@22"
               
             }
           });
@@ -185,7 +185,7 @@ res.send(true);
               service: 'gmail',
               auth: {
                 user: "lotushotmail111@gmail.com",
-              pass:"Sribas@22"
+              pass:"ShuilyBis@22"
                 
               }
             });
@@ -221,7 +221,7 @@ res.send(true);
                 service: 'gmail',
                 auth: {
                   user: "lotushotmail111@gmail.com",
-                pass:"Sribas@22"
+                pass:"ShuilyBis@22"
                   
                 }
               });
@@ -256,7 +256,7 @@ res.send(true);
                   service: 'gmail',
                   auth: {
                     user: "lotushotmail111@gmail.com",
-                  pass:"Sribas@22"
+                  pass:"ShuilyBis@22"
                     
                   }
                 });
@@ -290,7 +290,7 @@ res.send(true);
                     service: 'gmail',
                     auth: {
                       user: "lotushotmail111@gmail.com",
-                    pass:"Sribas@22"
+                    pass:"ShuilyBis@22"
                       
                     }
                   });
