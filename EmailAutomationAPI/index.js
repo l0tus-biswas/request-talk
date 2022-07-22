@@ -53,7 +53,7 @@ res.send(true);
     console.log(req.query);
     
     var mailOptions = {
-      from: 'Appointly.com <lotushotmail111@gmail.com>',
+      from: 'Appointly.com <lotusbiswas2022@gmail.com>',
       to: req.query.emailAddress,
       subject: 'Your Appointly.com password has been reset',
       // html: '<h3>We have recieved a forgot password request from you. And we have reset your password successfully.</h3> <h4> Just login with this credintails from now on. </h4><h4>Your Email Adresss: <a href="#" style="text-decoration:none; color:red; cursor: `auto`;">'+ req.query.emailAddress + "</a></h4>" + '<h4>New Password : <span style="color:red">'+ req.query.password + "</span></h4>" 
