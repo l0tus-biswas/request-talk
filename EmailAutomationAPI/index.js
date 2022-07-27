@@ -11,15 +11,15 @@ app.get('/sendmail', (req, res) => {
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: "lotushotmail111@gmail.com",
-  pass:"ShuilyBis@22"
+    user: "lotusbiswas2022@gmail.com",
+  pass:"tsrprktveclbuhhg"
     
   }
 });
 console.log(req.query);
 
 var mailOptions = {
-  from: 'Appointly.com <lotushotmail111@gmail.com>',
+  from: 'Appointly.com <lotusbiswas2022@gmail.com>',
   to: req.query.eventAttendeeEmail,
   subject: 'Confirmed : You have a meeting with ' + req.query.appointWith,
   html: '<p>Summary : '+ req.query.eventSummary + "</p>" + '<p>Date : '+ req.query.dateEvent + "</p>" + '<p>Time : '+ req.query.time + "</p>" + '<p>Location : Google Meet ( '+ req.query.location + " ) </p>" +  '<p>Attendees : '+ req.query.appointWith + " ( " + req.query.appointWithEmail + " ) " + req.query.eventAttendee  + " ( " + req.query.eventAttendeeEmail + " ) " +   "</p>" + '<p>About the Event : '+ req.query.eventDesc + "</p>"
@@ -45,8 +45,8 @@ res.send(true);
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: "lotusbiswas2022@gmail.com",
-      pass:"ShuilyBis@22"
+       user: "lotusbiswas2022@gmail.com",
+  pass:"tsrprktveclbuhhg"
         
       }
     });
@@ -80,15 +80,15 @@ res.send(true);
       var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: "lotushotmail111@gmail.com",
-        pass:"ShuilyBis@22"
+         user: "lotusbiswas2022@gmail.com",
+  pass:"tsrprktveclbuhhg"
           
         }
       });
       console.log(req.query);
       
       var mailOptions = {
-        from: 'Appointly.com <lotushotmail111@gmail.com>',
+        from: 'Appointly.com <lotusbiswas2022@gmail.com>',
         to: req.query.userEmailAdderss,
         subject: 'Your booking has been confirmed',
           // html: '<h3>We have recieved a forgot password request from you. And we have reset your password successfully.</h3> <h4> Just login with this credintails from now on. </h4><h4>Your Email Adresss: <a href="#" style="text-decoration:none; color:red; cursor: `auto`;">'+ req.query.emailAddress + "</a></h4>" + '<h4>New Password : <span style="color:red">'+ req.query.password + "</span></h4>" 
@@ -115,15 +115,15 @@ res.send(true);
         var transporter = nodemailer.createTransport({
           service: 'gmail',
           auth: {
-            user: "lotushotmail111@gmail.com",
-          pass:"ShuilyBis@22"
+          user: "lotusbiswas2022@gmail.com",
+  pass:"tsrprktveclbuhhg"
             
           }
         });
         console.log(req.query);
         
         var mailOptions = {
-          from: 'Appointly.com <lotushotmail111@gmail.com>',
+          from: 'Appointly.com <lotusbiswas2022@gmail.com>',
           to: req.query.userEmailAdderss,
           subject: 'Your booking has been submitted',
             // html: '<h3>We have recieved a forgot password request from you. And we have reset your password successfully.</h3> <h4> Just login with this credintails from now on. </h4><h4>Your Email Adresss: <a href="#" style="text-decoration:none; color:red; cursor: `auto`;">'+ req.query.emailAddress + "</a></h4>" + '<h4>New Password : <span style="color:red">'+ req.query.password + "</span></h4>" 
@@ -150,15 +150,15 @@ res.send(true);
           var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-              user: "lotushotmail111@gmail.com",
-            pass:"ShuilyBis@22"
+            user: "lotusbiswas2022@gmail.com",
+  pass:"tsrprktveclbuhhg"
               
             }
           });
           console.log(req.query);
           
           var mailOptions = {
-            from: 'Appointly.com <lotushotmail111@gmail.com>',
+            from: 'Appointly.com <lotusbiswas2022@gmail.com>',
             to: req.query.userEmailAdderss,
             subject: 'Your meeting has been rescheduled',
               // html: '<h3>We have recieved a forgot password request from you. And we have reset your password successfully.</h3> <h4> Just login with this credintails from now on. </h4><h4>Your Email Adresss: <a href="#" style="text-decoration:none; color:red; cursor: `auto`;">'+ req.query.emailAddress + "</a></h4>" + '<h4>New Password : <span style="color:red">'+ req.query.password + "</span></h4>" 
@@ -184,15 +184,15 @@ res.send(true);
             var transporter = nodemailer.createTransport({
               service: 'gmail',
               auth: {
-                user: "lotushotmail111@gmail.com",
-              pass:"ShuilyBis@22"
+               user: "lotusbiswas2022@gmail.com",
+  pass:"tsrprktveclbuhhg"
                 
               }
             });
             console.log(req.query);
             
             var mailOptions = {
-              from: 'Appointly.com <lotushotmail111@gmail.com>',
+              from: 'Appointly.com <lotusbiswas2022@gmail.com>',
               to: req.query.userEmailAdderss,
               subject: 'Your meeting has been cancelled',
                 // html: '<h3>We have recieved a forgot password request from you. And we have reset your password successfully.</h3> <h4> Just login with this credintails from now on. </h4><h4>Your Email Adresss: <a href="#" style="text-decoration:none; color:red; cursor: `auto`;">'+ req.query.emailAddress + "</a></h4>" + '<h4>New Password : <span style="color:red">'+ req.query.password + "</span></h4>" 
@@ -220,15 +220,15 @@ res.send(true);
               var transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
-                  user: "lotushotmail111@gmail.com",
-                pass:"ShuilyBis@22"
+                 user: "lotusbiswas2022@gmail.com",
+  pass:"tsrprktveclbuhhg"
                   
                 }
               });
               console.log(req.query);
               
               var mailOptions = {
-                from: 'Appointly.com <lotushotmail111@gmail.com>',
+                from: 'Appointly.com <lotusbiswas2022@gmail.com>',
                 to: req.query.userEmailAdderss,
                 subject: 'Your meeting has been accepted',
                   // html: '<h3>We have recieved a forgot password request from you. And we have reset your password successfully.</h3> <h4> Just login with this credintails from now on. </h4><h4>Your Email Adresss: <a href="#" style="text-decoration:none; color:red; cursor: `auto`;">'+ req.query.emailAddress + "</a></h4>" + '<h4>New Password : <span style="color:red">'+ req.query.password + "</span></h4>" 
@@ -255,15 +255,15 @@ res.send(true);
                 var transporter = nodemailer.createTransport({
                   service: 'gmail',
                   auth: {
-                    user: "lotushotmail111@gmail.com",
-                  pass:"ShuilyBis@22"
+                 user: "lotusbiswas2022@gmail.com",
+  pass:"tsrprktveclbuhhg"
                     
                   }
                 });
                 console.log(req.query);
                 
                 var mailOptions = {
-                  from: 'Appointly.com <lotushotmail111@gmail.com>',
+                  from: 'Appointly.com <lotusbiswas2022@gmail.com>',
                   to: req.query.userEmailAdderss,
                   subject: 'Your meeting has been rejected',
                     // html: '<h3>We have recieved a forgot password request from you. And we have reset your password successfully.</h3> <h4> Just login with this credintails from now on. </h4><h4>Your Email Adresss: <a href="#" style="text-decoration:none; color:red; cursor: `auto`;">'+ req.query.emailAddress + "</a></h4>" + '<h4>New Password : <span style="color:red">'+ req.query.password + "</span></h4>" 
@@ -289,15 +289,15 @@ res.send(true);
                   var transporter = nodemailer.createTransport({
                     service: 'gmail',
                     auth: {
-                      user: "lotushotmail111@gmail.com",
-                    pass:"ShuilyBis@22"
+                     user: "lotusbiswas2022@gmail.com",
+  pass:"tsrprktveclbuhhg"
                       
                     }
                   });
                   console.log(req.query);
                   
                   var mailOptions = {
-                    from: 'Appointly.com <lotushotmail111@gmail.com>',
+                    from: 'Appointly.com <lotusbiswas2022@gmail.com>',
                     to: req.query.userEmailAdderss,
                     subject: 'Schedule email has been sent',
                       // html: '<h3>We have recieved a forgot password request from you. And we have reset your password successfully.</h3> <h4> Just login with this credintails from now on. </h4><h4>Your Email Adresss: <a href="#" style="text-decoration:none; color:red; cursor: `auto`;">'+ req.query.emailAddress + "</a></h4>" + '<h4>New Password : <span style="color:red">'+ req.query.password + "</span></h4>" 
