@@ -271,7 +271,7 @@ export class EditEventTypeComponent implements OnInit {
 
   copyToClipBoard()
   {
-    var copyText = "https://appointly.netlify.app/"+ "user/"+ this.userName + "/" +this.eventDetails[0].url;
+    var copyText = "https://appointly.netlify.app/"+ "u/"+ this.userName + "/" +this.eventDetails[0].url;
   navigator.clipboard.writeText(copyText);
   this._toast.success({detail:"URL COPIED",summary:'Copied to clipboard', position: 'br'});
   }

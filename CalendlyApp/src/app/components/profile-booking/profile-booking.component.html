@@ -38,13 +38,13 @@
               </div>
               <div class="row pb-2 d-flex justify-content-center reachOut" >
                 <div class="col-lg-6 col-md-12 col-sm-12 pt-2"  *ngFor="let evt of strEvent" >
-                  <a href="user/{{availUserNameParams}}/{{evt.url}}" class="direct-link">
+                  <a href="u/{{availUserNameParams}}/{{evt.url}}" class="direct-link">
                     <div class="card">
                       <div class="card-body ">
                         <h5 class="card-title startup-star fw-bold" > <i class="fa fa-star " aria-hidden="true"></i> {{evt.title}}</h5>
                         <p class="card-text  ">{{evt.description}}</p>
                         <div class="">
-                          <a href="user/{{availUserNameParams}}/{{evt.url}}" class="btn btn-outline-primary rounded-circle"  style="margin-right: 15px;"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                          <a href="u/{{availUserNameParams}}/{{evt.url}}" class="btn btn-outline-primary rounded-circle"  style="margin-right: 15px;"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                           <span class="badge bg-primary" style="margin-right: 15px;"><i class="fa fa-video-camera" aria-hidden="true"></i> {{evt.location}}</span>
                           <span class="badge bg-dark text-light"><i class="fa fa-clock-o" aria-hidden="true"></i> {{evt.length}} mins</span>
                           

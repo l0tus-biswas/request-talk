@@ -153,7 +153,7 @@ locationArr = [
   
   copyToClipBoard(evtURL: string)
   {
-    var copyText = "http://localhost:4200/"+"user/" + this.userName+"/" +evtURL;
+    var copyText = "http://localhost:4200/"+"u/" + this.userName+"/" +evtURL;
   navigator.clipboard.writeText(copyText);
   this._toast.success({detail:"URL COPIED",summary:'Copied to clipboard', position: 'br'});
   }
