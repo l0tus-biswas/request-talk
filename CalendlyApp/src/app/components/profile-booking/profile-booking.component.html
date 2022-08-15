@@ -1,7 +1,7 @@
-<div class="container-fluid">
-    <div class="bg-dark text-light rounded ">
+<div class="container-fluid bg-dark text-light rounded p-2 p-md-3">
+    <div class="">
         <div class="row d-flex justify-content-center">
-            <div class="col-lg-12 col-md-8 col-sm-12  p-2 p-md-3 " >
+            <div class="col-lg-12 col-md-8 col-sm-12   " >
               <div class="text-center">
                 <div class="profile-image p-2 ">
                   <div class="text-center">
@@ -17,40 +17,43 @@
           <div class="row d-flex justify-content-center">
             <div class="col-lg-8 col-md-8 col-sm-12 pb-3" >
               <div class="text-center">
-                <div class="profile-desc ">
-                  <h1 class="fw-bolder">{{userName}} </h1>
+                <div class="profile-desc">
+                  <h1 class="fw-bolder fs-1">{{userName}} </h1>
                   
-                  <p class="lead fw-normal">{{about}}</p>
+                  <p class="lead fw-normal fs-5">{{about}}</p>
                 </div>
               </div>
             </div>
           </div>
     </div>
   
-   <div class="bg-light text-dark pb-4">
+   <div class="bg-light text-dark rounded-3 pb-4 ">
     <div class="container">
         <div class="row d-flex justify-content-start">
             <div class="col-lg-10 col-md-10 col-sm-12 p-2 p-md-3">
-              <div class="intro  pt-3">
+              <div class="intro pt-3">
                   <h2 class="fw-bold">Reach out to me ✌️</h2>
               </div>
               </div>
               </div>
-              <div class="row pb-5 d-flex justify-content-center " >
-                <div class="col-lg-6 col-md-12 col-sm-12 pt-4"  *ngFor="let evt of strEvent" >
-                  <div class="card border shadow-sm">
-                    <div class="card-body">
-                      <h5 class="card-title startup-star fw-bold" > <i class="fa fa-star " aria-hidden="true"></i> {{evt.title}}</h5>
-                      <p class="card-text ">{{evt.description}}</p>
-                      <div class="">
-                        <a href="user/{{availUserNameParams}}/{{evt.url}}" class="btn btn-outline-primary rounded-circle"  style="margin-right: 15px;"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                        <span class="badge bg-primary" style="margin-right: 15px;"><i class="fa fa-video-camera" aria-hidden="true"></i> {{evt.location}}</span>
-                        <span class="badge bg-dark text-light"><i class="fa fa-clock-o" aria-hidden="true"></i> {{evt.length}} mins</span>
+              <div class="row pb-2 d-flex justify-content-center reachOut" >
+                <div class="col-lg-6 col-md-12 col-sm-12 pt-2"  *ngFor="let evt of strEvent" >
+                  <a href="user/{{availUserNameParams}}/{{evt.url}}" class="direct-link">
+                    <div class="card">
+                      <div class="card-body fs-5">
+                        <h5 class="card-title startup-star fw-bold" > <i class="fa fa-star " aria-hidden="true"></i> {{evt.title}}</h5>
+                        <p class="card-text  ">{{evt.description}}</p>
+                        <div class="">
+                          <a href="user/{{availUserNameParams}}/{{evt.url}}" class="btn btn-outline-primary rounded-circle"  style="margin-right: 15px;"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                          <span class="badge bg-primary" style="margin-right: 15px;"><i class="fa fa-video-camera" aria-hidden="true"></i> {{evt.location}}</span>
+                          <span class="badge bg-dark text-light"><i class="fa fa-clock-o" aria-hidden="true"></i> {{evt.length}} mins</span>
+                          
+                        </div>
                         
                       </div>
-                      
                     </div>
-                  </div>
+                  </a>
+                 
                 </div>
                 <ng-template #elseBlock>Alternate text while primary text is hidden</ng-template>
               </div>
