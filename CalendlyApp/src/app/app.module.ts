@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +23,9 @@ import { ImgurApiService } from './components/settings/imgur-api.service';
 import { SendResetPasswordMailComponent } from './components/send-reset-password-mail/send-reset-password-mail.component';
 import { GoogleCalendarIntregrationComponent } from './components/google-calendar-intregration/google-calendar-intregration.component';
 
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+// Import library module
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,10 +52,11 @@ import { GoogleCalendarIntregrationComponent } from './components/google-calenda
     HttpClientModule,
     FormsModule,
     NgToastModule,
-  
-    
+    BrowserAnimationsModule,
+    NgxSpinnerModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [ImgurApiService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { IUsers } from 'src/app/interface/users';
 import { UserService } from 'src/app/services/user-service/user.service';
 
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   status: boolean = false;
   errMsg!: string;
   userDetails: IUsers[] = [];
-  constructor(private _usrServices: UserService, private _toast: NgToastService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private spinner: NgxSpinnerService,private _usrServices: UserService, private _toast: NgToastService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -22,9 +23,13 @@ export class LoginComponent implements OnInit {
   loginUserFunc(form: NgForm) {
 
     console.log(form.value);
-
+    this.spinner.show();
     this._usrServices.loginUser(form.value.emailAdderss, form.value.password).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         console.log(this.status);
         if (this.status == true) {
