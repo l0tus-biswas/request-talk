@@ -2,6 +2,7 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { NgToastService } from 'ng-angular-popup';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { IBooking } from 'src/app/interface/booking';
 import { IEvents } from 'src/app/interface/events';
 import { BookingService } from 'src/app/services/booking-services/booking.service';
@@ -42,7 +43,7 @@ completedTimingsData : any =[ ];
   errMsg!: string;
   status: boolean = false;
 
-  constructor(private _bookingServices: BookingService, private zone: NgZone, private _toast: NgToastService, private _router: Router) {
+  constructor(private spinner: NgxSpinnerService,private _bookingServices: BookingService, private zone: NgZone, private _toast: NgToastService, private _router: Router) {
 
     this.username = sessionStorage.getItem('userName');;
     this.userTimezone = "Asia/Calcutta";
@@ -59,8 +60,14 @@ completedTimingsData : any =[ ];
   }
 
   getAllBookings() {
+    this.spinner.show();
+  
     this._bookingServices.getAllBookings(String(this.username)).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
       this.bookings = res;
       console.log(this.bookings);
 
@@ -122,6 +129,10 @@ completedTimingsData : any =[ ];
       console.log(this.timingsData);
 
     }, err => {
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.bookings = [];
        this.errMsg = err;
        console.log(this.errMsg)
@@ -156,20 +167,30 @@ completedTimingsData : any =[ ];
     console.log('updateSigninStatus', isSignedIn);
     this.isSignedIn = isSignedIn;
     if (isSignedIn) {
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       //  this.addUpcomingEvents();
       this._toast.success({ detail: "SUCCESS", summary: 'Integrated Google Calendar ', position: 'br' });
 
     }
     if (isSignedIn == false) {
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this._router.navigate(["/calendar-intregration"]);
     }
   }
 
   handleAuthClick() {
+    this.spinner.show();
     gapi.auth2.getAuthInstance().signIn();
   }
 
   handleSignoutClick() {
+    this.spinner.show();
     gapi.auth2.getAuthInstance().signOut();
   }
 

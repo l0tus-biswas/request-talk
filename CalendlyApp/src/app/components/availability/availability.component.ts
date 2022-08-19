@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { IAvailibility } from 'src/app/interface/availibility';
 import { AvailibilityService } from 'src/app/services/availibility-services/availibility.service';
 
@@ -101,7 +102,7 @@ avaibility: any;
 errMsg!: string;
 userId: number | null;
 userToken: string | null;
-  constructor(private _availServices: AvailibilityService, private _toast: NgToastService) { 
+  constructor(private spinner: NgxSpinnerService,private _availServices: AvailibilityService, private _toast: NgToastService) { 
 
    this.userId = Number(sessionStorage.getItem('userID'));
     this.userToken = sessionStorage.getItem('userToken');;
@@ -112,12 +113,22 @@ userToken: string | null;
   }
 
   getAllAvaibility() {
+    this.spinner.show();
+    
     this._availServices.getAllAvaibility(Number(this.userId),String(this.userToken)).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
       this.tempavaibility = res;
       console.log(this.tempavaibility);
     
     }, err => {
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.tempavaibility = [];
        this.errMsg = err;
        console.log(this.errMsg)
@@ -125,7 +136,8 @@ userToken: string | null;
   }
 
   addNewAvailFunc(form: NgForm) {
-  
+    this.spinner.show();
+    
     var getTimezoneVal = document.getElementById("timezone") as HTMLInputElement;
     var timezoneVal = getTimezoneVal.value;
     console.log(timezoneVal);
@@ -134,6 +146,10 @@ userToken: string | null;
 
     this._availServices.addNewScheduleAvail(form.value.availabilityName,Number(this.userId),String(this.userToken),timezoneVal).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         if (this.status == true) {
           this._toast.success({detail:"SUCCESS",summary:'New Schedule has been added', position: 'br'});
@@ -149,14 +165,23 @@ userToken: string | null;
         }
       },
       err => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: 'br'});
       }, () => console.log("Add New Schedule method excuted successfully"))
   }
 
   deleteSchedule(scheduleId: number)
   {
+    this.spinner.show();
     this._availServices.deleteScheduleById(Number(this.userId), String( this.userToken),scheduleId).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         if(this.status == true)
         {
@@ -174,6 +199,10 @@ userToken: string | null;
        
     },
     err =>{
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.errMsg = err;
       this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   

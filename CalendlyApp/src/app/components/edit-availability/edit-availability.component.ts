@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { IAvailibility } from 'src/app/interface/availibility';
 import { AvailibilityService } from 'src/app/services/availibility-services/availibility.service';
 @Component({
@@ -220,7 +221,7 @@ locationArr = [
 
   
 
-  constructor(private _availServices: AvailibilityService, private _toast: NgToastService, private route: ActivatedRoute) { 
+  constructor(private spinner: NgxSpinnerService,private _availServices: AvailibilityService, private _toast: NgToastService, private route: ActivatedRoute) { 
    
     this.userId = Number(sessionStorage.getItem('userID'));
     this.userToken = sessionStorage.getItem('userToken');;
@@ -234,8 +235,14 @@ this.getAvailDetails();
   }
 
   getAvailDetails() {
+    this.spinner.show();
+   
     this._availServices.getAvailById(Number(this.userId),String(this.userToken), this.availIdParams).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.availDetails = res;
         console.log(this.availDetails);
         this.str = eval(this.availDetails[0].weeksAvailability);
@@ -252,6 +259,10 @@ this.getAvailDetails();
         }
        
       }, err => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.availDetails = [];
         this.errMsg = err;
         console.log(this.errMsg)
@@ -260,6 +271,8 @@ this.getAvailDetails();
 
   updateAvailDetails(updateForm: NgForm)
   {
+    this.spinner.show();
+   
     console.log(updateForm.value);
    
 
@@ -271,6 +284,10 @@ this.getAvailDetails();
 
     this._availServices.updateAvail(this.availIdParams, updateForm.value.availabilityName, Number(this.userId),String(this.userToken), timezoneVal,weekAvailToString ).subscribe(
       res =>{
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         if(this.status == true)
         {
@@ -282,6 +299,10 @@ this.getAvailDetails();
        
       },
       err =>{
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: 'br'});
         setTimeout(function () {
           window.location.reload();

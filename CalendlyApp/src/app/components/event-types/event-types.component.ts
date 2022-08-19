@@ -5,6 +5,7 @@ import { EventService } from 'src/app/services/event-service/event.service';
 import { NgForm } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IEvents } from 'src/app/interface/events';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-event-types',
   templateUrl: './event-types.component.html',
@@ -33,7 +34,7 @@ locationArr = [
 ];
 
 
-  constructor(private _evtServices: EventService, private _toast: NgToastService) { 
+  constructor(private spinner: NgxSpinnerService,private _evtServices: EventService, private _toast: NgToastService) { 
     this.userId = Number(sessionStorage.getItem('userID'));
     this.userName=sessionStorage.getItem('userName');;
     this.userToken = sessionStorage.getItem('userToken');;
@@ -50,8 +51,13 @@ locationArr = [
   
   
   getAllAvaibility() {
+    this.spinner.show();
     this._evtServices.getAllAvaibility(Number(this.userId), String(this.userToken)).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
       this.tempavaibility = res;
       console.log(this.tempavaibility);
        this.avaibility = this.uniqueByKey(this.tempavaibility, 'availabilityId');
@@ -63,6 +69,10 @@ locationArr = [
       console.log(this.avaibility);
        
     }, err => {
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.tempavaibility = [];
        this.errMsg = err;
        console.log(this.errMsg)
@@ -70,12 +80,21 @@ locationArr = [
   }
 
   getAllEvents() {
+    this.spinner.show();
     this._evtServices.getAllEvents(Number(this.userId), String( this.userToken)).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
       this.allEvents = res;
       console.log(this.allEvents);
       
     }, err => {
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.allEvents = [];
        this.errMsg = err;
        console.log(this.errMsg)
@@ -83,6 +102,7 @@ locationArr = [
   }
 
   addNewEventFunc(form: NgForm) {
+    this.spinner.show();
     var getLocationVal = document.getElementById("location") as HTMLInputElement;
     var localtionVal = getLocationVal.value;
     console.log(localtionVal);
@@ -100,6 +120,10 @@ locationArr = [
 
     this._evtServices.addNewEvent(Number(this.userId), String(this.userToken), form.value.title, convertTitleToURL,   form.value.length, Number(avaibilityVal),form.value.desc, localtionVal ).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         if (this.status == true) {
           this._toast.success({detail:"ADD SUCCESS",summary:'New Event has been added', position: 'br'});
@@ -116,14 +140,23 @@ locationArr = [
         }
       },
       err => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: 'br'});
       }, () => console.log("Add New Event method excuted successfully"))
   }
 
   deleteEvent(eventId: number)
   {
+    this.spinner.show();
     this._evtServices.deleteEvent(Number(this.userId), String(this.userToken),eventId).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         if(this.status == true)
         {
@@ -141,6 +174,10 @@ locationArr = [
        
     },
     err =>{
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.errMsg = err;
       this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   

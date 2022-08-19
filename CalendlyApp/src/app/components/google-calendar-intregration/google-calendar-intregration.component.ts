@@ -72,6 +72,7 @@ export class GoogleCalendarIntregrationComponent implements OnInit {
   }
 
   handleSignoutClick() {
+    this.spinner.show();
     gapi.auth2.getAuthInstance().signOut();
   }
 

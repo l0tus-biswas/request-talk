@@ -10,6 +10,7 @@ import * as momenttm from 'moment-timezone';
 import { IEvents } from 'src/app/interface/events';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from 'src/app/services/user-service/user.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 declare var gapi : any;
 
 @Component({
@@ -131,7 +132,7 @@ completedTimingsData : any =[ ];
   errMsg!: string;
   status: boolean = false;
 
-  constructor(private _bookingServices: BookingService,private _usrServices : UserService,  private _evtServices: EventService, private _toast: NgToastService, private route: ActivatedRoute,private zone: NgZone,private http: HttpClient,private _router: Router ) { 
+  constructor(private spinner: NgxSpinnerService,private _bookingServices: BookingService,private _usrServices : UserService,  private _evtServices: EventService, private _toast: NgToastService, private route: ActivatedRoute,private zone: NgZone,private http: HttpClient,private _router: Router ) { 
     this.username = sessionStorage.getItem('userName');;
     this.userTimezone = "Asia/Calcutta";
     this.userId = Number(sessionStorage.getItem('userID'));
@@ -177,27 +178,44 @@ completedTimingsData : any =[ ];
  
 
     if (isSignedIn) {
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       //  this.addUpcomingEvents();
       this._toast.success({ detail: "SUCCESS", summary: 'Integrated Google Calendar ', position: 'br' });
 
     }
     if (isSignedIn == false) {
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this._router.navigate(["/calendar-intregration"]);
     }
   }
   
   handleAuthClick() {
+    this.spinner.show();
+   
     gapi.auth2.getAuthInstance().signIn();
   }
 
   handleSignoutClick() {
+    this.spinner.show();
+   
     gapi.auth2.getAuthInstance().signOut();
   }
 
   addToCalendar(bookedEventId: Number, indexNum: Number,bookingId: Number) {
 
+    this.spinner.show();
     this._evtServices.getEventById(Number(this.userId), String( this.userToken), Number(bookedEventId)).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
       this.eventDetails = res;
       console.log(this.eventDetails);
       var timezoneGMT= "";
@@ -295,9 +313,17 @@ completedTimingsData : any =[ ];
             this.updateConfirmationMailOnSent(Number(bookingId));
            this._usrServices.sendPreScheduleMail(String(this.emailCurrentUser),this.upcomingBookings[Number(indexNum)].appointmentBookedEmail,String(this.fullNameCurrentUser),this.upcomingBookings[Number(indexNum)].bookedEventName).subscribe(
               res =>{
+                setTimeout(() => {
+                  /** spinner ends after 5 seconds */
+                  this.spinner.hide();
+                }, 1000);
                 console.log(res);
               },
               err =>{
+                setTimeout(() => {
+                  /** spinner ends after 5 seconds */
+                  this.spinner.hide();
+                }, 1000);
                 console.log(err);
               },
               () => console.log("Send Mail Worked")
@@ -363,9 +389,17 @@ completedTimingsData : any =[ ];
             this.updateConfirmationMailOnSent(Number(bookingId));
             this._usrServices.sendPreScheduleMail(String(this.emailCurrentUser),this.upcomingBookings[Number(indexNum)].appointmentBookedEmail,String(this.fullNameCurrentUser),this.upcomingBookings[Number(indexNum)].bookedEventName).subscribe(
               res =>{
+                setTimeout(() => {
+                  /** spinner ends after 5 seconds */
+                  this.spinner.hide();
+                }, 1000);
                 console.log(res);
               },
               err =>{
+                setTimeout(() => {
+                  /** spinner ends after 5 seconds */
+                  this.spinner.hide();
+                }, 1000);
                 console.log(err);
               },
               () => console.log("Send Mail Worked")
@@ -381,6 +415,10 @@ completedTimingsData : any =[ ];
        
       
     }, err => {
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.eventDetails = [];
        this.errMsg = err;
        console.log(this.errMsg)
@@ -399,8 +437,13 @@ completedTimingsData : any =[ ];
   
 
   getAllBookings() {
+    this.spinner.show();
     this._bookingServices.getAllBookings(String(this.username)).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
       this.bookings = res;
       console.log(this.bookings);
 
@@ -462,6 +505,10 @@ completedTimingsData : any =[ ];
       console.log(this.timingsData);
 
     }, err => {
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.bookings = [];
        this.errMsg = err;
        console.log(this.errMsg)
@@ -471,8 +518,13 @@ completedTimingsData : any =[ ];
 
   updateConfirmationMailOnSent(bookingId: number)
   {
+    this.spinner.show();
     this._bookingServices.updateConfirmationOnMailSentEvent(String(this.username), bookingId).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         if(this.status == true)
         {
@@ -490,6 +542,10 @@ completedTimingsData : any =[ ];
        
     },
     err =>{
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.errMsg = err;
       this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
@@ -502,8 +558,13 @@ completedTimingsData : any =[ ];
 
   updateOnConfirm(bookingId: number, indexOfelement : any)
   {
+    this.spinner.show();
     this._bookingServices.updateBookingOnConfirm(String(this.username), bookingId).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
   
         if(this.status == true)
@@ -512,9 +573,17 @@ completedTimingsData : any =[ ];
           var evtDate = this.onHoldTimingsData[indexOfelement][0].userbookedDate;
           this._usrServices.sendBookingAcceptMail(String(this.emailCurrentUser),this.onHoldBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.onHoldBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
             res =>{
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                this.spinner.hide();
+              }, 1000);
               console.log(res);
             },
             err =>{
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                this.spinner.hide();
+              }, 1000);
               console.log(err);
             },
             () => console.log("Send Mail Worked")
@@ -533,6 +602,10 @@ completedTimingsData : any =[ ];
        
     },
     err =>{
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.errMsg = err;
       this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
@@ -545,8 +618,13 @@ completedTimingsData : any =[ ];
 
   updateOnReject(bookingId: number, indexOfelement: any)
   {
+    this.spinner.show();
     this._bookingServices.updateBookingOnReject(String(this.username), bookingId).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
     
         if(this.status == true)
@@ -555,9 +633,17 @@ completedTimingsData : any =[ ];
           var evtDate = this.onHoldTimingsData[indexOfelement][0].userbookedDate;
           this._usrServices.sendBookingRejectMail(String(this.emailCurrentUser),this.onHoldBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.onHoldBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
             res =>{
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                this.spinner.hide();
+              }, 1000);
               console.log(res);
             },
             err =>{
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                this.spinner.hide();
+              }, 1000);
               console.log(err);
             },
             () => console.log("Send Mail Worked")
@@ -576,6 +662,10 @@ completedTimingsData : any =[ ];
        
     },
     err =>{
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.errMsg = err;
       this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
@@ -590,8 +680,13 @@ completedTimingsData : any =[ ];
 
   updateOnComplete(bookingId: number)
   {
+    this.spinner.show();
     this._bookingServices.updateBookingOnComplete(String(this.username), bookingId).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         if(this.status == true)
         {
@@ -609,6 +704,10 @@ completedTimingsData : any =[ ];
        
     },
     err =>{
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.errMsg = err;
       this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
@@ -620,8 +719,13 @@ completedTimingsData : any =[ ];
   }
   updateOnCancelPast(bookingId: number, indexOfelement: number)
   {
+    this.spinner.show();
     this._bookingServices.updateBookingOnCancel(String(this.username), bookingId).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         if(this.status == true)
         {
@@ -630,9 +734,17 @@ completedTimingsData : any =[ ];
          
           this._usrServices.sendCancelMail(String(this.emailCurrentUser),this.pastBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.pastBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
             res =>{
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                this.spinner.hide();
+              }, 1000);
               console.log(res);
             },
             err =>{
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                this.spinner.hide();
+              }, 1000);
               console.log(err);
             },
             () => console.log("Send Mail Worked")
@@ -651,6 +763,10 @@ completedTimingsData : any =[ ];
        
     },
     err =>{
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.errMsg = err;
       this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
@@ -662,8 +778,13 @@ completedTimingsData : any =[ ];
   }
   updateOnCancelUpcoming(bookingId: number, indexOfelement: number)
   {
+    this.spinner.show();
     this._bookingServices.updateBookingOnCancel(String(this.username), bookingId).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         if(this.status == true)
         {
@@ -672,9 +793,17 @@ completedTimingsData : any =[ ];
          
           this._usrServices.sendCancelMail(String(this.emailCurrentUser),this.upcomingBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.upcomingBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
             res =>{
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                this.spinner.hide();
+              }, 1000);
               console.log(res);
             },
             err =>{
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                this.spinner.hide();
+              }, 1000);
               console.log(err);
             },
             () => console.log("Send Mail Worked")
@@ -693,6 +822,10 @@ completedTimingsData : any =[ ];
        
     },
     err =>{
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.errMsg = err;
       this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
@@ -704,8 +837,13 @@ completedTimingsData : any =[ ];
   }
   updateOnCancelReschedule(bookingId: number, indexOfelement: number)
   {
+    this.spinner.show();
     this._bookingServices.updateBookingOnCancel(String(this.username), bookingId).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         if(this.status == true)
         {
@@ -714,9 +852,17 @@ completedTimingsData : any =[ ];
          
           this._usrServices.sendCancelMail(String(this.emailCurrentUser),this.rescheduleBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.rescheduleBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
             res =>{
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                this.spinner.hide();
+              }, 1000);
               console.log(res);
             },
             err =>{
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                this.spinner.hide();
+              }, 1000);
               console.log(err);
             },
             () => console.log("Send Mail Worked")
@@ -735,6 +881,10 @@ completedTimingsData : any =[ ];
        
     },
     err =>{
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.errMsg = err;
       this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
@@ -747,8 +897,13 @@ completedTimingsData : any =[ ];
 
   updateOnRescheduleFromPast(bookingId: number, indexOfelement: number)
   {
+    this.spinner.show();
     this._bookingServices.updateBookingOnReschedule(String(this.username), bookingId).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         if(this.status == true)
         {
@@ -756,9 +911,17 @@ completedTimingsData : any =[ ];
           var evtDate = this.pastTimingsData[indexOfelement][0].userbookedDate;
           this._usrServices.sendRescheduleMail(String(this.emailCurrentUser),this.pastBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.pastBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
             res =>{
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                this.spinner.hide();
+              }, 1000);
               console.log(res);
             },
             err =>{
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                this.spinner.hide();
+              }, 1000);
               console.log(err);
             },
             () => console.log("Send Mail Worked")
@@ -778,6 +941,10 @@ completedTimingsData : any =[ ];
        
     },
     err =>{
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.errMsg = err;
       this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   
@@ -790,8 +957,13 @@ completedTimingsData : any =[ ];
 
   updateOnRescheduleFromUpcoming(bookingId: number, indexOfelement: number)
   {
+    this.spinner.show();
     this._bookingServices.updateBookingOnReschedule(String(this.username), bookingId).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         if(this.status == true)
         {
@@ -799,9 +971,17 @@ completedTimingsData : any =[ ];
           var evtDate = this.upcomingTimingsData[indexOfelement][0].userbookedDate;
           this._usrServices.sendRescheduleMail(String(this.emailCurrentUser),this.upcomingBookings[indexOfelement].appointmentBookedEmail,String(this.fullNameCurrentUser),this.upcomingBookings[indexOfelement].bookedEventName, String(this.username),timeAndTimeZone,evtDate).subscribe(
             res =>{
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                this.spinner.hide();
+              }, 1000);
               console.log(res);
             },
             err =>{
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                this.spinner.hide();
+              }, 1000);
               console.log(err);
             },
             () => console.log("Send Mail Worked")
@@ -821,6 +1001,10 @@ completedTimingsData : any =[ ];
        
     },
     err =>{
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.errMsg = err;
       this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   

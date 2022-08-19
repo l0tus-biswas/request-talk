@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { IAvailibility } from 'src/app/interface/availibility';
 import { IEvents } from 'src/app/interface/events';
 import { EventService } from 'src/app/services/event-service/event.service';
@@ -50,7 +51,7 @@ export class EditEventTypeComponent implements OnInit {
   userName: string | null;
   
   
-  constructor(private _evtServices: EventService, private _toast: NgToastService, private route: ActivatedRoute) {
+  constructor(private spinner: NgxSpinnerService,private _evtServices: EventService, private _toast: NgToastService, private route: ActivatedRoute) {
     this.userId = Number(sessionStorage.getItem('userID'));
     this.userName=sessionStorage.getItem('userName');;
     this.userToken = sessionStorage.getItem('userToken');;
@@ -61,7 +62,6 @@ export class EditEventTypeComponent implements OnInit {
   ngOnInit(): void {
     this.getAllAvaibility();
     this.getEventDetails();
-   
   }
 
 
@@ -71,8 +71,14 @@ export class EditEventTypeComponent implements OnInit {
 
 
   getAllAvaibility() {
+    this.spinner.show();
+    
     this._evtServices.getAllAvaibility(Number(this.userId), String(this.userToken)).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.tempavaibility = res;
         console.log(this.tempavaibility);
         this.avaibility = this.uniqueByKey(this.tempavaibility, 'availabilityId');
@@ -83,6 +89,10 @@ export class EditEventTypeComponent implements OnInit {
         console.log( "Avail " + this.avaibility);
 
       }, err => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.tempavaibility = [];
         this.errMsg = err;
         console.log(this.errMsg)
@@ -90,8 +100,14 @@ export class EditEventTypeComponent implements OnInit {
   }
 
   getEventDetails() {
+    this.spinner.show();
+    
     this._evtServices.getEventById(Number(this.userId), String(this.userToken), this.eventIdParams).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.eventDetails = res;
         console.log(this.eventDetails);
         
@@ -155,6 +171,10 @@ export class EditEventTypeComponent implements OnInit {
 
 
       }, err => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.eventDetails = [];
         this.errMsg = err;
         console.log(this.errMsg)
@@ -162,6 +182,8 @@ export class EditEventTypeComponent implements OnInit {
   }
   updateEventDetails(updateForm: NgForm)
   {
+    this.spinner.show();
+    
     console.log(updateForm.value);
    
     var optInBookingVal="";
@@ -216,6 +238,10 @@ export class EditEventTypeComponent implements OnInit {
    
     this._evtServices.updateEvent(this.eventIdParams, Number(this.userId), String(this.userToken), updateForm.value.title, updateForm.value.desc,localtionVal,convertTitleToURL, updateForm.value.length, Number(avaibilityVal), updateForm.value.eventName, optInBookingVal, disableGuestVal, hideEventVal, Number( intervalsVal)).subscribe(
       res =>{
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         if(this.status == true)
         {
@@ -227,6 +253,10 @@ export class EditEventTypeComponent implements OnInit {
        
       },
       err =>{
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: 'br'});
         setTimeout(function () {
           window.location.reload();
@@ -240,8 +270,14 @@ export class EditEventTypeComponent implements OnInit {
 
   deleteEvent(eventId: number)
   {
+    this.spinner.show();
+    
     this._evtServices.deleteEvent(Number(this.userId), String(this.userToken),eventId).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         if(this.status == true)
         {
@@ -259,6 +295,10 @@ export class EditEventTypeComponent implements OnInit {
        
     },
     err =>{
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.errMsg = err;
       this._toast.warning({detail:"FAILED",summary:'Please try after sometime', position: 'br'});
   

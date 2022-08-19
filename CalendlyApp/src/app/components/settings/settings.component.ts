@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
 import {ImgbbServiceService} from ".././../services/imgbb-service.service"
 import { Router } from '@angular/router';
+import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -109,7 +110,7 @@ export class SettingsComponent implements OnInit {
     { "label": "(GMT+13:00) Nuku'alofa", "value": "Pacific/Tongatapu", status: "false" }
   ]
 
-  constructor(private _userService: UserService, private _toast: NgToastService, private readonly ImgbbService : ImgbbServiceService,private _router: Router) {
+  constructor(private spinner: NgxSpinnerService, private _userService: UserService, private _toast: NgToastService, private readonly ImgbbService : ImgbbServiceService,private _router: Router) {
 
     this.userId = Number(sessionStorage.getItem('userID'));
     this.userToken = sessionStorage.getItem('userToken');;
@@ -117,10 +118,12 @@ export class SettingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+ 
     this.getUserData();
   }
 
   onInput(file: any) {
+    this.spinner.show();
     this.ImgbbService
       .upload(file.target.files[0])
       .subscribe((res:any) => {
@@ -128,7 +131,10 @@ export class SettingsComponent implements OnInit {
         console.log(this.userProfilePicture);
         this._userService.updateUserProfilePicture(Number(this.userId), String(this.userToken), this.userProfilePicture).subscribe(
           res => {
-           
+            setTimeout(() => {
+              /** spinner ends after 5 seconds */
+              this.spinner.hide();
+            }, 1000);
             this.status = res;
             console.log(this.status);
             if (this.status == true) {
@@ -150,6 +156,10 @@ export class SettingsComponent implements OnInit {
             }
     
           }, err => {
+            setTimeout(() => {
+              /** spinner ends after 5 seconds */
+              this.spinner.hide();
+            }, 1000);
            this.errMsg = err;
             console.log(this.errMsg);
             this._toast.warning({ detail: "FAILED", summary: 'Please try after sometime',position: 'br'});
@@ -160,6 +170,10 @@ export class SettingsComponent implements OnInit {
           }, () => console.log(" Update User Profile Picture method excuted successfully")
         )
       }, err => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this._toast.warning({ detail: "FAILED", summary: 'Please try after sometime',position: 'br'});
         setTimeout(function () {
           window.location.reload();
@@ -168,8 +182,13 @@ export class SettingsComponent implements OnInit {
       }, () => console.log("Imgbb method excuted successfully"))
   }
   getUserData() {
+    this.spinner.show();
     this._userService.getUserData(Number(this.userId), String(this.userToken)).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.user = res;
         console.log(this.user);
         this.userProfilePicture = this.user[0].profilePicture;
@@ -188,6 +207,10 @@ export class SettingsComponent implements OnInit {
         // console.log("hii");
 
       }, err => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.user = [];
         this.errMsg = err;
         console.log(this.errMsg)
@@ -207,6 +230,7 @@ export class SettingsComponent implements OnInit {
 
   updateUserData(updateForm: NgForm) {
 
+    this.spinner.show();
     var timezonVal = this.timeZoneValFunc();
     console.log(timezonVal);
 
@@ -220,6 +244,10 @@ export class SettingsComponent implements OnInit {
 
     this._userService.updateUserProfile(Number(this.userId), String(this.userToken), updateForm.value.password, updateForm.value.fullName, updateForm.value.about, timezonVal, language).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         console.log(this.status);
         if (this.status == true) {
@@ -241,6 +269,10 @@ export class SettingsComponent implements OnInit {
 
       },
       err => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.errMsg = err;
         this._toast.warning({ detail: "FAILED", summary: 'Please try after sometime',position: 'br'});
 

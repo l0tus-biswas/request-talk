@@ -9,6 +9,7 @@ import { IEvents } from 'src/app/interface/events';
 import { IAvailibility } from 'src/app/interface/availibility';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'src/app/services/user-service/user.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-event-booking',
   templateUrl: './event-booking.component.html',
@@ -260,7 +261,7 @@ export class EventBookingComponent implements OnInit {
 
   deleteBookedTime: any=[];
   userProfilePicture : string = "";
-  constructor(private _bookingServices: BookingService, private _usrServices : UserService, private _toast: NgToastService,private route: ActivatedRoute) { 
+  constructor(private spinner: NgxSpinnerService,private _bookingServices: BookingService, private _usrServices : UserService, private _toast: NgToastService,private route: ActivatedRoute) { 
     
     const routeParams = this.route.snapshot.paramMap;
     this.availUserNameParams = String(routeParams.get('username'));
@@ -355,8 +356,13 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
   
  
   getUserData() {
+    this.spinner.show();
     this._bookingServices.publicgetUserData(this.availUserNameParams).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
       this.user = res;
       // console.log(this.user);
       this.userName = this.user[0].fullName;
@@ -378,6 +384,10 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
             {
               this._bookingServices.publicgetAvaibilityData(this.user[0].userId,  this.event[0].availabilityId).subscribe(
                 res => {
+                  setTimeout(() => {
+                    /** spinner ends after 5 seconds */
+                    this.spinner.hide();
+                  }, 1000);
                 this.availibility = res;
                // console.log(this.availibility);
                 this.str = eval(this.availibility[0].weeksAvailability);
@@ -464,12 +474,20 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
                 
                 // this.eventDesc = this.event[0].description;
               }, err => {
+                setTimeout(() => {
+                  /** spinner ends after 5 seconds */
+                  this.spinner.hide();
+                }, 1000);
                 this.user = [];
                  this.errMsg = err;
                  // console.log(this.errMsg)
               }, () => console.log("Get Availbility Data method excuted successfully"))
             }
           }, err => {
+            setTimeout(() => {
+              /** spinner ends after 5 seconds */
+              this.spinner.hide();
+            }, 1000);
             this.user = [];
              this.errMsg = err;
              console.log(this.errMsg)
@@ -477,6 +495,10 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
         }
        
     }, err => {
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.user = [];
        this.errMsg = err;
        console.log(this.errMsg)
@@ -671,9 +693,13 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
   }
 
   getAllBookings() {
+    this.spinner.show();
     this._bookingServices.getAllBookings(this.availUserNameParams).subscribe(
       res => {
-
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         for(var i=0;i<res.length;i++)
         {
           if(res[i].bookingStatus !="Cancelled" && res[i].bookingStatus !="Rescheduled")
@@ -691,6 +717,10 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
       // console.log(this.bookedTimingsOfUser);
 
     }, err => {
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this.preBookedData = [];
        this.errMsg = err;
        // console.log(this.errMsg)
@@ -955,7 +985,7 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
 
   addNewBookingFunc(form: NgForm)
   {
-  
+  this.spinner.show();
     // console.log(form.value);
     let bookedTimingsData = JSON.stringify(this.bookedTimings);
     // console.log(this.availUserNameParams, this.event[0].eventId, this.eventParams, bookedTimingsData,);
@@ -972,6 +1002,10 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
     }
     this._bookingServices.addNewBooking(this.availUserNameParams, this.event[0].eventId, this.event[0].title, bookedTimingsData,form.value.name, form.value.phoneNumber, form.value.emailId, form.value.guestemailId,form.value.additionalNotes,sendConfirmationMail, optInBooking.trim() ).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         if (this.status == true) {
           var hostname = this.user[0].fullName;
@@ -985,9 +1019,17 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
           {
             this._usrServices.sendBookingConfirmationMail(this.user[0].emailAdderss,form.value.emailId,hostname,whatEvent).subscribe(
               res =>{
+                setTimeout(() => {
+                  /** spinner ends after 5 seconds */
+                  this.spinner.hide();
+                }, 1000);
                 console.log(res);
               },
               err =>{
+                setTimeout(() => {
+                  /** spinner ends after 5 seconds */
+                  this.spinner.hide();
+                }, 1000);
                 console.log(err);
               },
               () => console.log("Send Mail Worked")
@@ -1003,9 +1045,17 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
          
             this._usrServices.sendBookingPendingMail(this.user[0].emailAdderss,form.value.emailId,hostname,whatEvent).subscribe(
               res =>{
+                setTimeout(() => {
+                  /** spinner ends after 5 seconds */
+                  this.spinner.hide();
+                }, 1000);
                 console.log(res);
               },
               err =>{
+                setTimeout(() => {
+                  /** spinner ends after 5 seconds */
+                  this.spinner.hide();
+                }, 1000);
                 console.log(err);
               },
               () => console.log("Send Mail Worked")
@@ -1027,6 +1077,10 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
         }
       },
       err => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: 'br'});
       }, () => console.log("New Booking method excuted successfully"))
   
