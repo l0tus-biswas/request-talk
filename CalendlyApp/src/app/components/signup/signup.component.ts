@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from 'src/app/services/user-service/user.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { UserService } from 'src/app/services/user-service/user.service';
 export class SignupComponent implements OnInit {
   status: boolean = false;
   errMsg!: string;
-  constructor(private _usrServices: UserService, private _toast: NgToastService) { }
+  constructor(private spinner: NgxSpinnerService,private _usrServices: UserService, private _toast: NgToastService) { }
 
   ngOnInit(): void {
   }
@@ -29,12 +30,17 @@ export class SignupComponent implements OnInit {
   addNewUserFunc(form: NgForm) {
 
     console.log(form.value);
+    this.spinner.show();
    
    var userToken = this.randomStr(10,'12345abcde');
    console.log(userToken);
     var timeZone = "Asia/Calcutta";
     this._usrServices.registerUser(userToken, form.value.fullName, form.value.username, form.value.emailAdderss, form.value.password,timeZone ).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         console.log(this.status);
         if (this.status == true) {
@@ -51,6 +57,10 @@ export class SignupComponent implements OnInit {
         }
       },
       err => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this._toast.warning({detail:" FAILED",summary:'Please try after sometime', position: 'br'});
       }, () => console.log("Add New Event method excuted successfully"))
   }

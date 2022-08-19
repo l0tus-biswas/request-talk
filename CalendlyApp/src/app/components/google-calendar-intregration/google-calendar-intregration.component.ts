@@ -1,6 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 declare var gapi: any;
 @Component({
@@ -12,7 +13,7 @@ export class GoogleCalendarIntregrationComponent implements OnInit {
 
   isSignedIn = false;
 
-  constructor(private zone: NgZone, private _toast: NgToastService, private _router: Router) { }
+  constructor(private spinner: NgxSpinnerService,private zone: NgZone, private _toast: NgToastService, private _router: Router) { }
 
   async ngOnInit() {
     await this.loadGapi();
@@ -46,6 +47,10 @@ export class GoogleCalendarIntregrationComponent implements OnInit {
     console.log('updateSigninStatus', isSignedIn);
     this.isSignedIn = isSignedIn;
     if (isSignedIn) {
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this._toast.success({ detail: "SUCCESS", summary: 'Integrated Google Calendar ', position: 'br' });
       this._router.navigate(['/home'])
         .then(() => {
@@ -53,11 +58,16 @@ export class GoogleCalendarIntregrationComponent implements OnInit {
         });
     }
     if (isSignedIn == false) {
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
       this._router.navigate(["/calendar-intregration"]);
     }
   }
 
   handleAuthClick() {
+    this.spinner.show();
     gapi.auth2.getAuthInstance().signIn();
   }
 

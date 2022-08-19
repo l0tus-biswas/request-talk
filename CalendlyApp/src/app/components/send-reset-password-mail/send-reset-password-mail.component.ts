@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { IUsers } from 'src/app/interface/users';
 import { UserService } from 'src/app/services/user-service/user.service';
 
@@ -14,16 +15,21 @@ export class SendResetPasswordMailComponent implements OnInit {
   status: boolean = false;
   errMsg!: string;
   userDetails: IUsers[] = [];
-  constructor(private _usrServices: UserService, private _toast: NgToastService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private spinner: NgxSpinnerService,private _usrServices: UserService, private _toast: NgToastService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
   }
   sendResetPassowrdMail(form: NgForm) {
 
     console.log(form.value);
-
+    this.spinner.show();
+  
     this._usrServices.validateUserEmail(form.value.emailAdderss).subscribe(
       res => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.status = res;
         console.log(this.status);
         if (this.status == true) {
@@ -35,9 +41,17 @@ export class SendResetPasswordMailComponent implements OnInit {
 
                 this._usrServices.resetMail(this.userDetails[0].emailAdderss, this.userDetails[0].password).subscribe(
                   res =>{
+                    setTimeout(() => {
+                      /** spinner ends after 5 seconds */
+                      this.spinner.hide();
+                    }, 1000);
                     console.log(res);
                   },
                   err =>{
+                    setTimeout(() => {
+                      /** spinner ends after 5 seconds */
+                      this.spinner.hide();
+                    }, 1000);
                     console.log(err);
                   },
                   () => console.log("Send Mail Worked")
@@ -48,6 +62,10 @@ export class SendResetPasswordMailComponent implements OnInit {
     
             },
             errDetails => {
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                this.spinner.hide();
+              }, 1000);
               this.errMsg = errDetails;
             },
             () => console.log("User data method executed successfully")
@@ -61,6 +79,10 @@ export class SendResetPasswordMailComponent implements OnInit {
         }
       },
       err => {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this._toast.warning({ detail: "FAILED", summary: 'No such email address found',position: 'br'});
       
       }, () => console.log("Validate User Email method excuted successfully"))
