@@ -19,3 +19,7 @@ p{
     overflow-wrap: break-word;
     word-break: break-word;
 } */
+.direct-link{
+    text-decoration: none;
+    color: black;
+}
