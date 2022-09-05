@@ -779,6 +779,7 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
 
       // console.log(_tempSlotStartTime);
 
+      var loopMaker = 0;
       // Loop around till _tempSlotStartTime is less end time from timeArr
       while ((new Date(_tempSlotStartTime)).getTime() < (new Date(_timeArrEndTime)).getTime()) {
 
@@ -795,6 +796,7 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
           // DateTime object is converted to time with the help of javascript functions
           // If you want 24 hour format you can pass hour12 false
           slotsArray.push({
+            "id" : loopMaker,
             "timeSlotStart": new Date(_startSlot).toLocaleTimeString('en-US', {
               hour: 'numeric',
               minute: 'numeric',
@@ -806,6 +808,7 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
               hour12: true
             })
           });
+          loopMaker++;
         }
 
         //preparation time is added in last to maintain the break period
@@ -816,6 +819,8 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
 
     var getDate = document.querySelector("#bookingDate") as HTMLInputElement;
     console.log(getDate.value);
+    var matchedIndex =[];
+       
       for(var i=0;i<slotsArray.length;i++)
       {
         for(var j=0;j<this.bookedTimingsOfUser.length;j++)
@@ -858,6 +863,7 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
         // const initialToUserTimeZone = this.timeConvTimeZone(getYear,getMonth,getDay,getHour,getMin,getTimezone);
         // console.log(moment(convertTime12to24(slotsArray[i].timeSlotStart),'HH:mm').hours(),moment(convertTime12to24(slotsArray[i].timeSlotStart),'HH:mm').minutes());
        console.log(" User Booked Time " + " "+this.availibility[0].timezone +initialToTimezone + initialToTimezoneEnd);
+       console.log("User " + this.timezoneGetValueOption + initialToBookingTimezone + initialToBookingTimezoneEnd);
       //  console.log("24 hours format " + moment(initialToTimezone, ["h:mm A"]).format("HH:mm"));
       //  console.log("To Match with " + moment(initialToTimezone, ["h:mm A"]).format("HH:mm") + " and " + moment(this.bookedTimingsOfUser[j][0].userEndTime, ["h:mm A"]).format("HH:mm"))
         // console.log(" Booked Time of user" + " " + this.timezoneGetValueOption +initialToBookingTimezone + initialToBookingTimezoneEnd);
@@ -876,11 +882,17 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
          *   if(initialToTimezone == initialToBookingTimezone &&  moment(getDate.value).format('LL')  == this.bookedTimingsOfUser[j][0].userbookedDate )
          * previous condition for check
          * 
-         */
-      
-        if(moment(initialToTimezone, ["h:mm A"]).format("HH:mm") < moment(this.bookedTimingsOfUser[j][0].userEndTime, ["h:mm A"]).format("HH:mm") &&  moment(getDate.value).format('LL')  == this.bookedTimingsOfUser[j][0].userbookedDate )
-    
+         */ 
+
+        
+         const convertTT = this.timeConvTimeZone(Number(moment(date).format("YYYY")),Number(moment(date).format("M")),Number(moment(date).format("D")),moment(convertTime12to24(this.bookedTimingsOfUser[j][0].userEndTime),'HH:mm').hours(),moment(convertTime12to24(this.bookedTimingsOfUser[j][0].userEndTime),'HH:mm').minutes(), this.timezoneGetValueOption);
+        //  if(initialToTimezone == initialToBookingTimezone &&  moment(getDate.value).format('LL')  == this.bookedTimingsOfUser[j][0].userbookedDate )
+        if(  moment(getDate.value).format('LL')  == this.bookedTimingsOfUser[j][0].userbookedDate )
         {
+          if(moment(initialToTimezone, ["h:mm A"]).format("HH:mm") >= moment(initialToBookingTimezone, ["h:mm A"]).format("HH:mm") && moment(initialToTimezone, ["h:mm A"]).format("HH:mm") < moment(initialToBookingTimezoneEnd, ["h:mm A"]).format("HH:mm"))
+{
+          matchedIndex.push(i);
+         
           console.log( initialToTimezone + " " +initialToBookingTimezone);
           console.log(moment(getDate.value).format('LL') + " " + this.bookedTimingsOfUser[j][0].userbookedDate);
 
@@ -901,14 +913,25 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
            console.log("True "+ i + slotsArray[i].timeSlotStart);
           // this.deleteBookedTime.push(deleteIndex);
         }  
+        
       }
+        }
     }
+    // for(var i =0;i<slotsArray.length;i++)
+    // {
+    //   if(slotsArray[i].id == matchedIndex[i])
+    //   {
+    //     slotsArray[i].timeSlotStart = "Booked";
+    //   }
+    // }
+    
+    console.log(matchedIndex);
+   console.log(slotsArray);
     // console.log("this.deleteBookedTime "+ this.deleteBookedTime[0][0]);
     console.log(this.bookedTimingsOfUser);
     console.log(slotsArray);
     console.log(this.deleteBookedTime);
     console.log(moment(this.getTodayDateByInput).format('LL') );
-    
     // for(var dl =0;dl<this.deleteBookedTime.length;dl++)
     // {
     //   console.log(this.deleteBookedTime[dl]);
@@ -921,7 +944,7 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
 
     console.log(datettt);
     console.log(slotsArray);
-   
+    
    return slotsArray;
    
   }
