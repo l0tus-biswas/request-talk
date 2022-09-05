@@ -850,10 +850,17 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
         // const getTimezone = "" ;
         
         const initialToTimezone = this.timeConvTimeZone(Number(moment(date).format("YYYY")),Number(moment(date).format("M")),Number(moment(date).format("D")),moment(convertTime12to24(slotsArray[i].timeSlotStart),'HH:mm').hours(),moment(convertTime12to24(slotsArray[i].timeSlotStart),'HH:mm').minutes(), this.availibility[0].timezone);
+        const initialToTimezoneEnd = this.timeConvTimeZone(Number(moment(date).format("YYYY")),Number(moment(date).format("M")),Number(moment(date).format("D")),moment(convertTime12to24(slotsArray[i].timeSlotEnd),'HH:mm').hours(),moment(convertTime12to24(slotsArray[i].timeSlotEnd),'HH:mm').minutes(), this.availibility[0].timezone);
+        
         const initialToBookingTimezone = this.timeConvTimeZone(Number(moment(date).format("YYYY")),Number(moment(date).format("M")),Number(moment(date).format("D")),moment(convertTime12to24(this.bookedTimingsOfUser[j][0].userstartTime),'HH:mm').hours(),moment(convertTime12to24(this.bookedTimingsOfUser[j][0].userstartTime),'HH:mm').minutes(), this.timezoneGetValueOption);
+        const initialToBookingTimezoneEnd = this.timeConvTimeZone(Number(moment(date).format("YYYY")),Number(moment(date).format("M")),Number(moment(date).format("D")),moment(convertTime12to24(this.bookedTimingsOfUser[j][0].userEndTime),'HH:mm').hours(),moment(convertTime12to24(this.bookedTimingsOfUser[j][0].userEndTime),'HH:mm').minutes(), this.timezoneGetValueOption);
+       
         // const initialToUserTimeZone = this.timeConvTimeZone(getYear,getMonth,getDay,getHour,getMin,getTimezone);
         // console.log(moment(convertTime12to24(slotsArray[i].timeSlotStart),'HH:mm').hours(),moment(convertTime12to24(slotsArray[i].timeSlotStart),'HH:mm').minutes());
-        console.log(initialToTimezone);
+       console.log(" User Booked Time " + " "+this.availibility[0].timezone +initialToTimezone + initialToTimezoneEnd);
+      //  console.log("24 hours format " + moment(initialToTimezone, ["h:mm A"]).format("HH:mm"));
+      //  console.log("To Match with " + moment(initialToTimezone, ["h:mm A"]).format("HH:mm") + " and " + moment(this.bookedTimingsOfUser[j][0].userEndTime, ["h:mm A"]).format("HH:mm"))
+        // console.log(" Booked Time of user" + " " + this.timezoneGetValueOption +initialToBookingTimezone + initialToBookingTimezoneEnd);
         // console.log(this.timeConvTimeZone(2022,4,10,8,30,"Asia/Karachi"));
         //   console.log(date);
    
@@ -862,8 +869,28 @@ currentDayTimeTextVal.innerText =  moment(moment(chnageOfTimeZone).format('YYYY-
 
         // if((momenttm(date+ " " + slotsArray[i].timeSlotStart).tz(timezone)).tz(this.bookedTimingsOfUser[j][0].userTimezone).format('LT')  == momenttm(date+ " " + getStartValInSlice).tz(this.bookedTimingsOfUser[j][0].userTimezone).format('LT') &&  moment(getDate.value).format('LL')  == this.bookedTimingsOfUser[j][0].userbookedDate)     
         // if(slotsArray[i].timeSlotStart == "April 6, 2022")
-        if(initialToTimezone == initialToBookingTimezone &&  moment(getDate.value).format('LL')  == this.bookedTimingsOfUser[j][0].userbookedDate)
+
+        // console.log(" Converted " + moment(initialToTimezone, ["h:mm A"]).format("HH:mm") +  moment(this.bookedTimingsOfUser[j][0].userEndTime, ["h:mm A"]).format("HH:mm") )
+       
+        /**
+         *   if(initialToTimezone == initialToBookingTimezone &&  moment(getDate.value).format('LL')  == this.bookedTimingsOfUser[j][0].userbookedDate )
+         * previous condition for check
+         * 
+         */
+      
+        if(moment(initialToTimezone, ["h:mm A"]).format("HH:mm") < moment(this.bookedTimingsOfUser[j][0].userEndTime, ["h:mm A"]).format("HH:mm") &&  moment(getDate.value).format('LL')  == this.bookedTimingsOfUser[j][0].userbookedDate )
+    
         {
+          console.log( initialToTimezone + " " +initialToBookingTimezone);
+          console.log(moment(getDate.value).format('LL') + " " + this.bookedTimingsOfUser[j][0].userbookedDate);
+
+          console.log( moment(initialToTimezone, ["h:mm A"]).format("HH:mm") + " compare "+ moment(this.bookedTimingsOfUser[j][0].userEndTime, ["h:mm A"]).format("HH:mm"));
+          /**
+           * 
+           * 10:15 > this.bookedTimingsOfUser[j][0].userEndTime 10:30 
+           * 
+           * 
+           */
           // var delres = {
           //   "timestart": slotsArray[i].timeSlotStart,
           //   "timeend": slotsArray[i].timeSlotEnd
