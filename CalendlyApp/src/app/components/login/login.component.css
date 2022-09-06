@@ -1,16 +1,8 @@
 
-.main-cover{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform:  translate(-50%, -50%);
-    -moz-transform:  translate(-50%, -50%);
-    -o-transform:  translate(-50%, -50%);
+.card{
+    width: 80%;
 }
-.card {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
+
 
 @media screen and (max-width: 480px) {
 
@@ -20,4 +12,8 @@
     h3{
         line-height: 1.5;
     }
+    .card{
+        width: 100%;
+    }
+    
 }

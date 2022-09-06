@@ -1,69 +1,84 @@
-<div class="container main-cover">
-    <div class="row">
-      <div class="col-md-7">
-          
-          <img src="../../../assets/images/LogoWhiteBlack.svg" alt="" class="pt-5 pb-5">
-        <h1 class="fw-bolder pb-3">You're one step away from simpler scheduling.</h1>
-        <h3>The genius way to work smarter and better 😎</h3>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-7 col-md-7 col-sm-12 vh-100 text-light area d-flex align-items-center d-flex justify-content-center">
+      <div class="company-desc p-2 ">
+        <div class="text-center">
+          <img src="../../../assets/images/RequestTalkWhite.svg" alt="" class="pt-lg-0 pt-5 pb-lg-5 pb-3">
+          <div class="mt-3">
+            <h1 class="fw-bolder pb-3 fs-1">Effortlessly navigate your meetings</h1>
+            <p class="fs-5 ">Allows for easy scheduling of online meetings, permitting you to focus on your business. It shouldn't be difficult to schedule a time, after all.</p>
+          </div>
+        </div>
       </div>
-      <div class="col-md-5">
-        <div class="card">
-        
-          <div class="card-body">
-            <form  #addUser="ngForm" (ngSubmit)="addNewUserFunc(addUser)" class="needs-validation" novalidate="">
-              <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <div class="input-group has-validation">
-                  <span class="input-group-text">https://appointly.netlify.app/</span>
-                  <input type="text" name="username"  #usernameRef="ngModel"  class="form-control "  ngModel required>
-                </div>
-                <div *ngIf="usernameRef.errors && (usernameRef.dirty || usernameRef.touched)" style="text-align:left; color:red;">
-                  <div [hidden]="!usernameRef.errors">
-                    <p>&nbsp;Username is mandatory</p>
-                  </div>
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="col-lg-5 col-md-5 col-sm-12 d-flex align-items-center my-5 my-auto mx-auto py-lg-0 py-md-0 py-5">
+      <div class="card my-auto mx-auto ">
+        <div class="card-body">
+          <form  #addUser="ngForm" (ngSubmit)="addNewUserFunc(addUser)" class="needs-validation" novalidate="">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">https://requesttalk.netlify.app/</span>
+                <input type="text" name="username"  #usernameRef="ngModel"  class="form-control "  ngModel required>
+              </div>
+              <div *ngIf="usernameRef.errors && (usernameRef.dirty || usernameRef.touched)" style="text-align:left; color:red;">
+                <div [hidden]="!usernameRef.errors">
+                  <p>&nbsp;Username is mandatory</p>
                 </div>
               </div>
-              <div class="mb-3">
-                <label for="fullName" class="form-label">Full Name</label>
-                <input type="text" name="fullName"  #fullNameRef="ngModel"  class="form-control "  ngModel required>
-                <div *ngIf="fullNameRef.errors && (fullNameRef.dirty || fullNameRef.touched)" style="text-align:left; color:red;">
-                  <div [hidden]="!fullNameRef.errors">
-                    <p>&nbsp;Full Name is mandatory</p>
-                  </div>
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="emailAdderss" class="form-label">E-Mail</label>
-                <input type="email" name="emailAdderss"  #emailAdderssRef="ngModel"  class="form-control "  ngModel required>
-                <div *ngIf="emailAdderssRef.errors && (emailAdderssRef.dirty || emailAdderssRef.touched)" style="text-align:left; color:red;">
-                  <div [hidden]="!emailAdderssRef.errors">
-                    <p>&nbsp;E-Mail is mandatory</p>
-                  </div>
-                </div>
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password"name="password"   #passwordRef="ngModel"  class="form-control "  ngModel required >
-                <div *ngIf="passwordRef.errors && (passwordRef.dirty || passwordRef.touched)" style="text-align:left; color:red;">
-                  <div [hidden]="!passwordRef.errors">
-                    <p>&nbsp;Password is mandatory</p>
-                  </div>
+              <label for="fullName" class="form-label">Full Name</label>
+              <input type="text" name="fullName"  #fullNameRef="ngModel"  class="form-control "  ngModel required>
+              <div *ngIf="fullNameRef.errors && (fullNameRef.dirty || fullNameRef.touched)" style="text-align:left; color:red;">
+                <div [hidden]="!fullNameRef.errors">
+                  <p>&nbsp;Full Name is mandatory</p>
                 </div>
+              </div>
             </div>
-              <button type="submit" class="btn btn-dark col-12"  [disabled]="!addUser.form.valid">Sign up for free</button>
+            <div class="mb-3">
+              <label for="emailAdderss" class="form-label">E-Mail</label>
+              <input type="email" name="emailAdderss"  #emailAdderssRef="ngModel"  class="form-control "  ngModel required>
+              <div *ngIf="emailAdderssRef.errors && (emailAdderssRef.dirty || emailAdderssRef.touched)" style="text-align:left; color:red;">
+                <div [hidden]="!emailAdderssRef.errors">
+                  <p>&nbsp;E-Mail is mandatory</p>
+                </div>
+              </div>
+          </div>
+          <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password"name="password"   #passwordRef="ngModel"  class="form-control "  ngModel required >
+              <div *ngIf="passwordRef.errors && (passwordRef.dirty || passwordRef.touched)" style="text-align:left; color:red;">
+                <div [hidden]="!passwordRef.errors">
+                  <p>&nbsp;Password is mandatory</p>
+                </div>
+              </div>
+          </div>
+            <button type="submit" class="btn btn-dark col-12"  [disabled]="!addUser.form.valid">Sign up for free</button>
 
-            
-           </form>
-    
-            <div>
-                <p class="fw-bolder pt-3">Already have an account ? <span><a href="login">Sign In</a></span> </p>
-            </div>
+          
+         </form>
+  
+          <div>
+              <p class="fw-bolder pt-3">Already have an account ? <span><a href="login">Sign In</a></span> </p>
           </div>
-          <div class="card-footer text-muted">
-              By signing up, you agree to our Terms of Service and Privacy Policy.
-          </div>
+        </div>
+        <div class="card-footer text-muted">
+            By signing up, you agree to our Terms of Service and Privacy Policy.
         </div>
       </div>
     </div>
   </div>
-  
+</div>
