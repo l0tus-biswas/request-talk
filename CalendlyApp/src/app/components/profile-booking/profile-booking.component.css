@@ -1,7 +1,12 @@
-.profile-image img{
-width: 150px;
-height: 150px;
+.profile-booking-page{
+    
 }
+
+.profile-desc img{
+    width: 240px;
+    height: 240px;
+    }
+    
 .direct-link{
     text-decoration: none;
     color: black;
