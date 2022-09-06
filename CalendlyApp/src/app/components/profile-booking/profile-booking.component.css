@@ -1,7 +1,11 @@
-.profile-booking-page{
-    
+.profile-desc{
+    position: relative;
 }
-
+.company-logo img{
+    position: absolute;
+    top: -240px;
+    opacity: 0.5;
+}
 .profile-desc img{
     width: 240px;
     height: 240px;
