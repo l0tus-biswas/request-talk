@@ -104,8 +104,8 @@ userId: number | null;
 userToken: string | null;
   constructor(private spinner: NgxSpinnerService,private _availServices: AvailibilityService, private _toast: NgToastService) { 
 
-   this.userId = Number(sessionStorage.getItem('userID'));
-    this.userToken = sessionStorage.getItem('userToken');;
+   this.userId = Number(localStorage.getItem('userID'));
+    this.userToken = localStorage.getItem('userToken');;
   }
 
   ngOnInit(): void {

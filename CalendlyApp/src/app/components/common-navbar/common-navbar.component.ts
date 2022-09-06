@@ -13,9 +13,9 @@ export class CommonNavbarComponent implements OnInit {
   currentUserName: string | null;
   currentUserProfilePicture: string | null;
   constructor(private spinner: NgxSpinnerService,private router: Router, private _toast: NgToastService) { 
-    this.currentUserName = sessionStorage.getItem('userName');
-    this.currentFullName = sessionStorage.getItem('fullName');
-    this.currentUserProfilePicture = sessionStorage.getItem('profilePicture');
+    this.currentUserName = localStorage.getItem('userName');
+    this.currentFullName = localStorage.getItem('fullName');
+    this.currentUserProfilePicture = localStorage.getItem('profilePicture');
   }
  
   ngOnInit(): void {
@@ -25,7 +25,7 @@ export class CommonNavbarComponent implements OnInit {
   {
     this.spinner.show();
  
-    sessionStorage.clear();
+    localStorage.clear();
     this._toast.success({ detail: "LOGGING OUT", summary: 'Redirecting to login page',position: 'br'});
     setTimeout(() => {
       /** spinner ends after 5 seconds */

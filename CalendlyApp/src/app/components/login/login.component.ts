@@ -38,12 +38,12 @@ export class LoginComponent implements OnInit {
             resDetails => {
               this.userDetails = resDetails,
                 console.log(this.userDetails),
-                sessionStorage.setItem("userName", this.userDetails[0].username);
-              sessionStorage.setItem("userID", String(this.userDetails[0].userId));
-              sessionStorage.setItem("userToken", String(this.userDetails[0].userToken));
-              sessionStorage.setItem("fullName", String(this.userDetails[0].fullName));
-              sessionStorage.setItem("emailAddress", String(this.userDetails[0].emailAdderss));
-              sessionStorage.setItem("profilePicture", String(this.userDetails[0].profilePicture));
+                localStorage.setItem("userName", this.userDetails[0].username);
+                localStorage.setItem("userID", String(this.userDetails[0].userId));
+                localStorage.setItem("userToken", String(this.userDetails[0].userToken));
+                localStorage.setItem("fullName", String(this.userDetails[0].fullName));
+                localStorage.setItem("emailAddress", String(this.userDetails[0].emailAdderss));
+                localStorage.setItem("profilePicture", String(this.userDetails[0].profilePicture));
 
               this._toast.success({ detail: "LOGIN SUCCESS", summary: 'Redirecting to home page', position: 'br' });
 

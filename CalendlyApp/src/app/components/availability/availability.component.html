@@ -87,31 +87,35 @@
 
       <div *ngIf="tempavaibility.length !=0; else elseBlock">  
   <div class="row mx-1">
+   
     <div class="col-md-12 mb-2 text-dark rounded bg-white border border-1 shadow-sm bg-body"  *ngFor="let avl of tempavaibility">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-3  ">
-        <div>
-          <p>{{avl.availabilityName}}</p>
-          <p>Timezone : <span class="fst-italic">{{avl.timezone}}</span></p>
-        </div>
-        <div>
-          <div class="btn-toolbar mt-2 mb-2 mb-md-0">
-
-            <div class="btn-group">
-              <button type="button" class="btn btn-danger " data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="edit-availability/{{avl.availabilityId}}" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-                </li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item"  (click)="deleteSchedule(avl.availabilityId)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li>
-              </ul>
+      <a href="edit-availability/{{avl.availabilityId}}" class="direct-link"> 
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-3  ">
+          <div>
+            <p>{{avl.availabilityName}}</p>
+            <p>Timezone : <span class="fst-italic">{{avl.timezone}}</span></p>
+          </div>
+          <div>
+            <div class="btn-toolbar mt-2 mb-2 mb-md-0">
+  
+              <div class="btn-group">
+                <button type="button" class="btn btn-danger " data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="edit-availability/{{avl.availabilityId}}" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item"  (click)="deleteSchedule(avl.availabilityId)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </a>
+     
     </div>
     </div>
 

@@ -52,9 +52,9 @@ export class EditEventTypeComponent implements OnInit {
   
   
   constructor(private spinner: NgxSpinnerService,private _evtServices: EventService, private _toast: NgToastService, private route: ActivatedRoute) {
-    this.userId = Number(sessionStorage.getItem('userID'));
-    this.userName=sessionStorage.getItem('userName');;
-    this.userToken = sessionStorage.getItem('userToken');;
+    this.userId = Number(localStorage.getItem('userID'));
+    this.userName=localStorage.getItem('userName');;
+    this.userToken = localStorage.getItem('userToken');;
     const routeParams = this.route.snapshot.paramMap;
     this.eventIdParams = Number(routeParams.get('id'));
   }

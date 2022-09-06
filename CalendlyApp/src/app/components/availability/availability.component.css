@@ -10,3 +10,8 @@
     border-radius: 50%;
     font-size: 40px;
 }
+
+.direct-link{
+    text-decoration: none;
+    color: black;
+}

@@ -35,9 +35,9 @@ locationArr = [
 
 
   constructor(private spinner: NgxSpinnerService,private _evtServices: EventService, private _toast: NgToastService) { 
-    this.userId = Number(sessionStorage.getItem('userID'));
-    this.userName=sessionStorage.getItem('userName');;
-    this.userToken = sessionStorage.getItem('userToken');;
+    this.userId = Number(localStorage.getItem('userID'));
+    this.userName=localStorage.getItem('userName');;
+    this.userToken = localStorage.getItem('userToken');;
   }
 
   ngOnInit(): void {

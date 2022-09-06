@@ -112,8 +112,8 @@ export class SettingsComponent implements OnInit {
 
   constructor(private spinner: NgxSpinnerService, private _userService: UserService, private _toast: NgToastService, private readonly ImgbbService : ImgbbServiceService,private _router: Router) {
 
-    this.userId = Number(sessionStorage.getItem('userID'));
-    this.userToken = sessionStorage.getItem('userToken');;
+    this.userId = Number(localStorage.getItem('userID'));
+    this.userToken = localStorage.getItem('userToken');;
    
   }
 
@@ -140,7 +140,7 @@ export class SettingsComponent implements OnInit {
             if (this.status == true) {
               this._toast.success({ detail: "UPDATE SUCCESS", summary: 'Your profile picture have been updated',position: 'br'});
          
-              sessionStorage.setItem("profilePicture", this.userProfilePicture);
+              localStorage.setItem("profilePicture", this.userProfilePicture);
              
               this._router.navigate(['/settings'])
               .then(() => {
@@ -253,7 +253,7 @@ export class SettingsComponent implements OnInit {
         if (this.status == true) {
           this._toast.success({ detail: "UPDATE SUCCESS", summary: 'Your profile details have been updated',position: 'br'});
 
-          sessionStorage.setItem("fullName", updateForm.value.fullName);
+          localStorage.setItem("fullName", updateForm.value.fullName);
           setTimeout(function () {
             window.location.reload();
           }, 2000);

@@ -10,7 +10,7 @@ export class AuthGuardService {
 
   canActivate(route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-   if (sessionStorage.getItem('userName')==null && sessionStorage.getItem('userID')==null && sessionStorage.getItem('userToken')==null && sessionStorage.getItem('fullName')==null && sessionStorage.getItem('emailAddress')==null) {
+   if (localStorage.getItem('userName')==null && localStorage.getItem('userID')==null && localStorage.getItem('userToken')==null && localStorage.getItem('fullName')==null && localStorage.getItem('emailAddress')==null) {
       this._router.navigate(["/login"]);
       return false;
     }

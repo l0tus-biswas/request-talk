@@ -133,12 +133,12 @@ completedTimingsData : any =[ ];
   status: boolean = false;
 
   constructor(private spinner: NgxSpinnerService,private _bookingServices: BookingService,private _usrServices : UserService,  private _evtServices: EventService, private _toast: NgToastService, private route: ActivatedRoute,private zone: NgZone,private http: HttpClient,private _router: Router ) { 
-    this.username = sessionStorage.getItem('userName');;
+    this.username = localStorage.getItem('userName');;
     this.userTimezone = "Asia/Calcutta";
-    this.userId = Number(sessionStorage.getItem('userID'));
-    this.userToken = sessionStorage.getItem('userToken');;
-    this.fullNameCurrentUser = sessionStorage.getItem('fullName');
-    this.emailCurrentUser = sessionStorage.getItem('emailAddress');
+    this.userId = Number(localStorage.getItem('userID'));
+    this.userToken = localStorage.getItem('userToken');;
+    this.fullNameCurrentUser = localStorage.getItem('fullName');
+    this.emailCurrentUser = localStorage.getItem('emailAddress');
   }
 
   async ngOnInit() {
