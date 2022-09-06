@@ -868,6 +868,7 @@ export class EventBookingComponent implements OnInit {
              * 10:15 > this.bookedTimingsOfUser[j][0].userEndTime 10:30 
              * 
              * 
+             * 
              */
             // var delres = {
             //   "timestart": slotsArray[i].timeSlotStart,
