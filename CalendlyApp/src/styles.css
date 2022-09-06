@@ -4,6 +4,10 @@
     font-family: 'Spectral', serif;   
   
 }
+.bg-blueClr {
+  background: #4e54c8;  
+  background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
+}
 
 input.ng-touched {
     border-left: 5px solid red
@@ -57,4 +61,6 @@ input.ng-touched {
 	background-color: rgb(50, 51, 52);
 	
 }
+
+
 
