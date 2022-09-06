@@ -1,4 +1,4 @@
-<img src="https://github.com/dev-lotus/Appointly.com/blob/main/CalendlyApp/src/assets/images/LogoBigBlack.svg">
+<img src="https://github.com/dev-lotus/RequestTalk/blob/main/CalendlyApp/src/assets/images/RequestTalk.svg">
 
 ## Scheduling infrastructure for absolutely everyone. 
 
