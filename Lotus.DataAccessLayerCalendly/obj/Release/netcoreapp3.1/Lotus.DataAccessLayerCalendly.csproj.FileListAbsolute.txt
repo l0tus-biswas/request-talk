@@ -11,3 +11,16 @@ D:\Projects\Appointly.com\Lotus.DataAccessLayerCalendly\obj\Release\netcoreapp3.
 D:\Projects\Appointly.com\Lotus.DataAccessLayerCalendly\obj\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.dll
 D:\Projects\Appointly.com\Lotus.DataAccessLayerCalendly\obj\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.pdb
 D:\Projects\Appointly.com\Lotus.DataAccessLayerCalendly\obj\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.genruntimeconfig.cache
+D:\Dev-Lotus\RequestTalk\Lotus.DataAccessLayerCalendly\bin\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.deps.json
+D:\Dev-Lotus\RequestTalk\Lotus.DataAccessLayerCalendly\bin\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.runtimeconfig.json
+D:\Dev-Lotus\RequestTalk\Lotus.DataAccessLayerCalendly\bin\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.runtimeconfig.dev.json
+D:\Dev-Lotus\RequestTalk\Lotus.DataAccessLayerCalendly\bin\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.dll
+D:\Dev-Lotus\RequestTalk\Lotus.DataAccessLayerCalendly\bin\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.pdb
+D:\Dev-Lotus\RequestTalk\Lotus.DataAccessLayerCalendly\obj\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.csproj.AssemblyReference.cache
+D:\Dev-Lotus\RequestTalk\Lotus.DataAccessLayerCalendly\obj\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev-Lotus\RequestTalk\Lotus.DataAccessLayerCalendly\obj\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.AssemblyInfoInputs.cache
+D:\Dev-Lotus\RequestTalk\Lotus.DataAccessLayerCalendly\obj\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.AssemblyInfo.cs
+D:\Dev-Lotus\RequestTalk\Lotus.DataAccessLayerCalendly\obj\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.csproj.CoreCompileInputs.cache
+D:\Dev-Lotus\RequestTalk\Lotus.DataAccessLayerCalendly\obj\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.dll
+D:\Dev-Lotus\RequestTalk\Lotus.DataAccessLayerCalendly\obj\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.pdb
+D:\Dev-Lotus\RequestTalk\Lotus.DataAccessLayerCalendly\obj\Release\netcoreapp3.1\Lotus.DataAccessLayerCalendly.genruntimeconfig.cache

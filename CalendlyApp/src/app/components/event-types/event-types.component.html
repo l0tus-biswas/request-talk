@@ -122,8 +122,8 @@
   
   <div class="row mx-1" >
     <div class="col-md-12 mb-2 text-dark bg-white border border-1 shadow-sm bg-body rounded"  *ngFor="let evt of allEvents"  >
-    <a href="edit-event-types/{{evt.eventId}}" class="direct-link">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-4  ">
+      
         <div>
           <strong>
             <p>{{evt.title}} <span class="fst-italic">/{{userName}}/{{evt.url}}</span></p>
@@ -160,7 +160,6 @@
           </div>
         </div>
       </div>
-    </a>
     
    </div>
 </div>

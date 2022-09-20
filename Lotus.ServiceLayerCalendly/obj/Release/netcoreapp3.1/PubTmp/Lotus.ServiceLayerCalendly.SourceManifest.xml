@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="D:\Projects\Appointly.com\Lotus.ServiceLayerCalendly\obj\Release\netcoreapp3.1\PubTmp\Out\" />
+  <IisApp path="D:\Dev-Lotus\RequestTalk\Lotus.ServiceLayerCalendly\obj\Release\netcoreapp3.1\PubTmp\Out\" />
 </sitemanifest>
