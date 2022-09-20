@@ -14,23 +14,23 @@ export class BookingService {
   constructor(private http: HttpClient) { }
 
   publicgetUserData(userName: string): Observable<IUsers[]> {
-    return this.http.get<IUsers[]>("https://appointly.azurewebsites.net/api/Calendly/PublicgetUserData?userName=" + userName ).pipe(catchError(this.errorHandler));
+    return this.http.get<IUsers[]>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/PublicgetUserData?userName=" + userName ).pipe(catchError(this.errorHandler));
   }
 
   publicgetAvaibilityData(userId: number, availId: number): Observable<IAvailibility[]> {
-    return this.http.get<IAvailibility[]>("https://appointly.azurewebsites.net/api/Calendly/PublicgetAvaibilityData?userId=" + userId + "&avaibilityId=" + availId).pipe(catchError(this.errorHandler));
+    return this.http.get<IAvailibility[]>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/PublicgetAvaibilityData?userId=" + userId + "&avaibilityId=" + availId).pipe(catchError(this.errorHandler));
   }
 
   publicgetEventData(userId: number, url: string): Observable<IEvents[]> {
-    return this.http.get<IEvents[]>("https://appointly.azurewebsites.net/api/Calendly/PublicgetEventData?userId=" + userId + "&url=" + url).pipe(catchError(this.errorHandler));
+    return this.http.get<IEvents[]>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/PublicgetEventData?userId=" + userId + "&url=" + url).pipe(catchError(this.errorHandler));
   }
 
   getAllBookings(userName: string): Observable<IBooking[]> {
-    return this.http.get<IBooking[]>("https://appointly.azurewebsites.net/api/Calendly/GetAllBooking?userName=" + userName ).pipe(catchError(this.errorHandler));
+    return this.http.get<IBooking[]>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/GetAllBooking?userName=" + userName ).pipe(catchError(this.errorHandler));
   }
 
   addNewBooking(username: string, eventId: number, eventName: string,  bookedTime:string,  appointmentUsername :string,  appointmentUserPhoneNumber:string,  appointmentUserEmail:string,  appointmentGuestEmail:string,  additionalNotes:string,sendConfirmationMail: string, bookingstatus: string): Observable<boolean> {
-    return this.http.post<boolean>("https://appointly.azurewebsites.net/api/Calendly/AddNewBooking", {
+    return this.http.post<boolean>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/AddNewBooking", {
       bookedUser: username,
       bookedEventId: eventId,
       bookedEventName: eventName,
@@ -52,7 +52,7 @@ export class BookingService {
 
   updateConfirmationOnMailSentEvent( bookedUser: string, bookingId:number): Observable<boolean>  {
 
-    return this.http.put<boolean>("https://appointly.azurewebsites.net/api/Calendly/ConfirmationMailMeeting", {
+    return this.http.put<boolean>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/ConfirmationMailMeeting", {
       bookedUser: bookedUser,
       bookingId: bookingId
     }).pipe(catchError(this.errorHandler));
@@ -61,7 +61,7 @@ export class BookingService {
 
   updateBookingOnConfirm( bookedUser: string, bookingId:number): Observable<boolean>  {
 
-    return this.http.put<boolean>("https://appointly.azurewebsites.net/api/Calendly/BookingOnConfirm", {
+    return this.http.put<boolean>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/BookingOnConfirm", {
       bookedUser: bookedUser,
       bookingId: bookingId
     }).pipe(catchError(this.errorHandler));
@@ -69,21 +69,21 @@ export class BookingService {
 
 updateBookingOnReject( bookedUser: string, bookingId:number): Observable<boolean>  {
 
-  return this.http.put<boolean>("https://appointly.azurewebsites.net/api/Calendly/BookingOnReject", {
+  return this.http.put<boolean>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/BookingOnReject", {
     bookedUser: bookedUser,
     bookingId: bookingId
   }).pipe(catchError(this.errorHandler));
 }
 updateBookingOnReschedule( bookedUser: string, bookingId:number): Observable<boolean>  {
 
-  return this.http.put<boolean>("https://appointly.azurewebsites.net/api/Calendly/BookingOnReschedule", {
+  return this.http.put<boolean>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/BookingOnReschedule", {
     bookedUser: bookedUser,
     bookingId: bookingId
   }).pipe(catchError(this.errorHandler));
 }
 updateBookingOnComplete( bookedUser: string, bookingId:number): Observable<boolean>  {
 
-  return this.http.put<boolean>("https://appointly.azurewebsites.net/api/Calendly/BookingOnComplete", {
+  return this.http.put<boolean>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/BookingOnComplete", {
     bookedUser: bookedUser,
     bookingId: bookingId
   }).pipe(catchError(this.errorHandler));
@@ -91,7 +91,7 @@ updateBookingOnComplete( bookedUser: string, bookingId:number): Observable<boole
 
 updateBookingOnCancel( bookedUser: string, bookingId:number): Observable<boolean>  {
 
-  return this.http.put<boolean>("https://appointly.azurewebsites.net/api/Calendly/BookingOnCancel", {
+  return this.http.put<boolean>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/BookingOnCancel", {
     bookedUser: bookedUser,
     bookingId: bookingId
   }).pipe(catchError(this.errorHandler));

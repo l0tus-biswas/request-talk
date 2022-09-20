@@ -11,15 +11,15 @@ export class AvailibilityService {
   constructor(private http: HttpClient) { }
 
   getAllAvaibility(userId: number, usertoken: string): Observable<IAvailibility[]> {
-    return this.http.get<IAvailibility[]>("https://appointly.azurewebsites.net/api/Calendly/GetAllAvaibility?userId=" + userId + "&usertoken=" + usertoken).pipe(catchError(this.errorHandler));
+    return this.http.get<IAvailibility[]>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/GetAllAvaibility?userId=" + userId + "&usertoken=" + usertoken).pipe(catchError(this.errorHandler));
   }
 
   getAvailById(userId: number, usertoken: string, availId: number): Observable<IAvailibility[]> {
-    return this.http.get<IAvailibility[]>("https://appointly.azurewebsites.net/api/Calendly/GetAvailById?userId=" + userId + "&usertoken=" + usertoken + "&availId=" + availId).pipe(catchError(this.errorHandler));
+    return this.http.get<IAvailibility[]>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/GetAvailById?userId=" + userId + "&usertoken=" + usertoken + "&availId=" + availId).pipe(catchError(this.errorHandler));
   }
 
   addNewScheduleAvail(availabilityName: string, userId: number, userToken: string, timezone: string): Observable<boolean> {
-    return this.http.post<boolean>("https://appointly.azurewebsites.net/api/Calendly/AddAvailablity", {
+    return this.http.post<boolean>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/AddAvailablity", {
       userId: userId,
       userToken: userToken,
       availabilityName: availabilityName,
@@ -31,7 +31,7 @@ export class AvailibilityService {
   updateAvail(availabilityId: number, availabilityName: string, userId: number, userToken: string, timezone: string, weeksAvailability: string): Observable<boolean> {
 
 
-    return this.http.put<boolean>("https://appointly.azurewebsites.net/api/Calendly/UpdateAvailablity", {
+    return this.http.put<boolean>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/UpdateAvailablity", {
       availabilityId: availabilityId,
       availabilityName: availabilityName,
       userId: userId,
@@ -47,7 +47,7 @@ export class AvailibilityService {
 
   
   deleteScheduleById(userId: number, usertoken: string, availId: number): Observable<boolean> {
-    return this.http.delete<boolean>("https://appointly.azurewebsites.net/api/Calendly/DeleteScheduleById?userId=" + userId + "&usertoken=" + usertoken + "&availId=" + availId).pipe(catchError(this.errorHandler))
+    return this.http.delete<boolean>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/DeleteScheduleById?userId=" + userId + "&usertoken=" + usertoken + "&availId=" + availId).pipe(catchError(this.errorHandler))
   }
 
   errorHandler(error: HttpErrorResponse) {

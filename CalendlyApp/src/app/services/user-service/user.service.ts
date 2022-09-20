@@ -11,12 +11,12 @@ export class UserService {
 
   loginUser( username: string, password: string): Observable<boolean> {
     console.log(username, password);
-    return this.http.get<boolean>("https://appointly.azurewebsites.net/api/Calendly/ValidateUser?username=" + username + "&password=" + password).pipe(catchError(this.errorHandler));
+    return this.http.get<boolean>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/ValidateUser?username=" + username + "&password=" + password).pipe(catchError(this.errorHandler));
   }
   
   validateUserEmail( emailAdderss: string): Observable<boolean> {
     console.log(emailAdderss);
-    return this.http.get<boolean>("https://appointly.azurewebsites.net/api/Calendly/ValidateUserEmail?email=" + emailAdderss).pipe(catchError(this.errorHandler));
+    return this.http.get<boolean>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/ValidateUserEmail?email=" + emailAdderss).pipe(catchError(this.errorHandler));
   }
 
   resetMail( emailAdderss: string, password: string): Observable<any> {
@@ -53,7 +53,7 @@ sendPreScheduleMail( bookedEmailAdderss: string, userEmailAdderss: string, booke
 
   registerUser( userToken: string,  fullName: string, username: string, emailAdderss: string, password: string,timezone: string): Observable<boolean> {
     console.log(userToken,fullName,username,emailAdderss, password, timezone);
-    return this.http.post<boolean>("https://appointly.azurewebsites.net/api/Calendly/RegisterUser", {
+    return this.http.post<boolean>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/RegisterUser", {
      
       userToken:userToken,
       fullName:fullName,
@@ -65,18 +65,18 @@ sendPreScheduleMail( bookedEmailAdderss: string, userEmailAdderss: string, booke
   }
 
   getUserData(userId: number, usertoken: string ): Observable<IUsers[]> {
-    return this.http.get<IUsers[]>("https://appointly.azurewebsites.net/api/Calendly/GetUserData?userId=" + userId + "&usertoken=" + usertoken).pipe(catchError(this.errorHandler));
+    return this.http.get<IUsers[]>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/GetUserData?userId=" + userId + "&usertoken=" + usertoken).pipe(catchError(this.errorHandler));
   }
 
   
   getUserDataByEmail( emailAdderss: string ): Observable<IUsers[]> {
-    return this.http.get<IUsers[]>("https://appointly.azurewebsites.net/api/Calendly/GetUserDataByEmail?emailAdderss=" + emailAdderss ).pipe(catchError(this.errorHandler));
+    return this.http.get<IUsers[]>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/GetUserDataByEmail?emailAdderss=" + emailAdderss ).pipe(catchError(this.errorHandler));
   }
   
   updateUserProfile( userId: number, userToken: string, password:string, fullName: string, about: string, timeZone: string, language: string): Observable<boolean>  {
 
     console.log(userId,userToken,password,fullName,about,timeZone, language);
-    return this.http.put<boolean>("https://appointly.azurewebsites.net/api/Calendly/EditProfile", {
+    return this.http.put<boolean>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/EditProfile", {
       userId: userId,
       userToken: userToken,
       password: password,
@@ -90,7 +90,7 @@ sendPreScheduleMail( bookedEmailAdderss: string, userEmailAdderss: string, booke
 updateUserProfilePicture( userId: number, userToken: string, userProfilePicture: string): Observable<boolean>  {
 
   console.log(userId,userToken,userProfilePicture);
-  return this.http.put<boolean>("https://appointly.azurewebsites.net/api/Calendly/EditProfilePicture", {
+  return this.http.put<boolean>("https://lotusservicelayercalendly20220920183236.azurewebsites.net/api/Calendly/EditProfilePicture", {
     userId: userId,
     userToken: userToken,
     profilePicture:userProfilePicture
